@@ -13,3 +13,8 @@ func _physics_process(delta):
 	timer += delta
 	if timer > KILL_TIME_SECONDS:
 		queue_free()
+
+
+func _on_area_3d_body_entered(body):
+	print("I hit something")
+	queue_free()
