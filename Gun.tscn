@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkivjjvfpnkxk"]
+
+[ext_resource type="Script" path="res://Gun.gd" id="1_13ub6"]
+[ext_resource type="PackedScene" uid="uid://bmal06pxwox3" path="res://Bullet.tscn" id="2_p7rel"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pak6q"]
+top_radius = 0.15
+bottom_radius = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjk5t"]
+albedo_color = Color(0.32549, 0.32549, 0.32549, 1)
+metallic = 1.0
+roughness = 0.52
+
+[node name="Gun" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0580847)
+script = ExtResource("1_13ub6")
+Bullet = ExtResource("2_p7rel")
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.602993)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.489731, 0, 0, 0, -1.69593e-08, -0.489731, 0, 0.387984, -2.14068e-08, 0, 0, 0.213621)
+mesh = SubResource("CylinderMesh_pak6q")
+surface_material_override/0 = SubResource("StandardMaterial3D_wjk5t")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.40898, 0, 0, 0, 0.169978, -1.77636e-15, 0, -4.44089e-16, 0.40898, 0.0576754, 0.538169, -0.191978)
+mesh = SubResource("CylinderMesh_pak6q")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wjk5t")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.40898, 0, 0, 0, 0.113278, 0.384887, 0, -0.100401, 0.272556, 0.0428221, -0.00111714, 0.199954)
+mesh = SubResource("CylinderMesh_pak6q")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wjk5t")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
