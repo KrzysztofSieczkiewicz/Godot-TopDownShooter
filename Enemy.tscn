@@ -20,3 +20,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lxs0t")
 shape = SubResource("CapsuleShape3D_pmffb")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,9 +11,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _physics_process(delta):
 
 	# Add the gravity.
-	# TODO: enable later
-	#if not is_on_floor():
-	#	velocity.y -= gravity * delta
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
 	# Handle movement inputwww
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
