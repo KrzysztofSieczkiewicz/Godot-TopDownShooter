@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://32bje8twpok7"]
+[gd_scene load_steps=9 format=3 uid="uid://32bje8twpok7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gqqd2"]
 [ext_resource type="Script" path="res://Player.gd" id="1_hw3ir"]
+[ext_resource type="Script" path="res://GunController.gd" id="3_xox1k"]
+[ext_resource type="PackedScene" uid="uid://dkivjjvfpnkxk" path="res://Gun.tscn" id="4_1xyhf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6slm"]
 albedo_color = Color(0.792157, 0.137255, 0.313726, 1)
@@ -33,6 +35,14 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_cvnpt")
 metadata/_edit_lock_ = true
 
+[node name="Hand" type="Marker3D" parent="Player/Body"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.535115, 0.304891, 0)
+metadata/_edit_lock_ = true
+
+[node name="GunController" type="Node3D" parent="Player"]
+script = ExtResource("3_xox1k")
+StartingWeapon = ExtResource("4_1xyhf")
+
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 use_collision = true
@@ -43,4 +53,4 @@ transform = Transform3D(0.73038, 0.534329, -0.425485, -0.00623602, 0.628118, 0.7
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+transform = Transform3D(1, -8.73357e-09, -2.59573e-09, 6.61475e-09, 0.5, 0.866025, -6.26563e-09, -0.866025, 0.5, 0.0246363, 15.4117, 13.2064)
