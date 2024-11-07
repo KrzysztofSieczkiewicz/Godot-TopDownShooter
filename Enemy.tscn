@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8f4pphg12mx"]
+[gd_scene load_steps=6 format=3 uid="uid://cj8f4pphg12mx"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_yy6fs"]
+[ext_resource type="PackedScene" uid="uid://btyy8l4qcwta5" path="res://Stats.tscn" id="2_jvhvc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5hhvs"]
 
@@ -24,4 +25,7 @@ shape = SubResource("CapsuleShape3D_pmffb")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Stats" parent="." instance=ExtResource("2_jvhvc")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

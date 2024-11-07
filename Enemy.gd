@@ -29,3 +29,7 @@ func actor_setup(target_position:Vector3):
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 	nav_agent.set_target_position(target_position)
+
+
+func _on_stats_you_died_signal():
+	queue_free()
