@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://32bje8twpok7"]
+[gd_scene load_steps=9 format=3 uid="uid://32bje8twpok7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gqqd2"]
 [ext_resource type="PackedScene" uid="uid://bi64qdo3f4pi7" path="res://Player.tscn" id="2_8ixkj"]
 [ext_resource type="Material" uid="uid://bcgidoghdh4cq" path="res://LevelGrid.tres" id="4_kpef2"]
+[ext_resource type="Script" path="res://Spawner.gd" id="5_1cdj5"]
 [ext_resource type="PackedScene" uid="uid://cj8f4pphg12mx" path="res://Enemy.tscn" id="5_winnr"]
+[ext_resource type="Script" path="res://Wave_1.gd" id="6_gv6ve"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_td0ms"]
 vertices = PackedVector3Array(9.75, 0, -14.75, 19.25, 0, -14.75, 19.25, 0, -19.25, 6, 0, -14.75, 9.75, 0, -14.75, 19.25, 0, -19.25, 6, 0, -14.75, 19.25, 0, -19.25, -19.25, 0, -19.25, -19.25, 0, -14.75, -2, 0, -11, -2.5, 0, -10.5, 5.5, 0, -10.5, -2, 0, -13.75, -2, 0, -11, 5.5, 0, -10.5, 5.5, 0, -14.25, -5.25, 0, -14.25, 6, 0, -14.75, -19.25, 0, -14.75, -19.25, 0, -14.25, -2.5, 0, -14.25, -2, 0, -13.75, 5.5, 0, -14.25, 6, 0, -14.75, -5.25, 0, -14.25, -2.5, 0, -14.25, 6, 0, -14.75, 19.25, 0, -14.75, 9.75, 0, -14.75, 10.25, 0, -14.25, 10.25, 0, -10.5, 9.75, 0, -10, 19.25, 0, -10, 19.25, 0, -10, 19.25, 0, -14.75, 10.25, 0, -14.25, 10.25, 0, -10.5, -19.25, 0, -10.5, -5.25, 0, -10.5, -5.75, 0, -11, -5.75, 0, -13.75, -5.25, 0, -14.25, -19.25, 0, -14.25, -19.25, 0, -10.5, -5.75, 0, -11, -5.75, 0, -13.75, -19.25, 0, -14.25, 7, 7.5, -13.25, 7, 7.5, -11.5, 8.75, 7.5, -11.5, 8.75, 7.5, -13.25, 7.25, 0, -13, 7.25, 0, -11.75, 8.5, 0, -11.75, 8.5, 0, -13, -4.25, 4.75, -12.75, -4.25, 4.75, -12, -3.5, 4.75, -12, -3.5, 4.75, -12.75, 1.5, 0, -9, 6, 0, -10, 5.5, 0, -10.5, -2.5, 0, -10.5, -1.25, 0, -9, 19.25, 0, -9, 19.25, 0, -10, 9.75, 0, -10, 1.5, 0, -9, -19.25, 0, -9, -1.25, 0, -9, -5.25, 0, -10.5, -19.25, 0, -10.5, 1.5, 0, -9, 9.75, 0, -10, 6, 0, -10, -1.25, 0, -9, -2.5, 0, -10.5, -5.25, 0, -10.5, -19.25, 0, -5.25, -1.25, 0, -5.25, -1.75, 0, -5.75, -1.75, 0, -8.5, -1.25, 0, -9, -19.25, 0, -9, -19.25, 0, -5.25, -1.75, 0, -5.75, -1.75, 0, -8.5, -19.25, 0, -9, 19.25, 0, -9, 1.5, 0, -9, 2, 0, -8.5, 2, 0, -5.75, 1.5, 0, -5.25, 19.25, 0, -5.25, 19.25, 0, -5.25, 19.25, 0, -9, 2, 0, -8.5, 2, 0, -5.75, -0.25, 4.75, -7.5, -0.25, 4.75, -6.75, 0.25, 4.75, -6.75, 0.25, 4.75, -7.5, 19.25, 0, 19.25, 19.25, 0, -5.25, 1.5, 0, -5.25, -1.25, 0, -5.25, -19.25, 0, -5.25, -19.25, 0, 19.25, -1.25, 0, -5.25, -19.25, 0, 19.25, 19.25, 0, 19.25, 1.5, 0, -5.25)
@@ -28,12 +30,6 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -8.73357e-09, -2.59573e-09, 6.61475e-09, 0.5, 0.866025, -6.26563e-09, -0.866025, 0.5, 0.0246363, 15.4117, 13.2064)
-
-[node name="Enemy" parent="." instance=ExtResource("5_winnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.808674, 0.500002, -18.177)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_winnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5755, 0.500002, -15.1511)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0985227, -0.0158694, -0.116805)
@@ -64,3 +60,28 @@ transform = Transform3D(-6.75791e-08, 1.54603, 0, -1.54603, -6.75791e-08, 0, 0, 
 use_collision = true
 mesh = SubResource("BoxMesh_b5bw0")
 material = ExtResource("4_kpef2")
+
+[node name="Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06951, 0.810623, -14.6929)
+script = ExtResource("5_1cdj5")
+Enemy = ExtResource("5_winnr")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+
+[node name="Waves" type="Node" parent="Spawner"]
+
+[node name="Wave_1" type="Node" parent="Spawner/Waves"]
+script = ExtResource("6_gv6ve")
+spawn_interval_seconds = 4.0
+
+[node name="Wave_2" type="Node" parent="Spawner/Waves"]
+script = ExtResource("6_gv6ve")
+num_enemies = 5
+spawn_interval_seconds = 2.0
+
+[node name="Wave_3" type="Node" parent="Spawner/Waves"]
+script = ExtResource("6_gv6ve")
+num_enemies = 9
+spawn_interval_seconds = 1.0
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

@@ -13,7 +13,6 @@ func _ready():
 
 
 func take_hit(damage):
-	print("I'm hit! ", current_HP)
 	current_HP -= 1
 	
 	if current_HP <= 0:

@@ -18,10 +18,8 @@ func _process(delta):
 
 func equip_weapon(weapon_to_equip):
 	if equipped_weapon:
-		print("replacing current weapon")
 		equipped_weapon.queue_free()
 	else:
-		print("equipping weapon")
 		equipped_weapon = weapon_to_equip.instantiate()
 		hand.add_child(equipped_weapon)
 	
