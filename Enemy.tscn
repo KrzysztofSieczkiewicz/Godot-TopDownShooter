@@ -1,31 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj8f4pphg12mx"]
+[gd_scene load_steps=7 format=3 uid="uid://cj8f4pphg12mx"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_yy6fs"]
 [ext_resource type="PackedScene" uid="uid://btyy8l4qcwta5" path="res://Stats.tscn" id="2_jvhvc"]
+[ext_resource type="Material" uid="uid://df042jt4po0l8" path="res://Enemy/EnemyDefaultMaterial.tres" id="2_x2lqu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5hhvs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxs0t"]
-albedo_color = Color(0, 0, 0, 1)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pmffb"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vmaym"]
+height = 1.12197
+radius = 2.35883
+
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_yy6fs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_5hhvs")
-surface_material_override/0 = SubResource("StandardMaterial3D_lxs0t")
+surface_material_override/0 = ExtResource("2_x2lqu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pmffb")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="Stats" parent="." instance=ExtResource("2_jvhvc")]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="AttackRadius" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRadius"]
+shape = SubResource("CylinderShape3D_vmaym")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
+[connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
