@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://32bje8twpok7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_gqqd2"]
-[ext_resource type="PackedScene" uid="uid://bi64qdo3f4pi7" path="res://Player.tscn" id="2_8ixkj"]
-[ext_resource type="Material" uid="uid://bcgidoghdh4cq" path="res://LevelGrid.tres" id="4_kpef2"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="2_8ixkj"]
+[ext_resource type="Material" path="res://LevelGrid.tres" id="4_kpef2"]
 [ext_resource type="Script" path="res://Spawner.gd" id="5_1cdj5"]
-[ext_resource type="PackedScene" uid="uid://cj8f4pphg12mx" path="res://Enemy.tscn" id="5_winnr"]
+[ext_resource type="PackedScene" uid="uid://dq53cdr4fkjyi" path="res://Enemy.tscn" id="5_winnr"]
 [ext_resource type="Script" path="res://Wave_1.gd" id="6_gv6ve"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_td0ms"]

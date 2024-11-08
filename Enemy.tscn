@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj8f4pphg12mx"]
+[gd_scene load_steps=7 format=3 uid="uid://dq53cdr4fkjyi"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_yy6fs"]
-[ext_resource type="PackedScene" uid="uid://btyy8l4qcwta5" path="res://Stats.tscn" id="2_jvhvc"]
+[ext_resource type="PackedScene" path="res://Stats.tscn" id="2_jvhvc"]
 [ext_resource type="Material" uid="uid://df042jt4po0l8" path="res://Enemy/EnemyDefaultMaterial.tres" id="2_x2lqu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5hhvs"]
