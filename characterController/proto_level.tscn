@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://hdunduhqsohy"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_1bslf"]
+[ext_resource type="Script" path="res://Player/Input.gd" id="2_jpj0n"]
+[ext_resource type="Script" path="res://characterController/Model.gd" id="3_1fsmj"]
+[ext_resource type="Script" path="res://Player/Moves/Idle.gd" id="4_pbh6e"]
+[ext_resource type="Script" path="res://Player/Moves/Run.gd" id="5_wolk2"]
+[ext_resource type="Script" path="res://Player/Moves/Jump.gd" id="6_7smh7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l545a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1lru"]
+albedo_color = Color(0.258824, 0.67451, 0.352941, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq5ab"]
+
+[node name="ProtoLevel" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582526, 0)
+script = ExtResource("1_1bslf")
+
+[node name="Visuals" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_l545a")
+surface_material_override/0 = SubResource("StandardMaterial3D_i1lru")
+
+[node name="Collider" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_qq5ab")
+
+[node name="Input" type="Node" parent="Player"]
+script = ExtResource("2_jpj0n")
+
+[node name="Model" type="Node" parent="Player"]
+script = ExtResource("3_1fsmj")
+
+[node name="Idle" type="Node" parent="Player/Model"]
+script = ExtResource("4_pbh6e")
+
+[node name="Run" type="Node" parent="Player/Model"]
+script = ExtResource("5_wolk2")
+
+[node name="Jump" type="Node" parent="Player/Model"]
+script = ExtResource("6_7smh7")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435104, -1, 0.0785789)
+use_collision = true
+size = Vector3(12.3422, 1, 11.2209)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.73038, 0.534329, -0.425485, -0.00623602, 0.628118, 0.778093, 0.683013, -0.56565, 0.462097, -17.8565, 11.8901, 17.9643)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -8.73357e-09, -2.59573e-09, 6.61475e-09, 0.5, 0.866025, -6.26563e-09, -0.866025, 0.5, 0.0246363, 15.4117, 13.2064)
