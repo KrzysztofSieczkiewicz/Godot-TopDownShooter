@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjl6iw2e7etxf"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_xml8w"]
+[ext_resource type="Script" path="res://Player/Input.gd" id="2_rkxbo"]
+[ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://Player/PlayerVisuals.tscn" id="2_tt5hs"]
+[ext_resource type="PackedScene" uid="uid://b7itayv2skcio" path="res://Player/HumanoidModel.tscn" id="3_l1wly"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq5ab"]
+radius = 0.282736
+height = 1.83376
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582526, 0)
+script = ExtResource("1_xml8w")
+
+[node name="Visuals" parent="." instance=ExtResource("2_tt5hs")]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922525, 0)
+shape = SubResource("CapsuleShape3D_qq5ab")
+
+[node name="Model" parent="." instance=ExtResource("3_l1wly")]
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("2_rkxbo")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, -8.73357e-09, -2.59572e-09, 6.61475e-09, 0.5, 0.866025, -6.26563e-09, -0.866025, 0.5, 0.0246363, 14.8292, 13.2064)

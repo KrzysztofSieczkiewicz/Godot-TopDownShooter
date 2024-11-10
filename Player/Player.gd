@@ -1,12 +1,16 @@
 extends CharacterBody3D
 
 
-@onready var input_gatherer = $Input
-@onready var player_model = $Model
+@onready var input_gatherer = $Input as InputGatherer
+@onready var model = $Model as PlayerModel
+@onready var visuals = $Visuals as PlayerVisuals
 
+func _ready():
+	visuals.accept_skeleton(model.skeleton)
+	model.animator.play("mixamo_com")
 
 func _physics_process(delta):
 	var input = input_gatherer.get_current_input()
-	velocity = player_model.velocity_by_input(input, delta)
+	model.update(input, delta)
 	
 	move_and_slide()

@@ -2,7 +2,10 @@ extends Node
 class_name State
 
 
-var player : CharacterBody3D
+var player: CharacterBody3D
+
+var animation: String
+var has_animation_ended: bool
 
 # TODO: Consider moving this definition to the Input class - then make all states just return their action and
 # the input will determine which action should be executed instead
@@ -15,7 +18,8 @@ static var moves_priority: Dictionary = {
 static func moves_priority_sort(a: String, b: String) -> bool:
 	if moves_priority[a] > moves_priority[b]:
 		return true
-	return false
+	else:
+		return false
 
 
 func check_is_relevant(input: InputPackage) -> String:

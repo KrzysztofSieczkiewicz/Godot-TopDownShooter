@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="TopDownShooter"
 
+[editor]
+
+script/templates_search_path="res://Assets/Templates"
+
 [input]
 
 move_left={
@@ -61,7 +65,3 @@ move_jump={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="NPC"
-
-[physics]
-
-3d/default_gravity=9.8

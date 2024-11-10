@@ -17,5 +17,5 @@ func update(input, delta):
 	player.velocity.y -= gravity * delta
 	player.move_and_slide()
 
-func on_enter_state():
+func on_state_enter():
 	player.velocity.y = JUMP_VELOCITY
