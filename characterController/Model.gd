@@ -6,10 +6,16 @@ class_name PlayerModel
 @onready var skeleton = $GeneralSkeleton
 @onready var animator = $SkeletonAnimator
 @onready var states = {
-	"idle": $Idle,
-	"run": $Run,
-	"sprint": $Sprint,
-	"jump": $Jump
+	"idle": $States/Idle,
+	#"walk": "",
+	"run": $States/Run,
+	"sprint": $States/Sprint,
+	"jump": $States/Jump,
+	#"jump_run": $States/JumpRun,
+	#"jump_sprint": "",
+	#"landing": "",
+	#"landing_run": "",
+	#"landing_sprint": "" 
 }
 
 var current_move: State

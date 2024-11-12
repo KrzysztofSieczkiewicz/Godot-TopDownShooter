@@ -12,8 +12,8 @@ func get_current_input() -> InputPackage:
 	if Input.is_action_just_pressed("move_jump"):
 		if new_input.actions.has("sprint"):
 			new_input.actions.append("sprint_jump")
-		else:
-			new_input.actions.append("run_jump")
+		#else:
+			#new_input.actions.append("run_jump")
 	
 	if new_input.actions.is_empty():
 		new_input.actions.append("idle")

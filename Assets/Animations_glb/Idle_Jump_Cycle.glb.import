@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qh45f7mu03jf"
-path="res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"
+uid="uid://1244tw7o3dcu"
+path="res://.godot/imported/Idle_Jump_Cycle.glb-b30aa6f8b0f61f168d863c2d8b1d62f5.scn"
 
 [deps]
 
-source_file="res://Assets/Y_bot/running.glb"
-dest_files=["res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"]
+source_file="res://Assets/Animations_glb/Idle_Jump_Cycle.glb"
+dest_files=["res://.godot/imported/Idle_Jump_Cycle.glb-b30aa6f8b0f61f168d863c2d8b1d62f5.scn"]
 
 [params]
 

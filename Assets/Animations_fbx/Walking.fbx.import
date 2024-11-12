@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bqah7dvjpx1ec"
-path="res://.godot/imported/cac-1731267602700.gltf-fd02e321bc49fe0e330ac7669cd6717f.scn"
+uid="uid://crcfndo072gti"
+path="res://.godot/imported/Walking.fbx-aaf9164adfa1a88793c954609fa2c770.scn"
 
 [deps]
 
-source_file="res://Assets/Y_bot/cac-1731267602700.gltf"
-dest_files=["res://.godot/imported/cac-1731267602700.gltf-fd02e321bc49fe0e330ac7669cd6717f.scn"]
+source_file="res://Assets/Animations_fbx/Walking.fbx"
+dest_files=["res://.godot/imported/Walking.fbx-aaf9164adfa1a88793c954609fa2c770.scn"]
 
 [params]
 

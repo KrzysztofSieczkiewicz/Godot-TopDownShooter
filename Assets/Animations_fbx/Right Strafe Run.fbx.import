@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qh45f7mu03jf"
-path="res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"
+uid="uid://bdgp32ryuc1j4"
+path="res://.godot/imported/Right Strafe Run.fbx-45287fee154d786dcf69e11b40b8f49c.scn"
 
 [deps]
 
-source_file="res://Assets/Y_bot/running.glb"
-dest_files=["res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"]
+source_file="res://Assets/Animations_fbx/Right Strafe Run.fbx"
+dest_files=["res://.godot/imported/Right Strafe Run.fbx-45287fee154d786dcf69e11b40b8f49c.scn"]
 
 [params]
 

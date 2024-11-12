@@ -8,4 +8,7 @@ func _ready():
 
 
 func check_is_relevant(input: InputPackage) -> String:
-	
+	return ""
+
+func update(input: InputPackage, delta: float):
+	pass

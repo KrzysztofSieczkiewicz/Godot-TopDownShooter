@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcb8rqn3l3prv"
-path="res://.godot/imported/running.fbx-b6bd1766cfd1a8942bcfb59fd49365da.scn"
+uid="uid://damu3wvxv7dit"
+path="res://.godot/imported/Sprinting.fbx-ac93b7bbec48dab576f37afd5a1dbc41.scn"
 
 [deps]
 
-source_file="res://Assets/Y_bot/running.fbx"
-dest_files=["res://.godot/imported/running.fbx-b6bd1766cfd1a8942bcfb59fd49365da.scn"]
+source_file="res://Assets/Animations_fbx/Sprinting.fbx"
+dest_files=["res://.godot/imported/Sprinting.fbx-ac93b7bbec48dab576f37afd5a1dbc41.scn"]
 
 [params]
 

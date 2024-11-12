@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qh45f7mu03jf"
-path="res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"
+uid="uid://cjc1vu6u1yko7"
+path="res://.godot/imported/Sprinting Jump.fbx-5a05d8c9088801b5b4f3b1a466e07cbc.scn"
 
 [deps]
 
-source_file="res://Assets/Y_bot/running.glb"
-dest_files=["res://.godot/imported/running.glb-cb3add895b13be1eb0e5bed2c40fc759.scn"]
+source_file="res://Assets/Animations_fbx/Sprinting Jump.fbx"
+dest_files=["res://.godot/imported/Sprinting Jump.fbx-5a05d8c9088801b5b4f3b1a466e07cbc.scn"]
 
 [params]
 
