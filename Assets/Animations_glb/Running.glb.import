@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbable6ff7gte"
-path="res://.godot/imported/Idle_Midair.glb-a595e9a2c2762bdb84d16914b325fc55.scn"
+uid="uid://c1amwq2gane24"
+path="res://.godot/imported/Running.glb-a593fb36ad22ccaf82e18b03bbf66085.scn"
 
 [deps]
 
-source_file="res://Assets/Animations_cut/Idle_Midair.glb"
-dest_files=["res://.godot/imported/Idle_Midair.glb-a595e9a2c2762bdb84d16914b325fc55.scn"]
+source_file="res://Assets/Animations_glb/Running.glb"
+dest_files=["res://.godot/imported/Running.glb-a593fb36ad22ccaf82e18b03bbf66085.scn"]
 
 [params]
 
