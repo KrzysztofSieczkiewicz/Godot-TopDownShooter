@@ -7,7 +7,8 @@ const SPEED = 5.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	animation = "run"
+	pass
+	#animation = "BasicMovement/Running"
 
 func check_is_relevant(input: InputPackage):
 	input.actions.sort_custom(moves_priority_sort)

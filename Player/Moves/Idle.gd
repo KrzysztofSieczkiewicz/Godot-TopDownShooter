@@ -3,6 +3,7 @@ class_name Idle
 
 
 func check_is_relevant(input) -> String:
+	#animation = "BasicMovement/Idle"
 	input.actions.sort_custom(moves_priority_sort)
 	return input.actions[0]
 	

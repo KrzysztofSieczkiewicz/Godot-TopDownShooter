@@ -3,8 +3,8 @@ class_name PlayerModel
 
 
 @onready var player = $".."
-@onready var skeleton = $GeneralSkeleton
-@onready var animator = $SkeletonAnimator
+@onready var skeleton = $HumanoidSkeleton as Skeleton3D
+@onready var animator = $SkeletonAnimator as AnimationPlayer
 @onready var states = {
 	"idle": $States/Idle,
 	#"walk": "",
@@ -22,7 +22,7 @@ var current_move: State
 
 
 func _ready():
-	animator.get_animation("mixamo_com").loop_mode = Animation.LOOP_LINEAR
+	animator.get_animation("BasicMovement/Idle").loop_mode = Animation.LOOP_LINEAR
 	current_move = states["idle"]
 	
 	for move in states.values():
