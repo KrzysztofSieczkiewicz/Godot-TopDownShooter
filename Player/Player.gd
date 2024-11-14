@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-@onready var input_gatherer = $Input as InputGatherer
+@onready var input_handler = $Input as InputHandler
 @onready var model = $Model as PlayerModel
 @onready var visuals = $Visuals as PlayerVisuals
 
@@ -10,7 +10,7 @@ func _ready():
 	model.animator.play("BasicMovement/Idle")
 
 func _physics_process(delta):
-	var input = input_gatherer.get_current_input()
+	var input = input_handler.get_current_input()
 	model.update(input, delta)
 	
 	move_and_slide()

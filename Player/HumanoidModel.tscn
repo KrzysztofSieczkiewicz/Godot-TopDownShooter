@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7itayv2skcio"]
+[gd_scene load_steps=11 format=3 uid="uid://b7itayv2skcio"]
 
 [ext_resource type="Script" path="res://characterController/Model.gd" id="1_k3say"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_3xpqd"]
 [ext_resource type="Script" path="res://Player/Moves/Idle.gd" id="2_k5hri"]
+[ext_resource type="Script" path="res://Player/Moves/State.gd" id="3_bdpuo"]
 [ext_resource type="Script" path="res://Player/Moves/Run.gd" id="3_vrd5j"]
 [ext_resource type="Script" path="res://Player/Moves/Jump.gd" id="4_3tqrq"]
+[ext_resource type="Script" path="res://Player/Moves/Walk.gd" id="4_8vrh1"]
+[ext_resource type="Script" path="res://Player/Moves/JumpIdle.gd" id="4_e6k0n"]
 [ext_resource type="Script" path="res://Player/Moves/Sprint.gd" id="5_r5mso"]
 [ext_resource type="Script" path="res://Player/Moves/JumpRun.gd" id="6_7xvoa"]
 
@@ -475,9 +478,16 @@ libraries = {
 }
 
 [node name="States" type="Node" parent="."]
+script = ExtResource("3_bdpuo")
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource("2_k5hri")
+
+[node name="Walk" type="Node" parent="States"]
+script = ExtResource("4_8vrh1")
+
+[node name="JumpIdle" type="Node" parent="States"]
+script = ExtResource("4_e6k0n")
 
 [node name="Run" type="Node" parent="States"]
 script = ExtResource("3_vrd5j")

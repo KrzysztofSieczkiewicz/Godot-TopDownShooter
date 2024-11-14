@@ -1,21 +1,25 @@
 extends State
-class_name Run
+class_name Walk
 
 
-const SPEED = 4.0
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+const WALKING_SPEED: float = 2.0
 
 
 func _ready():
-	animation = "BasicMovement/Running"
+	animation = "BasicMovement/Walking"
+
 
 func check_is_relevant(input: InputPackage):
-	#if not player.is_on_floor():
-		#return "midair"
-	
 	input.actions.sort_custom(moves_priority_sort)
+	
 	if input.actions[0] == "run":
-		return "okay"
+		if input.actions.has("sprint"):
+			return "sprint"
+		if input.actions.has("walk"):
+			return "walk"
+		else:
+			return "okay"
+			
 	return input.actions[0]
 
 
@@ -24,14 +28,11 @@ func update(input: InputPackage, delta: float):
 	player.move_and_slide()
 
 
-func velocity_by_input(input: InputPackage, delta: float):
+func velocity_by_input(input: InputPackage, delta: float) -> Vector3:
 	var new_velocity = player.velocity
 	
 	var direction = (player.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
-	new_velocity.x = direction.x * SPEED
-	new_velocity.z = direction.z * SPEED
-	
-	if not player.is_on_floor():
-		new_velocity.y -= gravity * delta
-	
+	new_velocity.x = direction.x * WALKING_SPEED
+	new_velocity.z = direction.z * WALKING_SPEED
+
 	return new_velocity

@@ -12,7 +12,13 @@ var has_animation_ended: bool
 static var moves_priority: Dictionary = {
 	"idle": 1,
 	"run": 2,
-	"jump": 10
+	"sprint": 3,
+	"jump_idle": 10,
+	"jump_run": 10,
+	"jump_sprint": 10,
+	"landing_idle": 10,
+	"landing_run": 10,
+	"landing_sprint": 10
 }
 
 static func moves_priority_sort(a: String, b: String) -> bool:

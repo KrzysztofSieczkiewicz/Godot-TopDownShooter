@@ -3,11 +3,13 @@ class_name Sprint
 
 
 const SPEED = 8.0
-
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func check_is_relevant(input: InputPackage):
+	#if not player.is_on_floor():
+		#return "midair"
+	
 	input.actions.sort_custom(moves_priority_sort)
 	if input.actions[0] == "run":
 		return "okay"

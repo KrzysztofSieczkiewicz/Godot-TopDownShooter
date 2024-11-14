@@ -7,11 +7,11 @@ class_name PlayerModel
 @onready var animator = $SkeletonAnimator as AnimationPlayer
 @onready var states = {
 	"idle": $States/Idle,
-	#"walk": "",
+	"walk": $States/Walk,
 	"run": $States/Run,
 	"sprint": $States/Sprint,
 	"jump": $States/Jump,
-	#"jump_run": $States/JumpRun,
+	"jump_run": $States/JumpRun,
 	#"jump_sprint": "",
 	#"landing": "",
 	#"landing_run": "",
@@ -25,8 +25,8 @@ func _ready():
 	animator.get_animation("BasicMovement/Idle").loop_mode = Animation.LOOP_LINEAR
 	current_move = states["idle"]
 	
-	for move in states.values():
-		move.player = player
+	for state in states.values():
+		state.player = player
 
 func update(input: InputPackage, delta: float):
 	var relevant = current_move.check_is_relevant(input)
