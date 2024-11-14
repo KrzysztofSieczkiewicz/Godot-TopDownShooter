@@ -8,7 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12759, -1, -1.81097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12759, -0.504964, -1.81097)
 use_collision = true
 size = Vector3(26, 1, 29)
 

@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 func _ready():
 	visuals.accept_skeleton(model.skeleton)
-	#model.animator.play("BasicMovement/Idle")
+	model.animator.play("BasicMovement/Idle")
 
 func _physics_process(delta):
 	var input = input_gatherer.get_current_input()

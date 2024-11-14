@@ -14,8 +14,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582526, 0)
 script = ExtResource("1_xml8w")
 
 [node name="Visuals" parent="." instance=ExtResource("2_tt5hs")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.580369, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33338, 0)
 shape = SubResource("CapsuleShape3D_qq5ab")
 
 [node name="Model" parent="." instance=ExtResource("3_l1wly")]
@@ -24,4 +26,4 @@ shape = SubResource("CapsuleShape3D_qq5ab")
 script = ExtResource("2_rkxbo")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, -8.73357e-09, -2.59572e-09, 6.61475e-09, 0.5, 0.866025, -6.26563e-09, -0.866025, 0.5, 0.0246363, 14.8292, 13.2064)
+transform = Transform3D(1, -8.73357e-09, -2.59573e-09, 8.11994e-09, 0.72505, 0.688696, -4.13274e-09, -0.688696, 0.72505, 0.0246368, 4.71426, 4.69629)
