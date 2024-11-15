@@ -9,7 +9,6 @@ class_name PlayerModel
 	"idle": $States/Idle,
 	"walk": $States/Walk,
 	"run": $States/Run,
-	"sprint": $States/Sprint,
 	"jump": $States/Jump,
 	"jump_run": $States/JumpRun,
 	#"jump_sprint": "",
@@ -29,7 +28,7 @@ func _ready():
 		state.player = player
 
 func update(input: InputPackage, delta: float):
-	var relevant = current_move.check_is_relevant(input)
+	var relevant = current_move.check_transition(input)
 	if relevant != "okay":
 		switch_to(relevant)
 	current_move.update(input, delta)

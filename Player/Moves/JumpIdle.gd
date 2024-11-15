@@ -11,7 +11,7 @@ func _ready():
 	animation = "BasicMovement/Idle_Jump"
 
 
-func _check_is_relevant(input: InputPackage):
+func check_transition(input: InputPackage):
 	return "okay"
 
 

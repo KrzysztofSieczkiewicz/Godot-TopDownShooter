@@ -6,7 +6,7 @@ func _ready():
 	animation = "BasicMovement/Idle"
 
 
-func check_is_relevant(input) -> String:
+func check_transition(input) -> String:
 	input.actions.sort_custom(moves_priority_sort)
 	return input.actions[0]
 

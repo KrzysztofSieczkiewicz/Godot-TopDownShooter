@@ -9,17 +9,12 @@ func _ready():
 	animation = "BasicMovement/Walking"
 
 
-func check_is_relevant(input: InputPackage):
+func check_transition(input: InputPackage):
 	input.actions.sort_custom(moves_priority_sort)
 	
-	if input.actions[0] == "run":
-		if input.actions.has("sprint"):
-			return "sprint"
-		if input.actions.has("walk"):
-			return "walk"
-		else:
-			return "okay"
-			
+	if input.actions[0] == "walk":
+		return "okay"
+		
 	return input.actions[0]
 
 

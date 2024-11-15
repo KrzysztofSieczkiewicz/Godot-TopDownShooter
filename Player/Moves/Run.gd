@@ -9,13 +9,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	animation = "BasicMovement/Running"
 
-func check_is_relevant(input: InputPackage):
-	#if not player.is_on_floor():
-		#return "midair"
-	
+func check_transition(input: InputPackage):
 	input.actions.sort_custom(moves_priority_sort)
+	
 	if input.actions[0] == "run":
 		return "okay"
+	
 	return input.actions[0]
 
 
