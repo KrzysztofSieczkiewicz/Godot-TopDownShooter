@@ -8,13 +8,22 @@ func get_current_input() -> InputPackage:
 	### Handle movement
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if new_input.input_direction != Vector2.ZERO:
-		new_input.actions.append("walk")
 		if Input.is_action_pressed("move_run"):
 			new_input.actions.append("run")
+		else:
+			new_input.actions.append("walk")
 	
 	### Handle jump
 	if Input.is_action_just_pressed("move_jump"):
-		new_input.actions.append("jump")
+		if new_input.input_direction == Vector2.ZERO:
+			print("I should jump idle")
+			new_input.actions.append("jump_idle")
+		elif new_input.actions.has("walk"):
+			print("I should jump walk")
+			new_input.actions.append("jump_idle")
+		elif new_input.actions.has("run"):
+			print("I should jump run")
+			new_input.actions.append("jump_run")
 	
 	### Handle idle
 	if new_input.actions.is_empty():

@@ -9,9 +9,9 @@ class_name PlayerModel
 	"idle": $States/Idle,
 	"walk": $States/Walk,
 	"run": $States/Run,
-	"jump": $States/Jump,
+	"jump_idle": $States/JumpIdle,
+	#"jump_walk": $States/JumpWalk
 	"jump_run": $States/JumpRun,
-	#"jump_sprint": "",
 	#"landing": "",
 	#"landing_run": "",
 	#"landing_sprint": "" 

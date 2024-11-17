@@ -1,7 +1,7 @@
 extends State
 class_name Jump
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 

@@ -14,10 +14,12 @@ static var moves_priority: Dictionary = {
 	"walk": 2,
 	"run": 3,
 	"jump_idle": 10,
+	#"jump_walk": 10,
 	"jump_run": 10,
 	"landing_idle": 10,
 	"landing_run": 10,
 }
+
 
 static func moves_priority_sort(a: String, b: String) -> bool:
 	if moves_priority[a] > moves_priority[b]:
