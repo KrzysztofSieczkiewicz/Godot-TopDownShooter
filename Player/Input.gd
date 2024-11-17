@@ -16,13 +16,10 @@ func get_current_input() -> InputPackage:
 	### Handle jump
 	if Input.is_action_just_pressed("move_jump"):
 		if new_input.input_direction == Vector2.ZERO:
-			print("I should jump idle")
 			new_input.actions.append("jump_idle")
 		elif new_input.actions.has("walk"):
-			print("I should jump walk")
 			new_input.actions.append("jump_idle")
-		elif new_input.actions.has("run"):
-			print("I should jump run")
+		else: #new_input.actions.has("run"):
 			new_input.actions.append("jump_run")
 	
 	### Handle idle

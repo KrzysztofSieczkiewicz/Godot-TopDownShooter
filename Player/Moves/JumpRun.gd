@@ -9,6 +9,9 @@ func _ready():
 	animation = "BasicMovement/Running_Jump"
 
 func check_transition(input: InputPackage):
+	if works_longer_than(0.1):
+		return "midair"
+	
 	if player.is_on_floor():
 		input.actions.sort_custom(moves_priority_sort)
 		return input.actions[0]

@@ -15,6 +15,7 @@ class_name PlayerModel
 	#"landing": "",
 	#"landing_run": "",
 	#"landing_sprint": "" 
+	"midair": $States/Midair,
 }
 
 var current_move: State
@@ -37,4 +38,5 @@ func switch_to(state: String):
 	current_move.on_state_exit()
 	current_move = states[state]
 	current_move.on_state_enter()
+	current_move.mark_state_entered()
 	animator.play(current_move.animation)
