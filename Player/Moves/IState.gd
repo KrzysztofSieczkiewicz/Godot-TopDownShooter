@@ -16,12 +16,12 @@ static var moves_priority: Dictionary = {
 	"idle": 1,
 	"walk": 2,
 	"run": 3,
-	"jump_idle": 10,
+	#"jump_idle": 10,
 	#"jump_walk": 10,
-	"jump_run": 10,
-	"landing_idle": 10,
-	"landing_run": 10,
-	"midair": 10,
+	#"jump_run": 10,
+	#"landing_idle": 10,
+	#"landing_run": 10,
+	#"midair": 10,
 }
 
 

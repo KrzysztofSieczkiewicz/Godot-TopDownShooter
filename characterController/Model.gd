@@ -22,7 +22,6 @@ var current_move: IState
 
 
 func _ready():
-	animator.get_animation("BasicMovement/Idle").loop_mode = Animation.LOOP_LINEAR
 	current_move = states["idle"]
 	
 	for state in states.values():

@@ -14,6 +14,10 @@ config/name="TopDownShooter"
 run/main_scene="uid://hdunduhqsohy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+GlobalStates="*res://Global/GlobalStates.gd"
+
 [dotnet]
 
 project/assembly_name="TopDownShooter"

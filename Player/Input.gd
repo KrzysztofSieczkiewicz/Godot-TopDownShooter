@@ -14,13 +14,13 @@ func get_current_input() -> InputPackage:
 			new_input.actions.append("walk")
 	
 	### Handle jump
-	if Input.is_action_just_pressed("move_jump"):
-		if new_input.input_direction == Vector2.ZERO:
-			new_input.actions.append("jump_idle")
-		elif new_input.actions.has("walk"):
-			new_input.actions.append("jump_idle")
-		else: #new_input.actions.has("run"):
-			new_input.actions.append("jump_run")
+	#if Input.is_action_just_pressed("move_jump"):
+	#	if new_input.input_direction == Vector2.ZERO:
+	#		new_input.actions.append("jump_idle")
+	#	elif new_input.actions.has("walk"):
+	#		new_input.actions.append("jump_idle")
+	#	else: #new_input.actions.has("run"):
+	#		new_input.actions.append("jump_run")
 	
 	### Handle idle
 	if new_input.actions.is_empty():
