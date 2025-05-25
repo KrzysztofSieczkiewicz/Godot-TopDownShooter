@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bor44jkmby0j5" path="res://characterController/Model.gd" id="1_k3say"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_3xpqd"]
 [ext_resource type="Script" uid="uid://dtv8y1ig6iu2p" path="res://Player/Moves/Idle.gd" id="2_k5hri"]
-[ext_resource type="Script" uid="uid://bjgum6ebtqa30" path="res://Player/Moves/State.gd" id="3_bdpuo"]
+[ext_resource type="Script" uid="uid://bjgum6ebtqa30" path="res://Player/Moves/IState.gd" id="3_bdpuo"]
 [ext_resource type="Script" uid="uid://b5xxaq0vpxkxj" path="res://Player/Moves/Run.gd" id="3_vrd5j"]
 [ext_resource type="Script" uid="uid://rg26lrabavyq" path="res://Player/Moves/Walk.gd" id="4_8vrh1"]
 [ext_resource type="Script" uid="uid://gcwks3g2efyy" path="res://Player/Moves/JumpIdle.gd" id="4_e6k0n"]

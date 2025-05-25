@@ -1,4 +1,4 @@
-extends State
+extends IState
 class_name Walk
 
 

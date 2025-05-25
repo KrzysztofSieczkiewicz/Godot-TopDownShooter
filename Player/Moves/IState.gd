@@ -1,5 +1,5 @@
 extends Node
-class_name State
+class_name IState
 
 
 var player: CharacterBody3D
@@ -26,14 +26,11 @@ static var moves_priority: Dictionary = {
 
 
 static func moves_priority_sort(a: String, b: String) -> bool:
-	if moves_priority[a] > moves_priority[b]:
-		return true
-	else:
-		return false
+	return moves_priority[a] > moves_priority[b]
 
 
 func check_transition(input: InputPackage) -> String:
-	var message = "ERROR: Implement the check_is_relevant function in Your state class"
+	var message = "ERROR: Implement the check_transition function in Your state class"
 	print_debug(message)
 	return message
 

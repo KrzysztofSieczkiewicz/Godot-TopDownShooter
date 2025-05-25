@@ -18,7 +18,7 @@ class_name PlayerModel
 	"midair": $States/Midair,
 }
 
-var current_move: State
+var current_move: IState
 
 
 func _ready():
