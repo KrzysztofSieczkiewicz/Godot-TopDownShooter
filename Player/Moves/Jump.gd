@@ -12,7 +12,7 @@ func check_transition(input: InputPackage):
 	if player.is_on_floor():
 		input.actions.sort_custom(moves_priority_sort)
 		return input.actions[0]
-	return "okay"
+	return GlobalStates.HumanoidStates.ONGOING
 
 	
 func update(input, delta):

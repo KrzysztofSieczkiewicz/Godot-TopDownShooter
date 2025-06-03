@@ -10,12 +10,12 @@ func _ready():
 
 func check_transition(input: InputPackage):
 	if works_longer_than(0.1):
-		return "midair"
+		return GlobalStates.HumanoidStates.MIDAIR
 	
 	if player.is_on_floor():
 		input.actions.sort_custom(moves_priority_sort)
 		return input.actions[0]
-	return "okay"
+	return GlobalStates.HumanoidStates.ONGOING
 
 func update(input, delta):
 	player.velocity.y -= gravity * delta

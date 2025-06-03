@@ -9,8 +9,8 @@ func _ready():
 	animation = "BasicMovement/Running_Midair"
 
 
-func check_transition(input: InputPackage) -> String:
-	return "okay"
+func check_transition(input: InputPackage):
+	return GlobalStates.HumanoidStates.MIDAIR
 
 func update(input: InputPackage, delta: float):
 	player.velocity.y -= gravity * delta

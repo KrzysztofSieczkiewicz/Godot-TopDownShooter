@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @onready var input_handler = $Input as InputHandler
 @onready var model = $Model as PlayerModel
 @onready var visuals = $Visuals as PlayerVisuals

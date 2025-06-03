@@ -13,9 +13,9 @@ var state_entered_time: float
 # TODO: Consider moving this definition to the Input class - then make all states just return their action and
 # the input will determine which action should be executed instead
 static var moves_priority: Dictionary = {
-	"idle": 1,
-	"walk": 2,
-	"run": 3,
+	GlobalStates.HumanoidStates.IDLE: 1,
+	GlobalStates.HumanoidStates.WALK: 2,
+	GlobalStates.HumanoidStates.RUN: 3,
 	#"jump_idle": 10,
 	#"jump_walk": 10,
 	#"jump_run": 10,
@@ -29,10 +29,10 @@ static func moves_priority_sort(a: String, b: String) -> bool:
 	return moves_priority[a] > moves_priority[b]
 
 
-func check_transition(input: InputPackage) -> String:
+func check_transition(input: InputPackage) -> GlobalStates.HumanoidStates:
 	var message = "ERROR: Implement the check_transition function in Your state class"
 	print_debug(message)
-	return message
+	return GlobalStates.HumanoidStates.IDLE
 
 
 func update(input: InputPackage, delta: float):

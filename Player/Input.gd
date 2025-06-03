@@ -9,9 +9,9 @@ func get_current_input() -> InputPackage:
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if new_input.input_direction != Vector2.ZERO:
 		if Input.is_action_pressed("move_run"):
-			new_input.actions.append("run")
+			new_input.actions.append(GlobalStates.HumanoidStates.RUN)
 		else:
-			new_input.actions.append("walk")
+			new_input.actions.append(GlobalStates.HumanoidStates.WALK)
 	
 	### Handle jump
 	#if Input.is_action_just_pressed("move_jump"):
@@ -24,6 +24,6 @@ func get_current_input() -> InputPackage:
 	
 	### Handle idle
 	if new_input.actions.is_empty():
-		new_input.actions.append("idle")
+		new_input.actions.append(GlobalStates.HumanoidStates.IDLE)
 	
 	return new_input

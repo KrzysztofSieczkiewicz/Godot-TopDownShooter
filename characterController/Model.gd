@@ -6,34 +6,34 @@ class_name PlayerModel
 @onready var skeleton = $HumanoidSkeleton as Skeleton3D
 @onready var animator = $SkeletonAnimator as AnimationPlayer
 @onready var states = {
-	"idle": $States/Idle,
-	"walk": $States/Walk,
-	"run": $States/Run,
-	"jump_idle": $States/JumpIdle,
+	GlobalStates.HumanoidStates.IDLE: $States/Idle,
+	GlobalStates.HumanoidStates.WALK: $States/Walk,
+	GlobalStates.HumanoidStates.RUN: $States/Run,
+	GlobalStates.HumanoidStates.IDLE_JUMP: $States/JumpIdle,
 	#"jump_walk": $States/JumpWalk
-	"jump_run": $States/JumpRun,
+	#GlobalStates.HumanoidStates.RUN_JUMP: $States/JumpRun,
 	#"landing": "",
 	#"landing_run": "",
 	#"landing_sprint": "" 
-	"midair": $States/Midair,
+	GlobalStates.HumanoidStates.MIDAIR: $States/Midair,
 }
 
 var current_move: IState
 
 
 func _ready():
-	current_move = states["idle"]
+	current_move = states[GlobalStates.HumanoidStates.IDLE]
 	
 	for state in states.values():
 		state.player = player
 
 func update(input: InputPackage, delta: float):
 	var relevant = current_move.check_transition(input)
-	if relevant != "okay":
+	if relevant != GlobalStates.HumanoidStates.ONGOING:
 		switch_to(relevant)
 	current_move.update(input, delta)
 
-func switch_to(state: String):
+func switch_to(state: GlobalStates.HumanoidStates):
 	current_move.on_state_exit()
 	current_move = states[state]
 	current_move.on_state_enter()

@@ -2,6 +2,6 @@ extends Node
 class_name InputPackage
 
 
-var actions: Array[String]
+var actions: Array[GlobalStates.HumanoidStates]
 
 var input_direction: Vector2

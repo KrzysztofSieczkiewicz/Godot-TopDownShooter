@@ -12,8 +12,8 @@ func _ready():
 func check_transition(input: InputPackage):
 	input.actions.sort_custom(moves_priority_sort)
 	
-	if input.actions[0] == "walk":
-		return "okay"
+	if input.actions[0] == GlobalStates.HumanoidStates.WALK:
+		return GlobalStates.HumanoidStates.ONGOING
 		
 	return input.actions[0]
 
