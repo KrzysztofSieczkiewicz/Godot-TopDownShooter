@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://rg26lrabavyq" path="res://Player/Moves/Walk.gd" id="4_8vrh1"]
 [ext_resource type="Script" uid="uid://gcwks3g2efyy" path="res://Player/Moves/JumpIdle.gd" id="4_e6k0n"]
 [ext_resource type="Script" uid="uid://btjkvsb7yfubq" path="res://Player/Moves/JumpRun.gd" id="6_7xvoa"]
-[ext_resource type="Script" uid="uid://cpybfdn7qalqp" path="res://Player/Midair.gd" id="9_0mq0h"]
+[ext_resource type="Script" uid="uid://cpybfdn7qalqp" path="res://Player/Moves/Midair.gd" id="9_0mq0h"]
 
 [node name="Model" type="Node3D"]
 script = ExtResource("1_k3say")
