@@ -6,6 +6,8 @@ enum HumanoidStates {
 	RUN,
 	
 	IDLE_JUMP,
+	WALK_JUMP,
+	RUN_JUMP,
 	MIDAIR,
 	
 	ONGOING

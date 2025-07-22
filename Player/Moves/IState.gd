@@ -16,6 +16,10 @@ static var moves_priority: Dictionary = {
 	GlobalStates.HumanoidStates.IDLE: 1,
 	GlobalStates.HumanoidStates.WALK: 2,
 	GlobalStates.HumanoidStates.RUN: 3,
+	GlobalStates.HumanoidStates.IDLE_JUMP: 2,
+	
+	GlobalStates.HumanoidStates.WALK_JUMP: 3,
+	GlobalStates.HumanoidStates.RUN_JUMP: 4,
 	#"jump_idle": 10,
 	#"jump_walk": 10,
 	#"jump_run": 10,
@@ -25,7 +29,7 @@ static var moves_priority: Dictionary = {
 }
 
 
-static func moves_priority_sort(a: String, b: String) -> bool:
+static func moves_priority_sort(a: int, b: int) -> bool:
 	return moves_priority[a] > moves_priority[b]
 
 

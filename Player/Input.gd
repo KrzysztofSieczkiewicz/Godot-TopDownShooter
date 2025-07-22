@@ -14,6 +14,13 @@ func get_current_input() -> InputPackage:
 			new_input.actions.append(GlobalStates.HumanoidStates.WALK)
 	
 	### Handle jump
+	if Input.is_action_just_pressed("move_jump"):
+		if new_input.input_direction == Vector2.ZERO:
+			new_input.actions.append(GlobalStates.HumanoidStates.IDLE_JUMP)
+		elif new_input.actions.has(GlobalStates.HumanoidStates.RUN):
+			new_input.actions.append(GlobalStates.HumanoidStates.RUN_JUMP)
+		else: new_input.actions.append(GlobalStates.HumanoidStates.WALK_JUMP)
+	
 	#if Input.is_action_just_pressed("move_jump"):
 	#	if new_input.input_direction == Vector2.ZERO:
 	#		new_input.actions.append("jump_idle")

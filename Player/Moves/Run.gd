@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	animation = "BasicMovement/Running"
 
+
 func check_transition(input: InputPackage):
 	input.actions.sort_custom(moves_priority_sort)
 	
