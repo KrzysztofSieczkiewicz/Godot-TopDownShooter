@@ -10,7 +10,7 @@ class_name PlayerModel
 	GlobalStates.HumanoidStates.WALK: $States/Walk,
 	GlobalStates.HumanoidStates.RUN: $States/Run,
 	GlobalStates.HumanoidStates.IDLE_JUMP: $States/JumpIdle,
-	GlobalStates.HumanoidStates.WALK_JUMP: $States/JumpWalk,
+	#GlobalStates.HumanoidStates.WALK_JUMP: $States/JumpWalk,
 	GlobalStates.HumanoidStates.RUN_JUMP: $States/JumpRun,
 	#"jump_walk": $States/JumpWalk
 	#GlobalStates.HumanoidStates.RUN_JUMP: $States/JumpRun,
