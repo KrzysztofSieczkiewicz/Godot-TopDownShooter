@@ -1,7 +1,7 @@
 class_name HumanStateMachine
 extends Node
 
-@export var CURRENT_STATE: IState
+@export var CURRENT_STATE: IState_new
 
 var states: Dictionary = {};
 

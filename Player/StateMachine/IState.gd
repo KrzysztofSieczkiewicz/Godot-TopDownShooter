@@ -1,9 +1,9 @@
-class_name IState
+class_name IState_new
 extends Node
 
 signal transition(new_state_name: StringName)
 
-var animations: AnimatedSprite3D
+var animation: AnimatedSprite3D
 var parent: CharacterBody3D
 
 func enter() -> void:

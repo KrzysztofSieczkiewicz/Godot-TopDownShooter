@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://cgicskpkmfb4x"]
 
-[ext_resource type="Script" uid="uid://dsobdw5m48p02" path="res://Player/PlayerVisuals.gd" id="1_1a01p"]
+[ext_resource type="Script" uid="uid://dsobdw5m48p02" path="res://PlayerMovement/Visuals/PlayerVisuals.gd" id="1_1a01p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jip5"]
 resource_name = "Alpha_Joints_MAT.001"

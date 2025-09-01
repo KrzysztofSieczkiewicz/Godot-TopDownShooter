@@ -1,7 +1,6 @@
 extends IState
 class_name Idle
 
-
 func _ready():
 	animation = "BasicMovement/Idle"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7itayv2skcio"]
 
-[ext_resource type="Script" uid="uid://bor44jkmby0j5" path="res://characterController/Model.gd" id="1_k3say"]
+[ext_resource type="Script" uid="uid://bor44jkmby0j5" path="res://PlayerMovement/Model/Model.gd" id="1_k3say"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_3xpqd"]
 [ext_resource type="Script" uid="uid://dtv8y1ig6iu2p" path="res://Player/Moves/Idle.gd" id="2_k5hri"]
 [ext_resource type="Script" uid="uid://bjgum6ebtqa30" path="res://Player/Moves/IState.gd" id="3_bdpuo"]

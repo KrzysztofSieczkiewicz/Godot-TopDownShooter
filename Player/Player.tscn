@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmlw1017fgtmw" path="res://Player/Player.gd" id="1_xml8w"]
 [ext_resource type="Script" uid="uid://biygimo1mkhy5" path="res://Player/Input.gd" id="2_rkxbo"]
-[ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://Player/PlayerVisuals.tscn" id="2_tt5hs"]
+[ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="2_tt5hs"]
 [ext_resource type="PackedScene" uid="uid://b7itayv2skcio" path="res://Player/HumanoidModel.tscn" id="3_l1wly"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq5ab"]
@@ -10,6 +10,7 @@ radius = 0.282736
 height = 1.83376
 
 [node name="Player" type="CharacterBody3D"]
+visible = false
 script = ExtResource("1_xml8w")
 
 [node name="Visuals" parent="." instance=ExtResource("2_tt5hs")]
