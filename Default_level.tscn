@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://difxs8ey7f1ih"]
+[gd_scene load_steps=3 format=3 uid="uid://difxs8ey7f1ih"]
 
 [ext_resource type="PackedScene" uid="uid://c3l3vxp17wy7" path="res://PlayerMovement/Player.tscn" id="1_74r8l"]
+[ext_resource type="Script" uid="uid://ckenfw0n5xj4p" path="res://PlayerMovement/Camera.gd" id="2_ojt3u"]
 
 [node name="Default_level" type="Node3D"]
 
@@ -14,3 +15,6 @@ size = Vector3(26, 1, 29)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.73038, 0.534329, -0.425485, -0.00623602, 0.628118, 0.778093, 0.683013, -0.56565, 0.462097, -17.8565, 11.8901, 17.9643)
 shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("2_ojt3u")
