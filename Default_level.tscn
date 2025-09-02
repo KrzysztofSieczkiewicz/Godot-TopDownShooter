@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://difxs8ey7f1ih"]
+[gd_scene load_steps=4 format=3 uid="uid://difxs8ey7f1ih"]
 
 [ext_resource type="PackedScene" uid="uid://c3l3vxp17wy7" path="res://PlayerMovement/Player.tscn" id="1_74r8l"]
-[ext_resource type="Script" uid="uid://ckenfw0n5xj4p" path="res://PlayerMovement/Camera.gd" id="2_ojt3u"]
+[ext_resource type="Script" uid="uid://cdbjd6vuucftk" path="res://Default_level.gd" id="1_foq5g"]
+[ext_resource type="Script" uid="uid://ckenfw0n5xj4p" path="res://PlayerMovement/CameraManager.gd" id="2_ojt3u"]
 
 [node name="Default_level" type="Node3D"]
+script = ExtResource("1_foq5g")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12759, -0.504964, -1.81097)
@@ -16,5 +18,8 @@ size = Vector3(26, 1, 29)
 transform = Transform3D(0.73038, 0.534329, -0.425485, -0.00623602, 0.628118, 0.778093, 0.683013, -0.56565, 0.462097, -17.8565, 11.8901, 17.9643)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("2_ojt3u")
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager"]
+transform = Transform3D(-1, 0, 8.74228e-08, 7.57956e-08, 0.498306, 0.867001, -4.35633e-08, 0.867001, -0.498306, 0, 6.35703, -2.58863)

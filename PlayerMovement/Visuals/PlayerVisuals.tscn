@@ -258,11 +258,11 @@ blend_shape_mode = 0
 script = ExtResource("1_1a01p")
 
 [node name="Beta_Joints" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_m5wyg")
 skin = SubResource("Skin_xvffc")
 
 [node name="Beta_Surface" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_n8gul")
 skin = SubResource("Skin_xvffc")
