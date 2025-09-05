@@ -1,5 +1,5 @@
 extends Node3D
-class_name PlayerModel
+class_name HumanoidModel
 
 
 @onready var player = $".."

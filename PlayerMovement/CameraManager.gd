@@ -1,7 +1,6 @@
 extends Node3D
 
-@onready var player: CharacterBody3D = $'../Player'
-@onready var camera: Camera3D = $'./Camera3D'
+@onready var _player: CharacterBody3D = $'../Player'
 
 func _process(delta: float) -> void:
-	position = player.position
+	position = _player.position

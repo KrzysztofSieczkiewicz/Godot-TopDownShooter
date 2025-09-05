@@ -3,13 +3,13 @@ extends Node
 
 @export var CURRENT_STATE: IState_new
 
-var states: Dictionary = {};
+var _states: Dictionary = {};
 
 # Initializes state machine by setting parent to all states and sets initial state
 func init(parent: CharacterBody3D, animations: AnimatedSprite3D) -> void:
 	for child in get_children():
 		if child is IState:
-			states[child.name] = child
+			_states[child.name] = child
 			child.transition.connect(on_state_transition)
 		else:
 			push_warning("State machine contains incompatibile child node")
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 # Calls exit state on current state, sets new state and calls enter on new state
 func on_state_transition(new_state_name: StringName) -> void:
-	var new_state = states.get(new_state_name)
+	var new_state = _states.get(new_state_name)
 	
 	if new_state == null:
 		push_warning("State '" + new_state_name + "' does not exist")

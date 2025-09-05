@@ -8,6 +8,7 @@ radius = 0.206416
 height = 1.80876
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_xg7mr")
 
 [node name="Visuals" parent="." instance=ExtResource("1_hj83c")]
