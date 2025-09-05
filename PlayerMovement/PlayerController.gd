@@ -3,13 +3,19 @@ extends CharacterBody3D
 @export var SPEED: float = 5.0
 @export var JUMP_VELOCITY: float = 20
 
+@onready var model = $Model as PlayerModel
+@onready var visuals = $Visuals as PlayerVisuals
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var _is_crouching: bool = false
 
+
 func _ready() -> void:
 	var level_node = get_parent()
 	level_node.connect("mouse_world_intersection", Callable(self, "handle_look_at"))
+	
+	visuals.accept_skeleton(model.skeleton)
 
 
 func _input(event: InputEvent) -> void:

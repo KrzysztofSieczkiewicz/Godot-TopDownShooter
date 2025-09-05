@@ -10,7 +10,6 @@ radius = 0.282736
 height = 1.83376
 
 [node name="Player" type="CharacterBody3D"]
-visible = false
 script = ExtResource("1_xml8w")
 
 [node name="Visuals" parent="." instance=ExtResource("2_tt5hs")]

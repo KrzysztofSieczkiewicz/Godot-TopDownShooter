@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=5 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
+[ext_resource type="PackedScene" uid="uid://dhjiyo6ylq7of" path="res://PlayerMovement/Model/PlayerModel.tscn" id="3_avma8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aotyi"]
 radius = 0.206416
@@ -12,7 +13,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("1_xg7mr")
 
 [node name="Visuals" parent="." instance=ExtResource("1_hj83c")]
+transform = Transform3D(1, 8.74228e-08, 8.74228e-08, -8.74228e-08, 1.31134e-07, 1, 8.74228e-08, -1, 1.31134e-07, 0, 0, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888483, 0)
 shape = SubResource("CapsuleShape3D_aotyi")
+
+[node name="Model" parent="." instance=ExtResource("3_avma8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
