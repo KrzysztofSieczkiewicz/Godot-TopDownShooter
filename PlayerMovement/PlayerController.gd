@@ -32,6 +32,15 @@ func _ready() -> void:
 	_speed = SPEED_DEFAULT
 
 
+func _physics_process(delta: float) -> void:
+	Global.debug_panel.add_property("PlayerMovementSpeed", _speed, 1)
+	
+	handle_gravity_and_jump(delta)
+	handle_movement()
+
+	move_and_slide()
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("crouch") and is_on_floor() and TOGGLE_CROUCH == true:
 		toggle_crouch()
@@ -40,12 +49,6 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("crouch") and TOGGLE_CROUCH == false and _is_crouching == true:
 		uncrouch_check()
 
-func _physics_process(delta: float) -> void:
-	
-	handle_gravity_and_jump(delta)
-	handle_movement()
-
-	move_and_slide()
 
 func handle_gravity_and_jump(delta: float) -> void:
 	# Handle gravity

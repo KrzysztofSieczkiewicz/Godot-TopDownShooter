@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 GlobalStates="*res://Global/GlobalStates.gd"
+Global="*res://Global/Global.gd"
 
 [dotnet]
 
