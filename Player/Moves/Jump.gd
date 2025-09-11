@@ -1,4 +1,4 @@
-extends IState
+extends IState_old
 class_name Jump
 
 const JUMP_VELOCITY = 3.5

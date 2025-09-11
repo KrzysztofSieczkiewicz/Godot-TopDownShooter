@@ -1,4 +1,4 @@
-extends IState
+extends IState_old
 class_name Idle
 
 func _ready():

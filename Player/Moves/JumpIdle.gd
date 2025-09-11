@@ -1,4 +1,4 @@
-extends IState
+extends IState_old
 class_name IdleJump
 
 const TRANSITION_TIME = 0.5
