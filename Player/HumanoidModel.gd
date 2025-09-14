@@ -20,7 +20,7 @@ class_name HumanoidModel
 	GlobalStates.HumanoidStates.MIDAIR: $States/Midair,
 }
 
-var current_move: IState
+var current_move: IState_old
 
 
 func _ready():
