@@ -8,29 +8,29 @@ extends Node
 var _states: Dictionary = {}
 
 # Allows for manual state machine setup with parent and animations injection - TODO: consider for later
-"""
-func init(parent: CharacterBody3D, animations: AnimatedSprite3D) -> void:
+func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IState:
 			_states[child.name] = child
 			child.parent = player
+			child.animations = animations
 			child.transition.connect(on_state_transition)
 		else:
 			push_warning("State machine contains incompatibile child node")
 	
 	CURRENT_STATE.enter()
-"""
 
-func _ready() -> void:
-	for child in get_children():
-		if child is IState:
-			_states[child.name] = child
-			child.parent = player
-			child.transition.connect(on_state_transition)
-		else:
-			push_warning("State machine contains incompatibile child node")
-	
-	CURRENT_STATE.enter()
+#
+#func _ready() -> void:
+	#for child in get_children():
+		#if child is IState:
+			#_states[child.name] = child
+			#child.parent = player
+			#child.transition.connect(on_state_transition)
+		#else:
+			#push_warning("State machine contains incompatibile child node")
+	#
+	#CURRENT_STATE.enter()
 
 
 func _process(delta: float) -> void:

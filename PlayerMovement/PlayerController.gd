@@ -1,12 +1,16 @@
 extends CharacterBody3D
 
 @export var SPEED_DEFAULT: float = 5.0
-@export var CROUCHED_SPEED: float = 2.0
+@export var SPEED_CROUCHED: float = 2.0
+@export var SPEED_SPRINTING: float = 9.0
+@export var ACCELERATION: float = 0.1
+@export var DECCELERATION: float = 0.5
 @export var TOGGLE_CROUCH: bool = true
 @export var JUMP_VELOCITY: float = 20
 
 @onready var model = $Model as PlayerModel
 @onready var visuals = $Visuals as PlayerVisuals
+@onready var stateMachine = $HumanStateMachine
 
 @onready var COLLIDER_ANIMATOR = $ColliderAnimator ### TODO: Collider animator will be removed later on -> the solution will be to create 3D collision shape matching the character skeleton and then deform them using Character skeleton via RemoteTransform3D or BoneAttachment
 @onready var CROUCH_SHAPECAST = $ShapeCast3D ### TODO: Consider if and where should this be moved
@@ -27,6 +31,9 @@ func _ready() -> void:
 	
 	# Exclude player from collision detection
 	CROUCH_SHAPECAST.add_exception($'.')
+	
+	# Initialize state machine with player and animator reference
+	stateMachine.init(self, model.animator)
 	
 	# Set default movement speed
 	_speed = SPEED_DEFAULT
@@ -65,11 +72,11 @@ func handle_movement() -> void:
 	var direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		velocity.x = direction.x * _speed
-		velocity.z = direction.z * _speed
+		velocity.x = lerp(velocity.x, direction.x * _speed, ACCELERATION)
+		velocity.z = lerp(velocity.z, direction.z * _speed, ACCELERATION)
 	else:
-		velocity.x = move_toward(velocity.x, 0, _speed)
-		velocity.z = move_toward(velocity.z, 0, _speed)
+		velocity.x = move_toward(velocity.x, 0, DECCELERATION)
+		velocity.z = move_toward(velocity.z, 0, DECCELERATION)
 
 
 func handle_look_at(intersection_data: Dictionary) -> void:
@@ -106,4 +113,4 @@ func set_movement_speed(state: String):
 		"default":
 			_speed = SPEED_DEFAULT
 		"crouched":
-			_speed = CROUCHED_SPEED
+			_speed = SPEED_CROUCHED

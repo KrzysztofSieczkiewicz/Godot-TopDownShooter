@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=14 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dbntyxnin7ehf" path="res://PlayerMovement/StateMachine/HumanStateMachine.gd" id="5_bbrjv"]
 [ext_resource type="Script" uid="uid://bi1r24gp73pr0" path="res://PlayerMovement/StateMachine/states/IdleHumanState.gd" id="6_yju4o"]
 [ext_resource type="Script" uid="uid://dsgu5s7y6fysw" path="res://PlayerMovement/StateMachine/states/WalkingPlayerState.gd" id="7_yju4o"]
+[ext_resource type="Script" uid="uid://du1ln4petd2yv" path="res://PlayerMovement/StateMachine/states/SprintingHumanState.gd" id="8_o10o4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aotyi"]
 radius = 0.206416
@@ -127,3 +128,6 @@ script = ExtResource("6_yju4o")
 
 [node name="WalkingHumanState" type="Node" parent="HumanStateMachine"]
 script = ExtResource("7_yju4o")
+
+[node name="SprintingHumanState" type="Node" parent="HumanStateMachine"]
+script = ExtResource("8_o10o4")

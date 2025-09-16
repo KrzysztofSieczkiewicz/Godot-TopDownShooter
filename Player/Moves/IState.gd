@@ -1,7 +1,6 @@
 extends Node
 class_name IState_old
 
-
 var player: CharacterBody3D
 
 var animation: String

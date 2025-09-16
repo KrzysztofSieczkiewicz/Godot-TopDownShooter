@@ -3,7 +3,7 @@ extends Node
 
 signal transition(new_state_name: StringName)
 
-var animation: AnimatedSprite3D
+var animations: AnimationPlayer
 var parent: CharacterBody3D
 
 func enter() -> void:
