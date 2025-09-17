@@ -55,6 +55,11 @@ func _input(event: InputEvent) -> void:
 		crouching(true)
 	elif event.is_action_released("crouch") and TOGGLE_CROUCH == false and _is_crouching == true:
 		uncrouch_check()
+	
+	if event.is_action_pressed("move_sprint"):
+		set_movement_speed("sprinting")
+	elif event.is_action_released("move_sprint"):
+		set_movement_speed("default")
 
 
 func handle_gravity_and_jump(delta: float) -> void:
@@ -114,3 +119,5 @@ func set_movement_speed(state: String):
 			_speed = SPEED_DEFAULT
 		"crouched":
 			_speed = SPEED_CROUCHED
+		"sprinting":
+			_speed = SPEED_SPRINTING
