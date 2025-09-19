@@ -79,7 +79,6 @@ radius = 0.185
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_xg7mr")
-TOGGLE_CROUCH = false
 
 [node name="Visuals" parent="." instance=ExtResource("1_hj83c")]
 transform = Transform3D(1, 8.74228e-08, 8.74228e-08, -8.74228e-08, 1.31134e-07, 1, 8.74228e-08, -1, 1.31134e-07, 0, 0, 0)

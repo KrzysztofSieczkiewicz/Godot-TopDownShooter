@@ -1,7 +1,7 @@
 class_name HumanStateMachine
 extends Node
 
-@export var CURRENT_STATE: IState
+@export var CURRENT_STATE: IMovementState
 
 @onready var player: CharacterBody3D = $".."
 
@@ -10,7 +10,7 @@ var _states: Dictionary = {}
 # Allows for manual state machine setup with parent and animations injection - TODO: consider for later
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
-		if child is IState:
+		if child is IMovementState:
 			_states[child.name] = child
 			child.parent = player
 			child.animations = animations

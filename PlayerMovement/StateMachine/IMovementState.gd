@@ -1,4 +1,4 @@
-class_name IState
+class_name IMovementState
 extends Node
 
 signal transition(new_state_name: StringName)
