@@ -18,6 +18,9 @@ func update(delta: float):
 	if parent.velocity.length() == 0:
 		transition.emit("IdleHumanState")
 
+func exit() -> void: 
+	animations.speed_scale = 1.0
+
 func adjust_animation_speed(speed: float) -> void:
 	var alpha = remap(speed, 0.0, SPEED, 0.0, 1.0)
-	animations.speed_scale = lerp(0.0, 1.0, alpha)	
+	animations.speed_scale = lerp(0.0, 1.0, alpha)
