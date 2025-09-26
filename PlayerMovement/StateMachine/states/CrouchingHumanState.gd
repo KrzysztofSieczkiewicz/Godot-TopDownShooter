@@ -7,7 +7,7 @@ class_name CrouchingHumanState extends IMovementState
 
 @onready var CROUCH_SHAPECAST: ShapeCast3D = $"../../ShapeCast3D"
 
-func enter() -> void:
+func enter(previous_state: IMovementState) -> void:
 	animations.play("BasicMovement/Idle_Crouching", -1.0, CROUCHING_SPEED)
 	parent.COLLIDER_ANIMATOR.play("Collider_crouch", -1.0, CROUCHING_SPEED)
 

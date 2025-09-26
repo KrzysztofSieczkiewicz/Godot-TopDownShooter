@@ -18,7 +18,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 		else:
 			push_warning("State machine contains incompatibile child node")
 	
-	CURRENT_STATE.enter()
+	CURRENT_STATE.enter(null)
 
 #
 #func _ready() -> void:
@@ -51,5 +51,5 @@ func on_state_transition(new_state_name: StringName) -> void:
 	
 	if new_state != CURRENT_STATE:
 		CURRENT_STATE.exit()
-		new_state.enter()
+		new_state.enter(CURRENT_STATE)
 		CURRENT_STATE = new_state

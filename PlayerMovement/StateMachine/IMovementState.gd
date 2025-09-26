@@ -6,7 +6,7 @@ signal transition(new_state_name: StringName)
 var animations: AnimationPlayer
 var parent: CharacterBody3D
 
-func enter() -> void:
+func enter(previous_state: IMovementState) -> void:
 	pass
 
 func exit() -> void:

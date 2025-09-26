@@ -4,7 +4,7 @@ class_name IdleHumanState extends IMovementState
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
 
-func enter() -> void:
+func enter(previous_state: IMovementState) -> void:
 	animations.play("BasicMovement/Idle")
 
 func update(delta: float):
