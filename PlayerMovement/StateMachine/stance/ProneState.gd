@@ -1,11 +1,11 @@
-class_name PlayerCrouchingState extends IPlayerStanceState
+class_name PlayerStanceProneState extends IPlayerStanceState
 
 @export var SPEED: float = 3.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.25
 @export var CROUCHING_SPEED: float = 2.0
 
-@onready var CROUCH_SHAPECAST: ShapeCast3D = $"../../ShapeCast3D"
+@onready var PRONE_SHAPECAST: ShapeCast3D = $"../../ShapeCast3D"
 
 func enter(previous_state: IPlayerStanceState) -> void:
 	animations.play("BasicMovement/Idle_Crouching", -1.0, CROUCHING_SPEED)
@@ -16,16 +16,16 @@ func update(delta: float):
 	parent.update_input(SPEED, ACCELERATION, DECELERATION)
 	parent.update_velocity()
 	
-	if Input.is_action_just_released("crouch"):
-		uncrouch()
+	if Input.is_action_just_released("prone"):
+		stand_up()
 
-func uncrouch() -> void:
-	if CROUCH_SHAPECAST.is_colliding() == false and Input.is_action_pressed("crouch") == false:
+func stand_up() -> void:
+	if PRONE_SHAPECAST.is_colliding() == false and Input.is_action_pressed("prone") == false:
 		animations.play("BasicMovement/Idle_Crouching", -1.0, -CROUCHING_SPEED * 1.5, true)
 		parent.COLLIDER_ANIMATOR.play("Collider_crouch", -1.0, -CROUCHING_SPEED * 1.5, true)
 		if animations.is_playing():
 			await animations.animation_finished
 		transition.emit("IdleHumanState")
-	elif CROUCH_SHAPECAST.is_colliding() == true:
+	elif PRONE_SHAPECAST.is_colliding() == true:
 		await get_tree().create_timer(0.1).timeout
-		uncrouch()
+		stand_up()
