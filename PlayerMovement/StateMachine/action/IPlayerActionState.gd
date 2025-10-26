@@ -5,7 +5,7 @@ signal transition(new_state_name: StringName)
 var animations: AnimationPlayer
 var parent: CharacterBody3D
 
-func can_transition_to_locomotion(next_state: Script) -> bool:
+func can_transition_to_locomotion(next_state: IPlayerLocomotionState) -> bool:
 	return false;
 
 func enter(previous_state: IPlayerActionState) -> void:

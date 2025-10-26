@@ -6,7 +6,6 @@ class_name PlayerLocomotionStateMachine extends Node
 
 var _states: Dictionary = {}
 
-# Allows for manual state machine setup with parent and animations injection - TODO: consider for later
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IPlayerLocomotionState:
@@ -15,7 +14,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 			child.animations = animations
 			child.transition.connect(on_state_transition)
 		else:
-			push_warning("State machine contains incompatibile child node")
+			push_warning("Player Locomotion State Machine contains incompatibile child node")
 	
 	CURRENT_STATE.enter(null)
 
