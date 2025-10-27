@@ -2,15 +2,13 @@ class_name PlayerStanceStateMachine extends Node
 
 @export var CURRENT_STATE: IPlayerStanceState
 
-@onready var player: CharacterBody3D = $".."
-
 var _states: Dictionary = {}
 
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IPlayerStanceState:
 			_states[child.name] = child
-			child.parent = player
+			child.parent = parent
 			child.animations = animations
 			child.transition.connect(on_state_transition)
 		else:
@@ -21,7 +19,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 
 func _process(delta: float) -> void:
 	CURRENT_STATE.update(delta)
-	Global.debug_panel.add_property("Current State", CURRENT_STATE.name, 1)
+	Global.debug_panel.add_property("Current stance state", CURRENT_STATE.name, 1)
 
 
 func _physics_process(delta: float) -> void:

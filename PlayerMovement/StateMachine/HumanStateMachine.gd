@@ -3,7 +3,7 @@ extends Node
 
 @export var CURRENT_STATE: IMovementState
 
-@onready var player: CharacterBody3D = $".."
+#@onready var player: CharacterBody3D = $".."
 
 var _states: Dictionary = {}
 
@@ -12,7 +12,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IMovementState:
 			_states[child.name] = child
-			child.parent = player
+			child.parent = parent
 			child.animations = animations
 			child.transition.connect(on_state_transition)
 		else:

@@ -1,14 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=21 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
 [ext_resource type="PackedScene" uid="uid://dhjiyo6ylq7of" path="res://PlayerMovement/Model/PlayerModel.tscn" id="3_avma8"]
 [ext_resource type="Script" uid="uid://crjt1v4v0copo" path="res://UI/Scripts/debug_panel.gd" id="5_82ajl"]
-[ext_resource type="Script" uid="uid://dbntyxnin7ehf" path="res://PlayerMovement/StateMachine/HumanStateMachine.gd" id="5_bbrjv"]
-[ext_resource type="Script" uid="uid://bi1r24gp73pr0" path="res://PlayerMovement/StateMachine/states/IdleHumanState.gd" id="6_yju4o"]
-[ext_resource type="Script" uid="uid://dsgu5s7y6fysw" path="res://PlayerMovement/StateMachine/states/WalkingPlayerState.gd" id="7_yju4o"]
-[ext_resource type="Script" uid="uid://du1ln4petd2yv" path="res://PlayerMovement/StateMachine/states/SprintingHumanState.gd" id="8_o10o4"]
-[ext_resource type="Script" uid="uid://bql0enuu3mt47" path="res://PlayerMovement/StateMachine/states/CrouchingHumanState.gd" id="9_bsfjo"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="10_27lir"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="10_l5h7t"]
 [ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/action/IdleState.gd" id="11_j4jp5"]
@@ -130,33 +125,19 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="HumanStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("5_bbrjv")
-CURRENT_STATE = NodePath("IdleHumanState")
-
-[node name="IdleHumanState" type="Node" parent="HumanStateMachine"]
-script = ExtResource("6_yju4o")
-
-[node name="WalkingHumanState" type="Node" parent="HumanStateMachine"]
-script = ExtResource("7_yju4o")
-
-[node name="SprintingHumanState" type="Node" parent="HumanStateMachine"]
-script = ExtResource("8_o10o4")
-
-[node name="CrouchingHumanState" type="Node" parent="HumanStateMachine"]
-script = ExtResource("9_bsfjo")
-
 [node name="PlayerStateManager" type="Node" parent="."]
 script = ExtResource("10_l5h7t")
 
-[node name="ActionStateMachine" type="Node" parent="PlayerStateManager"]
+[node name="ActionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("10_27lir")
+CURRENT_STATE = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine"]
 script = ExtResource("11_j4jp5")
 
-[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager"]
+[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("12_kqnj3")
+CURRENT_STATE = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("13_i3cqh")
@@ -167,8 +148,9 @@ script = ExtResource("14_fjple")
 [node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("15_cc3pe")
 
-[node name="StanceStateMachine" type="Node" parent="PlayerStateManager"]
+[node name="StanceStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("16_8igi7")
+CURRENT_STATE = NodePath("StandingState")
 
 [node name="CrouchingState" type="Node" parent="PlayerStateManager/StanceStateMachine"]
 script = ExtResource("17_l5h7t")

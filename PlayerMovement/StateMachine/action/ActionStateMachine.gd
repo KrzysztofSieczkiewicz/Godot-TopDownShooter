@@ -2,26 +2,25 @@ class_name PlayerActionStateMachine extends Node
 
 @export var CURRENT_STATE: IPlayerActionState
 
-@onready var player: CharacterBody3D = $".."
-
 var _states: Dictionary = {}
 
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IPlayerActionState:
 			_states[child.name] = child
-			child.parent = player
+			child.parent = parent
 			child.animations = animations
 			child.transition.connect(on_state_transition)
 		else:
 			push_warning("Player Action State Machine contains incompatibile child node")
 	
 	CURRENT_STATE.enter(null)
+	# TODO:  IMPLEMENT THIS METHOD IN THE ACTION STATES!
 
 
 func _process(delta: float) -> void:
 	CURRENT_STATE.update(delta)
-	Global.debug_panel.add_property("Current State", CURRENT_STATE.name, 1)
+	Global.debug_panel.add_property("Current action state", CURRENT_STATE.name, 2)
 
 
 func _physics_process(delta: float) -> void:
