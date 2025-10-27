@@ -14,9 +14,9 @@ func update(delta: float):
 	
 	adjust_animation_speed(parent.velocity.length())
 	if Input.is_action_just_released("move_sprint"):
-		transition.emit("WalkingHumanState")
+		transition.emit("WalkingState")
 	if parent.velocity.length() == 0:
-		transition.emit("IdleHumanState")
+		transition.emit("IdleState")
 
 func exit() -> void: 
 	animations.speed_scale = 1.0
