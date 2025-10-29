@@ -15,7 +15,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	locomotion_state_machine.init(self, parent, animations)
 
 
-func can_transition_to_locomotion(new_locomotion_state: IPlayerLocomotionState) -> bool:
+func can_transition_to_locomotion(new_locomotion_state: StringName) -> bool:
 	if not stance_state_machine.CURRENT_STATE.can_transition_to_locomotion(new_locomotion_state):
 		return false
 	if not action_state_machine.CURRENT_STATE.can_transition_to_locomotion(new_locomotion_state):

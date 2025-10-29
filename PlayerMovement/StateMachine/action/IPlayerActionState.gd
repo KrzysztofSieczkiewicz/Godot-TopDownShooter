@@ -6,8 +6,8 @@ var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
 
-func can_transition_to_locomotion(next_state: IPlayerLocomotionState) -> bool:
-	return false;
+func can_transition_to_locomotion(next_state: StringName) -> bool:
+	return true;
 
 func enter(previous_state: IPlayerActionState) -> void:
 	pass

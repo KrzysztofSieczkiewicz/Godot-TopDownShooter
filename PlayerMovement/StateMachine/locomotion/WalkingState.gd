@@ -16,7 +16,7 @@ func update(delta: float):
 	
 	if parent.velocity.length() == 0:
 		transition.emit("IdleState")
-	if Input.is_action_pressed("move_sprint"):
+	if Input.is_action_pressed("move_sprint") and stateManager.can_transition_to_locomotion("SprintingState"):
 		transition.emit("SprintingState")
 	
 func exit() -> void: 

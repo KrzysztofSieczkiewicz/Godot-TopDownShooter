@@ -7,6 +7,12 @@ class_name PlayerStanceCrouchingState extends IPlayerStanceState
 
 @onready var CROUCH_SHAPECAST: ShapeCast3D = $"../../../ShapeCast3D"
 
+func can_transition_to_locomotion(next_state: StringName) -> bool:
+	if next_state == "SprintingState":
+		return false
+	else:
+		return true
+		
 func update(delta: float):
 	parent.update_gravity(delta)
 	parent.update_input(SPEED, ACCELERATION, DECELERATION)

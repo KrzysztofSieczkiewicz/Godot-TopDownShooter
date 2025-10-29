@@ -6,11 +6,11 @@ var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
 
-func can_transition_to_locomotion(next_state: IPlayerLocomotionState) -> bool:
-	return false;
+func can_transition_to_locomotion(next_state: StringName) -> bool:
+	return true;
 	
 func can_transition_to_action(next_state: IPlayerActionState) -> bool:
-	return false;
+	return true;
 
 func enter(previous_state: IPlayerStanceState) -> void:
 	pass
