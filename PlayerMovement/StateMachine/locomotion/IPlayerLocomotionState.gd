@@ -4,6 +4,7 @@ signal transition(new_state_name: StringName)
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D
+var stateManager: PlayerStateManager
 
 func enter(previous_state: IPlayerLocomotionState) -> void:
 	pass

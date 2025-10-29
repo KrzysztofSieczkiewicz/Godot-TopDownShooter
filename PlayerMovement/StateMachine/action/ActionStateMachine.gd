@@ -4,10 +4,11 @@ class_name PlayerActionStateMachine extends Node
 
 var _states: Dictionary = {}
 
-func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
+func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IPlayerActionState:
 			_states[child.name] = child
+			child.stateManager = stateManager
 			child.parent = parent
 			child.animations = animations
 			child.transition.connect(on_state_transition)

@@ -147,6 +147,9 @@ script = ExtResource("14_fjple")
 
 [node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("15_cc3pe")
+SPEED = null
+ACCELERATION = null
+DECELERATION = null
 
 [node name="StanceStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("16_8igi7")
