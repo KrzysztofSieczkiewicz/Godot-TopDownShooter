@@ -4,6 +4,9 @@ var stance_state_machine: PlayerStanceStateMachine
 var action_state_machine: PlayerActionStateMachine
 var locomotion_state_machine: PlayerLocomotionStateMachine
 
+# TODO:
+# - make walking toggleable instead of pressable
+
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	stance_state_machine = $StanceStateMachine
 	stance_state_machine.init(self, parent, animations)

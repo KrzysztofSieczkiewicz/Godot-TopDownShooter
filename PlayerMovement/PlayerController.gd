@@ -9,7 +9,6 @@ extends CharacterBody3D
 
 @onready var model = $Model as PlayerModel
 @onready var visuals = $Visuals as PlayerVisuals
-#@onready var stateMachine = $HumanStateMachine
 @onready var stateManager = $PlayerStateManager
 
 @onready var COLLIDER_ANIMATOR = $ColliderAnimator ### TODO: Collider animator will be removed later on -> the solution will be to create 3D collision shape matching the character skeleton and then deform them using Character skeleton via RemoteTransform3D or BoneAttachment
@@ -26,8 +25,8 @@ func _ready() -> void:
 	visuals.accept_skeleton(model.skeleton) # Tie visuals mesh/skin with model skeleton
 	CROUCH_SHAPECAST.add_exception($'.') # Exclude player from crouching collision detection
 	
-	#stateMachine.init(self, model.animator) # Initialize state machine with player and animator reference
-	stateManager.init(self, model.animator);
+	#stateMachine.init(self, model.animator) 
+	stateManager.init(self, model.animator); # Initialize state machine with player and animator reference TODO: drop animator reference
 
 
 func _physics_process(delta: float) -> void:

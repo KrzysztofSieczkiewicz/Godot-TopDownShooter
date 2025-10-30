@@ -1,6 +1,6 @@
 class_name PlayerLocomotionIdleState extends IPlayerLocomotionState
 
-@export var SPEED: float = 5.0
+@export var SPEED: float = 3.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
 
@@ -13,4 +13,10 @@ func update(delta: float):
 	parent.update_velocity()
 	
 	if parent.velocity.length() > 0.0 and parent.is_on_floor():
-		transition.emit("WalkingState")
+		if Input.is_action_pressed("move_walk"):
+			transition.emit("WalkingState")
+		elif Input.is_action_pressed("move_sprint"):
+			transition.emit("SprintingState")
+		else:
+			transition.emit("RunningState")
+	
