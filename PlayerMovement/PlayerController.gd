@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+# TODO:
+# - create Animator to handle the input from state machines
+# - handle movement speed outside of state machines
+
 @export var SPEED_DEFAULT: float = 5.0
 @export var SPEED_CROUCHED: float = 2.0
 @export var SPEED_SPRINTING: float = 9.0
@@ -25,7 +29,6 @@ func _ready() -> void:
 	visuals.accept_skeleton(model.skeleton) # Tie visuals mesh/skin with model skeleton
 	CROUCH_SHAPECAST.add_exception($'.') # Exclude player from crouching collision detection
 	
-	#stateMachine.init(self, model.animator) 
 	stateManager.init(self, model.animator); # Initialize state machine with player and animator reference TODO: drop animator reference
 
 

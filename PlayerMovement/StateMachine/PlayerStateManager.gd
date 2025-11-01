@@ -6,6 +6,8 @@ var locomotion_state_machine: PlayerLocomotionStateMachine
 
 # TODO:
 # - make walking toggleable instead of pressable
+# - make a common method to check condition and emit transition to simplify transition logic in locomotion machine
+# - implement interruptions to states
 
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	stance_state_machine = $StanceStateMachine

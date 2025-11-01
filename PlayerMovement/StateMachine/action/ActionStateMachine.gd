@@ -16,7 +16,6 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 			push_warning("Player Action State Machine contains incompatibile child node")
 	
 	CURRENT_STATE.enter(null)
-	# TODO:  IMPLEMENT THIS METHOD IN THE ACTION STATES!
 
 
 func _process(delta: float) -> void:
