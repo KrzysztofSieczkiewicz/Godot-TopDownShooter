@@ -2,12 +2,11 @@ class_name IPlayerActionState extends Node
 
 signal transition(new_state_name: StringName)
 
+@export var locomotion_state: IPlayerLocomotionState
+
 var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
-
-func can_transition_to_locomotion(next_state: StringName) -> bool:
-	return true;
 
 func enter(previous_state: IPlayerActionState) -> void:
 	pass

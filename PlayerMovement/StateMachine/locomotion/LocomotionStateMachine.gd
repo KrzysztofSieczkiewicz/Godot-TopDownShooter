@@ -38,3 +38,9 @@ func on_state_transition(new_state_name: StringName) -> void:
 		CURRENT_STATE.exit()
 		new_state.enter(CURRENT_STATE)
 		CURRENT_STATE = new_state
+
+func switch_to(new_state: IPlayerLocomotionState):
+	if new_state != CURRENT_STATE:
+		CURRENT_STATE.exit()
+		new_state.enter(CURRENT_STATE)
+		CURRENT_STATE = new_state

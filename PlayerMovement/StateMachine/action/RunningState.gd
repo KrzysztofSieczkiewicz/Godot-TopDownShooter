@@ -1,12 +1,12 @@
-class_name PlayerLocomotionRunningState extends IPlayerLocomotionState
+class_name PlayerActionRunningState extends IPlayerActionState
 
 @export var SPEED: float = 7.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.25
-"""
-func enter(previous_state: IPlayerLocomotionState) -> void:
-	animations.play("BasicMovement/Sprinting")
 
+func enter(IPlayerActionState):
+	animations.play("BasicMovement/Sprinting")
+	stateManager.switch_locomotion_to(locomotion_state)
 
 func update(delta: float):
 	parent.update_gravity(delta)
@@ -28,4 +28,3 @@ func exit() -> void:
 func adjust_animation_speed(speed: float) -> void:
 	var alpha = remap(speed, 0.0, SPEED, 0.0, 1.0)
 	animations.speed_scale = lerp(0.0, 1.0, alpha)
-"""

@@ -15,3 +15,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	
 	locomotion_state_machine = $LocomotionStateMachine
 	locomotion_state_machine.init(self, parent, animations)
+
+func switch_locomotion_to(new_locomotion: IPlayerLocomotionState):
+	if locomotion_state_machine:
+		locomotion_state_machine.switch_to(new_locomotion)

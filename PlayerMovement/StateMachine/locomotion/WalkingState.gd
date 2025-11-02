@@ -1,5 +1,5 @@
 class_name PlayerLocomotionWalkingState extends IPlayerLocomotionState
-
+"""
 @export var SPEED: float = 3.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
@@ -27,3 +27,4 @@ func exit() -> void:
 func adjust_animation_speed(speed: float) -> void:
 	var alpha = remap(speed, 0.0, SPEED, 0.0, 1.0)
 	animations.speed_scale = lerp(0.0, 1.0, alpha)
+"""

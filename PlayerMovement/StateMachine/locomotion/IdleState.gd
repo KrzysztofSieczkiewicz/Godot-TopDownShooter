@@ -3,7 +3,7 @@ class_name PlayerLocomotionIdleState extends IPlayerLocomotionState
 @export var SPEED: float = 3.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
-
+"""
 func enter(previous_state: IPlayerLocomotionState) -> void:
 	animations.play("BasicMovement/Idle")
 
@@ -19,4 +19,4 @@ func update(delta: float):
 			transition.emit("SprintingState")
 		else:
 			transition.emit("RunningState")
-	
+"""
