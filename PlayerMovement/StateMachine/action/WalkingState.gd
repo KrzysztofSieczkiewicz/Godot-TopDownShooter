@@ -21,6 +21,8 @@ func update(delta: float):
 		transition.emit("RunningState")
 	if Input.is_action_pressed("move_sprint"):
 		transition.emit("SprintingState")
+	if Input.is_action_just_pressed("shoot"):
+		transition.emit("ShootingState")
 	
 func exit() -> void: 
 	animations.speed_scale = 1.0

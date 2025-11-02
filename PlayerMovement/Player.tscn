@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=22 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/action/SprintingState.gd" id="9_q5v5q"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="10_27lir"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="10_l5h7t"]
+[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/action/ShootingState.gd" id="11_fjple"]
 [ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/locomotion/RunningState.gd" id="11_i3cqh"]
 [ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/action/IdleState.gd" id="11_j4jp5"]
 [ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/locomotion/LocomotionStateMachine.gd" id="12_kqnj3"]
@@ -147,6 +148,10 @@ locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
 [node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("9_q5v5q")
 locomotion_state = NodePath("../../LocomotionStateMachine/SprintingState")
+
+[node name="ShootingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("11_fjple")
+locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
 
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("12_kqnj3")

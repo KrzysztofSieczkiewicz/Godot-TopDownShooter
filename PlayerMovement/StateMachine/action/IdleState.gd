@@ -20,4 +20,5 @@ func update(delta: float):
 			transition.emit("SprintingState")
 		else:
 			transition.emit("RunningState")
-		
+	if Input.is_action_just_pressed("shoot"):
+		transition.emit("ShootingState")

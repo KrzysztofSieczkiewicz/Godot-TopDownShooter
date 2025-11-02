@@ -1,12 +1,12 @@
-class_name PlayerActionSprintingState extends IPlayerActionState
+class_name PlayerActionShootingState extends IPlayerActionState
 
-@export var SPEED: float = 10.0
+
+@export var SPEED: float = 5.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.25
 
-func enter(previous_state: IPlayerActionState) -> void:
+func enter(IPlayerActionState):
 	animations.play("BasicMovement/Sprinting")
-	stateManager.switch_locomotion_to(locomotion_state)
 
 func update(delta: float):
 	parent.update_gravity(delta)
@@ -15,12 +15,10 @@ func update(delta: float):
 	
 	adjust_animation_speed(parent.velocity.length())
 	
-	if Input.is_action_just_released("move_sprint"):
-		transition.emit("RunningState")
-	if parent.velocity.length() == 0:
+	if Input.is_action_just_pressed("move_walk"):
+		transition.emit("WalkingState")
+	if Input.is_action_just_released("shoot"):
 		transition.emit("IdleState")
-	if Input.is_action_just_pressed("shoot"):
-		transition.emit("ShootingState")
 
 func exit() -> void: 
 	animations.speed_scale = 1.0
