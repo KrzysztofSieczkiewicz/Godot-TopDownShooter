@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=20 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
 [ext_resource type="PackedScene" uid="uid://dhjiyo6ylq7of" path="res://PlayerMovement/Model/PlayerModel.tscn" id="3_avma8"]
 [ext_resource type="Script" uid="uid://crjt1v4v0copo" path="res://UI/Scripts/debug_panel.gd" id="5_82ajl"]
+[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/action/ShootingState.gd" id="8_ee8pb"]
+[ext_resource type="Script" uid="uid://ddkt7xn50ggk1" path="res://PlayerMovement/StateMachine/action/ReloadingState.gd" id="9_q5v5q"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="10_27lir"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="10_l5h7t"]
 [ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/locomotion/RunningState.gd" id="11_i3cqh"]
@@ -12,10 +14,6 @@
 [ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/locomotion/IdleState.gd" id="13_i3cqh"]
 [ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/locomotion/WalkingState.gd" id="14_fjple"]
 [ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/locomotion/SprintingState.gd" id="15_cc3pe"]
-[ext_resource type="Script" uid="uid://c4anw2d6tkswg" path="res://PlayerMovement/StateMachine/stance/StanceStateMachine.gd" id="16_8igi7"]
-[ext_resource type="Script" uid="uid://bsgosom2mpq2w" path="res://PlayerMovement/StateMachine/stance/CrouchingState.gd" id="17_l5h7t"]
-[ext_resource type="Script" uid="uid://dvlxlwg8jppbc" path="res://PlayerMovement/StateMachine/stance/StandingState.gd" id="18_luibq"]
-[ext_resource type="Script" uid="uid://c3f46ldqd52cx" path="res://PlayerMovement/StateMachine/stance/ProneState.gd" id="19_127vv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aotyi"]
 radius = 0.206416
@@ -136,6 +134,12 @@ CURRENT_STATE = NodePath("IdleState")
 [node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine"]
 script = ExtResource("11_j4jp5")
 
+[node name="ShootingState" type="Node" parent="PlayerStateManager/ActionStateMachine"]
+script = ExtResource("8_ee8pb")
+
+[node name="ReloadingState" type="Node" parent="PlayerStateManager/ActionStateMachine"]
+script = ExtResource("9_q5v5q")
+
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("12_kqnj3")
 CURRENT_STATE = NodePath("IdleState")
@@ -151,16 +155,3 @@ script = ExtResource("11_i3cqh")
 
 [node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("15_cc3pe")
-
-[node name="StanceStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("16_8igi7")
-CURRENT_STATE = NodePath("StandingState")
-
-[node name="CrouchingState" type="Node" parent="PlayerStateManager/StanceStateMachine"]
-script = ExtResource("17_l5h7t")
-
-[node name="StandingState" type="Node" parent="PlayerStateManager/StanceStateMachine"]
-script = ExtResource("18_luibq")
-
-[node name="ProneState" type="Node" parent="PlayerStateManager/StanceStateMachine"]
-script = ExtResource("19_127vv")

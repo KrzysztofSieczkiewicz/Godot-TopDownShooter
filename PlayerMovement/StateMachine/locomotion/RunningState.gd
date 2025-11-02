@@ -14,9 +14,9 @@ func update(delta: float):
 	
 	adjust_animation_speed(parent.velocity.length())
 	
-	if Input.is_action_just_pressed("move_walk") and stateManager.can_transition_to_locomotion("WalkingState"):
+	if Input.is_action_just_pressed("move_walk"):
 		transition.emit("WalkingState")
-	elif Input.is_action_pressed("move_sprint") and stateManager.can_transition_to_locomotion("SprintingState"):
+	elif Input.is_action_pressed("move_sprint"):
 		transition.emit("SprintingState")
 	if parent.velocity.length() == 0:
 		transition.emit("IdleState")
