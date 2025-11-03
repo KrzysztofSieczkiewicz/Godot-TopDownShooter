@@ -1,21 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene load_steps=11 format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://PlayerMovement/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://PlayerMovement/PlayerController.gd" id="1_xg7mr"]
 [ext_resource type="PackedScene" uid="uid://dhjiyo6ylq7of" path="res://PlayerMovement/Model/PlayerModel.tscn" id="3_avma8"]
 [ext_resource type="Script" uid="uid://crjt1v4v0copo" path="res://UI/Scripts/debug_panel.gd" id="5_82ajl"]
-[ext_resource type="Script" uid="uid://dh5ie515ufhym" path="res://PlayerMovement/StateMachine/action/RunningState.gd" id="8_ee8pb"]
-[ext_resource type="Script" uid="uid://cfmq0rw1w8t12" path="res://PlayerMovement/StateMachine/action/WalkingState.gd" id="8_kqnj3"]
-[ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/action/SprintingState.gd" id="9_q5v5q"]
-[ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="10_27lir"]
-[ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="10_l5h7t"]
-[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/action/ShootingState.gd" id="11_fjple"]
-[ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/locomotion/RunningState.gd" id="11_i3cqh"]
-[ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/action/IdleState.gd" id="11_j4jp5"]
-[ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/locomotion/LocomotionStateMachine.gd" id="12_kqnj3"]
-[ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/locomotion/IdleState.gd" id="13_i3cqh"]
-[ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/locomotion/WalkingState.gd" id="14_fjple"]
-[ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/locomotion/SprintingState.gd" id="15_cc3pe"]
+[ext_resource type="Script" uid="uid://cam6l33bone1w" path="res://PlayerMovement/Input/PlayerInputManager.gd" id="5_fjple"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aotyi"]
 radius = 0.206416
@@ -126,53 +115,5 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="PlayerStateManager" type="Node" parent="."]
-script = ExtResource("10_l5h7t")
-
-[node name="ActionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("10_27lir")
-CURRENT_STATE = NodePath("IdleState")
-
-[node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
-script = ExtResource("11_j4jp5")
-locomotion_state = NodePath("../../LocomotionStateMachine/IdleState")
-
-[node name="WalkingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
-script = ExtResource("8_kqnj3")
-locomotion_state = NodePath("../../LocomotionStateMachine/WalkingState")
-
-[node name="RunningState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
-script = ExtResource("8_ee8pb")
-locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
-
-[node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
-script = ExtResource("9_q5v5q")
-locomotion_state = NodePath("../../LocomotionStateMachine/SprintingState")
-
-[node name="ShootingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
-script = ExtResource("11_fjple")
-locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
-
-[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("12_kqnj3")
-CURRENT_STATE = NodePath("IdleState")
-
-[node name="IdleState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("13_i3cqh")
-
-[node name="WalkingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("14_fjple")
-
-[node name="RunningState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("11_i3cqh")
-
-[node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("15_cc3pe")
-
-[node name="LocomotionSubStates" type="Node" parent="PlayerStateManager"]
-
-[node name="WalkingStart" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
-
-[node name="Walking" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
-
-[node name="WalkingEnd" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("5_fjple")

@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=15 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
+[ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="3_lwy7e"]
+[ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="4_kqrvp"]
+[ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/action/IdleState.gd" id="5_1k8m6"]
+[ext_resource type="Script" uid="uid://cfmq0rw1w8t12" path="res://PlayerMovement/StateMachine/action/WalkingState.gd" id="6_ntpte"]
+[ext_resource type="Script" uid="uid://dh5ie515ufhym" path="res://PlayerMovement/StateMachine/action/RunningState.gd" id="7_188il"]
+[ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/action/SprintingState.gd" id="8_2wu2n"]
+[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/action/ShootingState.gd" id="9_oipb4"]
+[ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/locomotion/LocomotionStateMachine.gd" id="10_qhqfm"]
+[ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/locomotion/IdleState.gd" id="11_b8dup"]
+[ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/locomotion/WalkingState.gd" id="12_krj2v"]
+[ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/locomotion/RunningState.gd" id="13_ivf6u"]
+[ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/locomotion/SprintingState.gd" id="14_jdfjo"]
 
 [node name="Model" type="Node3D"]
 script = ExtResource("1_7p8wh")
@@ -468,3 +480,54 @@ bones/64/scale = Vector3(1, 1, 1)
 libraries = {
 &"BasicMovement": ExtResource("2_lfejn")
 }
+
+[node name="PlayerStateManager" type="Node" parent="."]
+script = ExtResource("3_lwy7e")
+
+[node name="ActionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("4_kqrvp")
+CURRENT_STATE = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("5_1k8m6")
+locomotion_state = NodePath("../../LocomotionStateMachine/IdleState")
+
+[node name="WalkingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("6_ntpte")
+locomotion_state = NodePath("../../LocomotionStateMachine/WalkingState")
+
+[node name="RunningState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("7_188il")
+locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
+
+[node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("8_2wu2n")
+locomotion_state = NodePath("../../LocomotionStateMachine/SprintingState")
+
+[node name="ShootingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
+script = ExtResource("9_oipb4")
+locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
+
+[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("10_qhqfm")
+CURRENT_STATE = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
+script = ExtResource("11_b8dup")
+
+[node name="WalkingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
+script = ExtResource("12_krj2v")
+
+[node name="RunningState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
+script = ExtResource("13_ivf6u")
+
+[node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
+script = ExtResource("14_jdfjo")
+
+[node name="LocomotionSubStates" type="Node" parent="PlayerStateManager"]
+
+[node name="WalkingStart" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
+
+[node name="Walking" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
+
+[node name="WalkingEnd" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
