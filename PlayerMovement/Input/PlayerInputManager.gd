@@ -1,11 +1,11 @@
 class_name PlayerInputManager extends Node
 
-func detect_input() -> InputPackage:
-	var new_input = InputPackage.new()
+func detect_input() -> PlayerInput:
+	var new_input = PlayerInput.new()
 	
 	new_input.locomotion_actions.append("idle")
 	
-	new_input.input_direction = Input.get_vector("left", "right", "forward", "backward")
+	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if new_input.input_direction != Vector2.ZERO:
 		new_input.locomotion_actions.append("run")
 		if Input.is_action_pressed("move_sprint"):

@@ -1,5 +1,5 @@
 extends Node
-class_name InputPackage
+class_name PlayerInput
 
 var locomotion_actions: Array[String]
 

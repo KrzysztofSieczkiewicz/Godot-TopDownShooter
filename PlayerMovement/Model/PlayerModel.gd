@@ -19,5 +19,5 @@ func _ready() -> void:
 	
 	current_move = moves["idle"]
 
-func update(input: InputPackage, delta: float) -> void:
+func update(input: PlayerInput, delta: float) -> void:
 	pass
