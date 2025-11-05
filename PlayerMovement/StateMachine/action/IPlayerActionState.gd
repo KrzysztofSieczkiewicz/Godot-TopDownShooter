@@ -3,6 +3,7 @@ class_name IPlayerActionState extends Node
 signal transition(new_state_name: StringName)
 
 @export var locomotion_state: IPlayerLocomotionState
+@export var locomotion_constraint: ILocomotionConstraint
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D

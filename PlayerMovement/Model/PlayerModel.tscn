@@ -1,19 +1,41 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=22 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="3_lwy7e"]
-[ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/action/ActionStateMachine.gd" id="4_kqrvp"]
-[ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/action/IdleState.gd" id="5_1k8m6"]
-[ext_resource type="Script" uid="uid://cfmq0rw1w8t12" path="res://PlayerMovement/StateMachine/action/WalkingState.gd" id="6_ntpte"]
-[ext_resource type="Script" uid="uid://dh5ie515ufhym" path="res://PlayerMovement/StateMachine/action/RunningState.gd" id="7_188il"]
-[ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/action/SprintingState.gd" id="8_2wu2n"]
-[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/action/ShootingState.gd" id="9_oipb4"]
-[ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/locomotion/LocomotionStateMachine.gd" id="10_qhqfm"]
-[ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/locomotion/IdleState.gd" id="11_b8dup"]
-[ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/locomotion/WalkingState.gd" id="12_krj2v"]
-[ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/locomotion/RunningState.gd" id="13_ivf6u"]
-[ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/locomotion/SprintingState.gd" id="14_jdfjo"]
+[ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/Action/ActionStateMachine.gd" id="4_kqrvp"]
+[ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/Action/IdleState.gd" id="5_1k8m6"]
+[ext_resource type="Script" uid="uid://cfmq0rw1w8t12" path="res://PlayerMovement/StateMachine/Action/WalkingState.gd" id="6_ntpte"]
+[ext_resource type="Script" uid="uid://dh5ie515ufhym" path="res://PlayerMovement/StateMachine/Action/RunningState.gd" id="7_188il"]
+[ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/Action/SprintingState.gd" id="8_2wu2n"]
+[ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/Action/ShootingState.gd" id="9_oipb4"]
+[ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/Locomotion/LocomotionStateMachine.gd" id="10_qhqfm"]
+[ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/Locomotion/IdleState.gd" id="11_b8dup"]
+[ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/Locomotion/WalkingState.gd" id="12_krj2v"]
+[ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/Locomotion/RunningState.gd" id="13_ivf6u"]
+[ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/Locomotion/SprintingState.gd" id="14_jdfjo"]
+[ext_resource type="Script" uid="uid://qjq57ok6pfk1" path="res://PlayerMovement/StateMachine/LocomotionConstraint/FullLocomotionConstraint.gd" id="16_1k8m6"]
+[ext_resource type="Script" uid="uid://cci81v2kf8rgk" path="res://PlayerMovement/StateMachine/LocomotionConstraint/ImmobileConstraint.gd" id="18_188il"]
+
+[sub_resource type="Resource" id="Resource_1k8m6"]
+script = ExtResource("16_1k8m6")
+metadata/_custom_type_script = "uid://qjq57ok6pfk1"
+
+[sub_resource type="Resource" id="Resource_ntpte"]
+script = ExtResource("16_1k8m6")
+metadata/_custom_type_script = "uid://qjq57ok6pfk1"
+
+[sub_resource type="Resource" id="Resource_188il"]
+script = ExtResource("16_1k8m6")
+metadata/_custom_type_script = "uid://qjq57ok6pfk1"
+
+[sub_resource type="Resource" id="Resource_2wu2n"]
+script = ExtResource("16_1k8m6")
+metadata/_custom_type_script = "uid://qjq57ok6pfk1"
+
+[sub_resource type="Resource" id="Resource_oipb4"]
+script = ExtResource("18_188il")
+metadata/_custom_type_script = "uid://cci81v2kf8rgk"
 
 [node name="Model" type="Node3D"]
 script = ExtResource("1_7p8wh")
@@ -491,22 +513,27 @@ CURRENT_STATE = NodePath("IdleState")
 [node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("5_1k8m6")
 locomotion_state = NodePath("../../LocomotionStateMachine/IdleState")
+locomotion_constraint = SubResource("Resource_1k8m6")
 
 [node name="WalkingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("6_ntpte")
 locomotion_state = NodePath("../../LocomotionStateMachine/WalkingState")
+locomotion_constraint = SubResource("Resource_ntpte")
 
 [node name="RunningState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("7_188il")
 locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
+locomotion_constraint = SubResource("Resource_188il")
 
 [node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("8_2wu2n")
 locomotion_state = NodePath("../../LocomotionStateMachine/SprintingState")
+locomotion_constraint = SubResource("Resource_2wu2n")
 
 [node name="ShootingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state")]
 script = ExtResource("9_oipb4")
 locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
+locomotion_constraint = SubResource("Resource_oipb4")
 
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("10_qhqfm")
@@ -532,12 +559,10 @@ script = ExtResource("14_jdfjo")
 
 [node name="WalkingEnd" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
 
-[node name="LocomotionBehaviours" type="Node" parent="PlayerStateManager"]
+[node name="LocomotionConstraints" type="Node" parent="PlayerStateManager"]
 
-[node name="Full" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
+[node name="Full" type="Node" parent="PlayerStateManager/LocomotionConstraints"]
+script = ExtResource("16_1k8m6")
 
-[node name="Running" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
-
-[node name="Walking" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
-
-[node name="Immobile" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
+[node name="Immobile" type="Node" parent="PlayerStateManager/LocomotionConstraints"]
+script = ExtResource("18_188il")
