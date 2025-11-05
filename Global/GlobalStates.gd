@@ -1,5 +1,7 @@
 extends Node
 
+# TODO: delete
+
 enum HumanoidStates {
 	IDLE,
 	WALK,

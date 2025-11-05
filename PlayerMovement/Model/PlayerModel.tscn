@@ -531,3 +531,13 @@ script = ExtResource("14_jdfjo")
 [node name="Walking" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
 
 [node name="WalkingEnd" type="Node" parent="PlayerStateManager/LocomotionSubStates"]
+
+[node name="LocomotionBehaviours" type="Node" parent="PlayerStateManager"]
+
+[node name="Full" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
+
+[node name="Running" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
+
+[node name="Walking" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
+
+[node name="Immobile" type="Node" parent="PlayerStateManager/LocomotionBehaviours"]
