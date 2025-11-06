@@ -18,8 +18,8 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 	CURRENT_STATE.enter(null)
 
 
-func _process(delta: float) -> void:
-	CURRENT_STATE.update(delta)
+func update(input: PlayerInput, delta: float) -> void:
+	CURRENT_STATE.update(input, delta)
 	Global.debug_panel.add_property("Current action state", CURRENT_STATE.name, 2)
 
 

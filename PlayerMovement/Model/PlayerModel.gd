@@ -11,7 +11,7 @@ var current_move: IPlayerActionState
 	"walk": $PlayerStateManager/ActionStateMachine/WalkingState,
 	"run": $PlayerStateManager/ActionStateMachine/RunningState,
 	"sprint": $PlayerStateManager/ActionStateMachine/SprintingState,
-	"shoot": $PlayerStateManager/ActionStateMachine/ShootingState
+	"weapon": $PlayerStateManager/ActionStateMachine/WeaponState
 }
 
 func _ready() -> void:
@@ -20,4 +20,4 @@ func _ready() -> void:
 	current_move = moves["idle"]
 
 func update(input: PlayerInput, delta: float) -> void:
-	pass
+	state_manager.action_state_machine.update(input, delta)

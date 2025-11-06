@@ -8,22 +8,26 @@ func enter(previous_state: IPlayerActionState) -> void:
 	animations.play("BasicMovement/Walking")
 	stateManager.switch_locomotion_to(locomotion_state)
 
-func update(delta: float):
+
+func update(input: PlayerInput, delta: float):
 	parent.update_gravity(delta)
 	parent.update_input(SPEED, ACCELERATION, DECELERATION)
 	parent.update_velocity()
 	
 	adjust_animation_speed(parent.velocity.length())
 	
-	if parent.velocity.length() == 0:
+	if input.locomotion_actions.has("shoot"):
+		transition.emit("WeaponState")
+	elif parent.velocity.length() == 0:
 		transition.emit("IdleState")
-	if Input.is_action_just_released("move_walk"):
-		transition.emit("RunningState")
-	if Input.is_action_pressed("move_sprint"):
+	elif input.locomotion_actions.has("walk"):
+		return
+	elif input.locomotion_actions.has("sprint"):
 		transition.emit("SprintingState")
-	if Input.is_action_just_pressed("shoot"):
-		transition.emit("ShootingState")
-	
+	elif input.locomotion_actions.has("run"):
+		transition.emit("RunningState")
+
+
 func exit() -> void: 
 	animations.speed_scale = 1.0
 

@@ -31,9 +31,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input = input_manager.detect_input()
-	model.update(input, delta)
 	
+	model.update(input, delta)
 	input.queue_free()
+	
 	Global.debug_panel.add_property("Velocity", "%.2f" % velocity.length(), 1)
 
 func handle_look_at(intersection_data: Dictionary) -> void:

@@ -15,7 +15,7 @@ func enter(previous_state: IPlayerActionState) -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(input: PlayerInput, delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:

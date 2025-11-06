@@ -21,4 +21,8 @@ func detect_input() -> PlayerInput:
 		else: 
 			new_input.locomotion_actions.append("jump_run")
 	
+	#TODO - move this to combat actions later on
+	if Input.is_action_pressed('shoot'):
+		new_input.locomotion_actions.append("shoot")
+	
 	return new_input
