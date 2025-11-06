@@ -4,8 +4,9 @@ var action_state_machine: PlayerActionStateMachine
 var locomotion_state_machine: PlayerLocomotionStateMachine
 
 # TODO:
+# - consider how to implement roll as a locomotion state that is allowed in particular action states (e.g. holding weapon allows, but holding heavy weapon doesn't)
 # - make walking toggleable instead of pressable
-# - implement interruptions to states
+
 
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	action_state_machine = $ActionStateMachine
