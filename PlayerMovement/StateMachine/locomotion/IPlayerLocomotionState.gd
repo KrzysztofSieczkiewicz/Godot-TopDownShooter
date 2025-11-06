@@ -12,7 +12,7 @@ func enter(previous_state: IPlayerLocomotionState) -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(constraint: ILocomotionConstraint, delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:

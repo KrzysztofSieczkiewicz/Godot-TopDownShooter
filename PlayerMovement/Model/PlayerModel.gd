@@ -20,4 +20,4 @@ func _ready() -> void:
 	current_move = moves["idle"]
 
 func update(input: PlayerInput, delta: float) -> void:
-	state_manager.action_state_machine.update(input, delta)
+	state_manager.update(input, delta)

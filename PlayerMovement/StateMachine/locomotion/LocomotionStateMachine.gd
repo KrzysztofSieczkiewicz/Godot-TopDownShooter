@@ -17,12 +17,10 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 	
 	CURRENT_STATE.enter(null)
 
-
-func _process(delta: float) -> void:
-	CURRENT_STATE.update(delta)
-	Global.debug_panel.add_property("Current locomotion state", CURRENT_STATE.name, 3)
-
-
+func update(constraint: ILocomotionConstraint, delta: float) -> void:
+	CURRENT_STATE.update(constraint, delta)
+	Global.debug_panel.add_property("Current locomotion state", CURRENT_STATE.name, 2)
+	
 func _physics_process(delta: float) -> void:
 	CURRENT_STATE.physics_update(delta)
 
@@ -34,12 +32,6 @@ func on_state_transition(new_state_name: StringName) -> void:
 		push_warning("State '" + new_state_name + "' does not exist")
 		return
 	
-	if new_state != CURRENT_STATE:
-		CURRENT_STATE.exit()
-		new_state.enter(CURRENT_STATE)
-		CURRENT_STATE = new_state
-
-func switch_to(new_state: IPlayerLocomotionState):
 	if new_state != CURRENT_STATE:
 		CURRENT_STATE.exit()
 		new_state.enter(CURRENT_STATE)

@@ -6,7 +6,6 @@ class_name PlayerActionRunningState extends IPlayerActionState
 
 func enter(IPlayerActionState):
 	animations.play("BasicMovement/Sprinting")
-	stateManager.switch_locomotion_to(locomotion_state)
 
 func update(input: PlayerInput, delta: float):
 	parent.update_gravity(delta)

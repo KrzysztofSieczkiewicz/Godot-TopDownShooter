@@ -5,10 +5,7 @@ var locomotion_state_machine: PlayerLocomotionStateMachine
 
 # TODO:
 # - make walking toggleable instead of pressable
-# - make a common method to check condition and emit transition to simplify transition logic in locomotion machine
 # - implement interruptions to states
-# - remove this layer - currently the machines are not really parallel, 
-#	actions are determining the rest so the ActionsStateMachine should be on the top making this manager redundant
 
 func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	action_state_machine = $ActionStateMachine
@@ -18,8 +15,7 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	locomotion_state_machine.init(self, parent, animations)
 
 func update(input: PlayerInput, delta: float):
-	action_state_machine.CURRENT_STATE.update(input, delta)
-
-func switch_locomotion_to(new_locomotion: IPlayerLocomotionState):
-	if locomotion_state_machine:
-		locomotion_state_machine.switch_to(new_locomotion)
+	action_state_machine.update(input, delta)
+	var constraint = action_state_machine.CURRENT_STATE.locomotion_constraint;
+	constraint.filter_player_input(input) # TODO: shouldn't be explicitly called
+	locomotion_state_machine.update(constraint, delta)

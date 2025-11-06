@@ -5,9 +5,9 @@ class_name PlayerActionWeaponState extends IPlayerActionState
 @export var DECELERATION: float = 0.25
 
 func enter(IPlayerActionState):
-	#TODO: ADD HERE - read the currently equipped weapon and get it's current substate LocomotionConstraint -> then overwrite the current LocomotionConstraint
-	
+	#TODO: ADD HERE - read the currently equipped weapon and get it's current substate LocomotionConstraint -> then overwrite the current LocomotionConstraint	
 	animations.play("BasicMovement/Sprinting")
+
 
 func update(input: PlayerInput, delta: float):
 	parent.update_gravity(delta)

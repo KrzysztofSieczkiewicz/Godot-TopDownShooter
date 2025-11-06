@@ -490,29 +490,24 @@ script = ExtResource("3_lwy7e")
 script = ExtResource("4_kqrvp")
 CURRENT_STATE = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state", "locomotion_constraint")]
+[node name="IdleState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_constraint")]
 script = ExtResource("5_1k8m6")
-locomotion_state = NodePath("../../LocomotionStateMachine/IdleState")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Full")
 
-[node name="WalkingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state", "locomotion_constraint")]
+[node name="WalkingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_constraint")]
 script = ExtResource("6_ntpte")
-locomotion_state = NodePath("../../LocomotionStateMachine/WalkingState")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Full")
 
-[node name="RunningState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state", "locomotion_constraint")]
+[node name="RunningState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_constraint")]
 script = ExtResource("7_188il")
-locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Full")
 
-[node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state", "locomotion_constraint")]
+[node name="SprintingState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_constraint")]
 script = ExtResource("8_2wu2n")
-locomotion_state = NodePath("../../LocomotionStateMachine/SprintingState")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Full")
 
-[node name="WeaponState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_state", "locomotion_constraint")]
+[node name="WeaponState" type="Node" parent="PlayerStateManager/ActionStateMachine" node_paths=PackedStringArray("locomotion_constraint")]
 script = ExtResource("9_oipb4")
-locomotion_state = NodePath("../../LocomotionStateMachine/RunningState")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Immobile")
 
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("CURRENT_STATE")]
