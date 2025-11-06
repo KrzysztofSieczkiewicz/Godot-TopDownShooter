@@ -1,11 +1,12 @@
-class_name PlayerActionShootingState extends IPlayerActionState
-
+class_name PlayerActionWeaponState extends IPlayerActionState
 
 @export var SPEED: float = 5.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.25
 
 func enter(IPlayerActionState):
+	#TODO: ADD HERE - read the currently equipped weapon and get it's current substate LocomotionConstraint -> then overwrite the current LocomotionConstraint
+	
 	animations.play("BasicMovement/Sprinting")
 
 func update(delta: float):

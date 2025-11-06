@@ -1,4 +1,4 @@
-class_name ILocomotionConstraint extends Resource
+class_name ILocomotionConstraint extends Node
 
 func get_max_speed(base_speed: float) -> float:
 	push_error("Must implement get_max_speed()")
