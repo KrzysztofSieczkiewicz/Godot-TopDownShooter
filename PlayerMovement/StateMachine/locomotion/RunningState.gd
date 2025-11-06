@@ -5,24 +5,24 @@ class_name PlayerLocomotionRunningState extends IPlayerLocomotionState
 @export var DECELERATION: float = 0.25
 
 func enter(previous_state: IPlayerLocomotionState) -> void:
-	#animations.play("BasicMovement/Sprinting")
-	pass
+	animations.play("BasicMovement/Sprinting")
 
 
-func update(constraint: ILocomotionConstraint, delta: float):
-	#parent.update_gravity(delta)
-	#parent.update_input(SPEED, ACCELERATION, DECELERATION)
-	#parent.update_velocity()
+func update(input: PlayerInput, delta: float):
+	parent.update_gravity(delta)
+	parent.update_input(SPEED, ACCELERATION, DECELERATION)
+	parent.update_velocity()
 	
-	#adjust_animation_speed(parent.velocity.length())
-	var input: PlayerInput = constraint.get_filtered_input();
+	adjust_animation_speed(parent.velocity.length())
 	
-	if parent.velocity.length() == 0:
-		transition.emit("IdleState")
-	elif input.locomotion_actions.has("sprint"):
+	if input.locomotion_actions.has("sprint"):
 		transition.emit("SprintingState")
 	elif input.locomotion_actions.has("walk"):
 		transition.emit("WalkingState")
+	elif input.locomotion_actions.has("run"):
+		transition.emit("RunningState")
+	elif input.locomotion_actions.has("idle") or parent.velocity.length() == 0:
+		transition.emit("IdleState")
 
 func exit() -> void: 
 	animations.speed_scale = 1.0

@@ -1,25 +1,25 @@
 class_name PlayerLocomotionIdleState extends IPlayerLocomotionState
 
-@export var SPEED: float = 3.0
-@export var ACCELERATION: float = 0.1
-@export var DECELERATION: float = 0.5
+@export var SPEED: float = 0.0
+@export var ACCELERATION: float = 0.9
+@export var DECELERATION: float = 0.9
 
 func enter(previous_state: IPlayerLocomotionState) -> void:
-	#animations.play("BasicMovement/Idle")
-	pass
+	animations.play("BasicMovement/Idle")
 
-func update(constraint: ILocomotionConstraint, delta: float):
-	#parent.update_gravity(delta)
-	#parent.update_input(SPEED, ACCELERATION, DECELERATION)
-	#parent.update_velocity()
-	var input: PlayerInput = constraint.get_filtered_input();
+
+func update(input: PlayerInput, delta: float):
 	
-	if parent.velocity.length() == 0.0 or !parent.is_on_floor():
-		return
+	#if !parent.is_on_floor():
+	#	return
 	
 	if input.locomotion_actions.has("walk"):
 		transition.emit("WalkingState")
 	elif input.locomotion_actions.has("sprint"):
 		transition.emit("SprintingState")
-	else:
+	elif input.locomotion_actions.has("run"):
 		transition.emit("RunningState")
+	
+	parent.update_gravity(delta)
+	parent.update_input(SPEED, ACCELERATION, DECELERATION)
+	parent.update_velocity()

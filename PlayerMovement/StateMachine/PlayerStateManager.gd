@@ -17,6 +17,14 @@ func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 
 func update(input: PlayerInput, delta: float):
 	action_state_machine.update(input, delta)
-	var constraint = action_state_machine.CURRENT_STATE.locomotion_constraint;
-	constraint.filter_player_input(input) # TODO: shouldn't be explicitly called
-	locomotion_state_machine.update(constraint, delta)
+	var constraints = action_state_machine.CURRENT_STATE.locomotion_constraint;
+	var locomotion_input = _filter_constrained_inputs(input, constraints)
+	locomotion_state_machine.update(locomotion_input, delta)
+
+
+func _filter_constrained_inputs(input: PlayerInput, constraints: ILocomotionConstraint) -> PlayerInput:
+	var filtered_input = input
+	for state in constraints.forbidden_states:
+		filtered_input.locomotion_actions.erase(state)
+	
+	return filtered_input

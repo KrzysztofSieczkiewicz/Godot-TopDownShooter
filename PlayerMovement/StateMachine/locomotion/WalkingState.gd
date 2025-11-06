@@ -5,17 +5,15 @@ class_name PlayerLocomotionWalkingState extends IPlayerLocomotionState
 @export var DECELERATION: float = 0.5
 
 func enter(previous_state: IPlayerLocomotionState) -> void:
-	#animations.play("BasicMovement/Walking")
-	pass
+	animations.play("BasicMovement/Walking")
 
-func update(constraint: ILocomotionConstraint, delta: float):
-	#parent.update_gravity(delta)
-	#parent.update_input(SPEED, ACCELERATION, DECELERATION)
-	#parent.update_velocity()
+
+func update(input: PlayerInput, delta: float):
+	parent.update_gravity(delta)
+	parent.update_input(SPEED, ACCELERATION, DECELERATION)
+	parent.update_velocity()
 	
-	#adjust_animation_speed(parent.velocity.length())
-	
-	var input: PlayerInput = constraint.get_filtered_input();
+	adjust_animation_speed(parent.velocity.length())
 	
 	if parent.velocity.length() == 0:
 		transition.emit("IdleState")

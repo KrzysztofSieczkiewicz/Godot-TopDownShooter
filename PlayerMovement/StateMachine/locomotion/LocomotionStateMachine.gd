@@ -17,8 +17,8 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 	
 	CURRENT_STATE.enter(null)
 
-func update(constraint: ILocomotionConstraint, delta: float) -> void:
-	CURRENT_STATE.update(constraint, delta)
+func update(input: PlayerInput, delta: float) -> void:
+	CURRENT_STATE.update(input, delta)
 	Global.debug_panel.add_property("Current locomotion state", CURRENT_STATE.name, 2)
 	
 func _physics_process(delta: float) -> void:
