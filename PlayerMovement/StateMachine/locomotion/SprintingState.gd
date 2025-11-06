@@ -16,9 +16,11 @@ func update(constraint: ILocomotionConstraint, delta: float):
 	#adjust_animation_speed(parent.velocity.length())
 	var input: PlayerInput = constraint.get_filtered_input();
 	
-	if input.locomotion_actions.has("run"):
+	if input.locomotion_actions.has("sprint"):
+		return
+	elif input.locomotion_actions.has("run"):
 		transition.emit("RunningState")
-	if parent.velocity.length() == 0:
+	elif parent.velocity.length() == 0:
 		transition.emit("IdleState")
 
 func exit() -> void: 
