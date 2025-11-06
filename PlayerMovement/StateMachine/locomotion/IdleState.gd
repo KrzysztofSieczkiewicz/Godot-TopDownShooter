@@ -13,7 +13,6 @@ func update(constraint: ILocomotionConstraint, delta: float):
 	#parent.update_input(SPEED, ACCELERATION, DECELERATION)
 	#parent.update_velocity()
 	var input: PlayerInput = constraint.get_filtered_input();
-	push_error(input.locomotion_actions)
 	
 	if parent.velocity.length() == 0.0 or !parent.is_on_floor():
 		return
