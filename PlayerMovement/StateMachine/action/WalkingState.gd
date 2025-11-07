@@ -10,9 +10,9 @@ func update(input: PlayerInput, delta: float):
 		transition.emit("WeaponState")
 	elif parent.velocity.length() == 0:
 		transition.emit("IdleState")
-	elif input.locomotion_actions.has("walk"):
-		return
 	elif input.locomotion_actions.has("sprint"):
 		transition.emit("SprintingState")
+	elif input.locomotion_actions.has("walk"):
+		return
 	elif input.locomotion_actions.has("run"):
 		transition.emit("RunningState")

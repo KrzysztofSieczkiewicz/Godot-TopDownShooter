@@ -20,6 +20,9 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 func update(input: PlayerInput, delta: float) -> void:
 	CURRENT_STATE.update(input, delta)
 	Global.debug_panel.add_property("Current locomotion state", CURRENT_STATE.name, 2)
+
+func force_state(new_state: String) -> void:
+	on_state_transition(new_state)
 	
 func _physics_process(delta: float) -> void:
 	CURRENT_STATE.physics_update(delta)
