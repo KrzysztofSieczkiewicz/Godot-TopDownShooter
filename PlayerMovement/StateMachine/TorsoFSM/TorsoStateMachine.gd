@@ -1,6 +1,7 @@
 class_name PlayerTorsoStateMachine extends Node
 
-@export var CURRENT_STATE: IPlayerTorsoState
+@export var INITIAL_STATE: IPlayerTorsoState
+var CURRENT_STATE: IPlayerTorsoState
 
 var _states: Dictionary = {}
 
@@ -15,12 +16,17 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 		else:
 			push_warning("Player Action State Machine contains incompatibile child node")
 	
+	CURRENT_STATE = INITIAL_STATE
 	CURRENT_STATE.enter(null)
 
 
 func update(input: PlayerInput, delta: float) -> void:
 	CURRENT_STATE.update(input, delta)
 	Global.debug_panel.add_property("Current action state", CURRENT_STATE.name, 2)
+
+
+func force_state(new_state: String) -> void:
+	on_state_transition(new_state)
 
 
 func _physics_process(delta: float) -> void:

@@ -1,14 +1,15 @@
-class_name IPlayerTorsoState extends Node
+class_name IPlayerRootState extends Node
 
 signal transition(new_state_name: StringName)
 
-@export var locomotion_constraint: ILocomotionConstraint
+@export var locomotion_constraint: IConstraint
+@export var torso_constraint: IConstraint
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
 
-func enter(previous_state: IPlayerTorsoState) -> void:
+func enter(previous_state: IPlayerRootState) -> void:
 	pass
 
 func exit() -> void:

@@ -1,1 +1,0 @@
-class_name FullLocomotionConstraint extends ILocomotionConstraint

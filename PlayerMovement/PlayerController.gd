@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	model.update(input, delta)
 	input.queue_free()
 	
-	Global.debug_panel.add_property("Velocity", "%.2f" % velocity.length(), 1)
+	Global.debug_panel.add_property("Velocity", "%.2f" % velocity.length(), 0)
 
 func handle_look_at(intersection_data: Dictionary) -> void:
 	var looking_direction = intersection_data.position

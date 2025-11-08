@@ -1,0 +1,1 @@
+class_name ImmobileLocomotionConstraint extends IConstraint
