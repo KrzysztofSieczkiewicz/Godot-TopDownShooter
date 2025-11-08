@@ -1,8 +1,4 @@
-class_name PlayerActionIdleState extends IPlayerActionState
-
-
-func enter(previous_state: IPlayerActionState) -> void:
-	pass
+class_name PlayerTorsoIdleState extends IPlayerTorsoState
 
 
 func update(input: PlayerInput, delta: float) -> void:
@@ -16,5 +12,3 @@ func update(input: PlayerInput, delta: float) -> void:
 		transition.emit("WalkingState")
 	else:
 		transition.emit("RunningState")
-	
-	

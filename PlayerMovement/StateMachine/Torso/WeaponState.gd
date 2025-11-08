@@ -1,7 +1,7 @@
-class_name PlayerActionWeaponState extends IPlayerActionState
+class_name PlayerTorsoWeaponState extends IPlayerTorsoState
 
 
-func enter(IPlayerActionState):
+func enter(IPlayerTorsoState):
 	#TODO: ADD HERE - read the currently equipped weapon and get it's current substate LocomotionConstraint -> then overwrite the current LocomotionConstraint	
 	pass
 

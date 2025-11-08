@@ -5,13 +5,13 @@ class_name PlayerModel extends Node3D
 @onready var animator = $SkeletonAnimator as AnimationPlayer
 @onready var state_manager = $PlayerStateManager as PlayerStateManager
 
-var current_move: IPlayerActionState
+var current_move: IPlayerTorsoState
 @onready var moves = {
-	"idle": $PlayerStateManager/ActionStateMachine/IdleState,
-	"walk": $PlayerStateManager/ActionStateMachine/WalkingState,
-	"run": $PlayerStateManager/ActionStateMachine/RunningState,
-	"sprint": $PlayerStateManager/ActionStateMachine/SprintingState,
-	"weapon": $PlayerStateManager/ActionStateMachine/WeaponState
+	"idle": $PlayerStateManager/TorsoStateMachine/IdleState,
+	"walk": $PlayerStateManager/TorsoStateMachine/WalkingState,
+	"run": $PlayerStateManager/TorsoStateMachine/RunningState,
+	"sprint": $PlayerStateManager/TorsoStateMachine/SprintingState,
+	"weapon": $PlayerStateManager/TorsoStateMachine/WeaponState
 }
 
 func _ready() -> void:

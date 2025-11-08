@@ -1,4 +1,4 @@
-class_name IPlayerActionState extends Node
+class_name IPlayerTorsoState extends Node
 
 signal transition(new_state_name: StringName)
 
@@ -8,7 +8,7 @@ var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
 
-func enter(previous_state: IPlayerActionState) -> void:
+func enter(previous_state: IPlayerTorsoState) -> void:
 	pass
 
 func exit() -> void:

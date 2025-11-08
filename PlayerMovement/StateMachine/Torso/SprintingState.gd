@@ -1,8 +1,4 @@
-class_name PlayerActionSprintingState extends IPlayerActionState
-
-
-func enter(previous_state: IPlayerActionState) -> void:
-	pass
+class_name PlayerTorsoSprintingState extends IPlayerTorsoState
 
 
 func update(input: PlayerInput, delta: float):

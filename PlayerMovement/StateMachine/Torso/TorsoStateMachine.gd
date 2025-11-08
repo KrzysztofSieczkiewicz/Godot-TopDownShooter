@@ -1,12 +1,12 @@
-class_name PlayerActionStateMachine extends Node
+class_name PlayerTorsoStateMachine extends Node
 
-@export var CURRENT_STATE: IPlayerActionState
+@export var CURRENT_STATE: IPlayerTorsoState
 
 var _states: Dictionary = {}
 
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
-		if child is IPlayerActionState:
+		if child is IPlayerTorsoState:
 			_states[child.name] = child
 			child.stateManager = stateManager
 			child.parent = parent
