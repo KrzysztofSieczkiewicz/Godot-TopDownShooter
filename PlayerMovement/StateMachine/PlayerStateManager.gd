@@ -5,7 +5,6 @@ class_name PlayerStateManager extends Node
 @onready var locomotion_state_machine: PlayerLocomotionStateMachine = $LocomotionStateMachine
 
 # TODO:
-# - implement root state machine or action state machine that allows for states that override the body (Swim, stun, roll)
 # - implement roll as a root machine state that is allowed in particular action states (e.g. holding weapon allows, but holding heavy weapon doesn't)
 # - make walking toggleable instead of pressable
 

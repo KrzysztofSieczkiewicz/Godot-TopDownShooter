@@ -15,7 +15,7 @@ var current_move: IPlayerTorsoState
 }
 
 func _ready() -> void:
-	state_manager.init(player_controller, animator); # Initialize state machine with player and animator reference TODO: drop animator reference
+	state_manager.init(player_controller, animator);
 	
 	current_move = moves["idle"]
 

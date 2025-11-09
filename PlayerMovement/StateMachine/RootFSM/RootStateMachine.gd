@@ -5,6 +5,7 @@ var CURRENT_STATE: IPlayerRootState
 
 var _states: Dictionary = {}
 
+
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
 		if child is IPlayerRootState:
