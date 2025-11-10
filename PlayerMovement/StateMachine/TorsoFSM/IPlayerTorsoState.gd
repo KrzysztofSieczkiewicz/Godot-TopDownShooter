@@ -2,7 +2,7 @@ class_name IPlayerTorsoState extends Node
 
 signal transition(new_state_name: StringName)
 
-@export var locomotion_constraint: IConstraint
+@export var locomotion_constraint: ILocomotionConstraint
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D

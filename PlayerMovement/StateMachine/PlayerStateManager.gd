@@ -42,7 +42,7 @@ func update(input: PlayerInput, delta: float):
 func _handle_input_constraints(input: PlayerInput, constraints: IConstraint) -> PlayerInput:
 	var filtered_input = input
 
-	for state in constraints.forbidden_states:
-		filtered_input.locomotion_actions.erase(state)
+	for input_to_remove in constraints.forbidden_inputs:
+		filtered_input.locomotion_actions.erase(input_to_remove)
 	
 	return filtered_input

@@ -2,8 +2,8 @@ class_name IPlayerRootState extends Node
 
 signal transition(new_state_name: StringName)
 
-@export var locomotion_constraint: IConstraint
-@export var torso_constraint: IConstraint
+@export var locomotion_constraint: ILocomotionConstraint
+@export var torso_constraint: ITorsoConstraint
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D

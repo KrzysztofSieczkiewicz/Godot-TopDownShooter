@@ -1,4 +1,4 @@
-class_name IConstraint extends Node
+class_name IConstraint extends Resource
 
 @export var forced_state: String
-@export var forbidden_states: Array[String]
+@export var forbidden_inputs: Array[String]
