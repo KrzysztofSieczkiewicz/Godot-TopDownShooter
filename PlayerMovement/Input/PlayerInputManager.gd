@@ -20,10 +20,6 @@ func detect_input() -> PlayerInput:
 			new_input.locomotion_actions.append("jump_run") # TODO: handle walk jump later
 		else: 
 			new_input.locomotion_actions.append("jump_run")
-	
-	#TODO - consider moving this to root actions later on
-	if Input.is_action_pressed("roll"):
-		new_input.locomotion_actions.append("roll")
 
 	#TODO - move this to combat actions later on
 	if Input.is_action_pressed('shoot'):

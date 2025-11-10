@@ -5,7 +5,6 @@ class_name PlayerStateManager extends Node
 @onready var locomotion_state_machine: PlayerLocomotionStateMachine = $LocomotionStateMachine
 
 # TODO:
-# - implement roll as a root machine state that is allowed in particular action states (e.g. holding weapon allows, but holding heavy weapon doesn't)
 # - make walking toggleable instead of pressable
 # - simplify PlayerStateManager update function
 
@@ -19,9 +18,6 @@ func update(input: PlayerInput, delta: float):
 	root_state_machine.update(input, delta)
 	var root_torso_constraints = root_state_machine.CURRENT_STATE.torso_constraint
 	var root_locomotion_constraints = root_state_machine.CURRENT_STATE.locomotion_constraint
-	
-	push_error(input.locomotion_actions)
-	push_warning(root_torso_constraints.forbidden_states)
 	
 	var forced_torso_state: String = root_torso_constraints.forced_state
 	if forced_torso_state:

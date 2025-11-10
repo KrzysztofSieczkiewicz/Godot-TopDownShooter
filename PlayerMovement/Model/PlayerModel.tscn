@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=21 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/TorsoFSM/IdleState.gd" id="5_1k8m6"]
 [ext_resource type="Script" uid="uid://crf76enrcn837" path="res://PlayerMovement/StateMachine/RootFSM/GroundedState.gd" id="5_2wu2n"]
 [ext_resource type="Script" uid="uid://cfmq0rw1w8t12" path="res://PlayerMovement/StateMachine/TorsoFSM/WalkingState.gd" id="6_ntpte"]
-[ext_resource type="Script" uid="uid://bn4v5cuxr4a12" path="res://PlayerMovement/StateMachine/RootFSM/RollState.gd" id="6_qhqfm"]
 [ext_resource type="Script" uid="uid://dh5ie515ufhym" path="res://PlayerMovement/StateMachine/TorsoFSM/RunningState.gd" id="7_188il"]
 [ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/TorsoFSM/SprintingState.gd" id="8_2wu2n"]
 [ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/TorsoFSM/WeaponState.gd" id="9_1k8m6"]
@@ -498,11 +497,6 @@ INITIAL_STATE = NodePath("GroundedState")
 [node name="GroundedState" type="Node" parent="PlayerStateManager/RootStateMachine" node_paths=PackedStringArray("locomotion_constraint", "torso_constraint")]
 script = ExtResource("5_2wu2n")
 locomotion_constraint = NodePath("../../LocomotionConstraints/Full")
-torso_constraint = NodePath("../../TorsoConstraints/Full")
-
-[node name="RollState" type="Node" parent="PlayerStateManager/RootStateMachine" node_paths=PackedStringArray("locomotion_constraint", "torso_constraint")]
-script = ExtResource("6_qhqfm")
-locomotion_constraint = NodePath("../../LocomotionConstraints/Immobile")
 torso_constraint = NodePath("../../TorsoConstraints/Full")
 
 [node name="TorsoStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("INITIAL_STATE")]
