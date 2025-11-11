@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="LocomotionTransitionToRun" load_steps=2 format=3 uid="uid://bv3fvxsn1rct7"]
-
-[ext_resource type="Script" uid="uid://bfbmcasojddnd" path="res://PlayerMovement/StateMachine/Transitions/Locomotion/TransitionToRun.gd" id="1_5jyo3"]
-
-[resource]
-script = ExtResource("1_5jyo3")
-metadata/_custom_type_script = "uid://bfbmcasojddnd"
