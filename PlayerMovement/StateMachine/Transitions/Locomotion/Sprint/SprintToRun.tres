@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SprintToRunTransitionRule" load_steps=2 format=3 uid="uid://b7fs73lblh8bf"]
+
+[ext_resource type="Script" uid="uid://cnhg63ibli2ts" path="res://PlayerMovement/StateMachine/Transitions/Locomotion/Sprint/SprintToRun.gd" id="1_mdioc"]
+
+[resource]
+script = ExtResource("1_mdioc")
+metadata/_custom_type_script = "uid://cnhg63ibli2ts"
