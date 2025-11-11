@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RunToWalkTransitionRule" load_steps=2 format=3 uid="uid://dgsuepp8y1aso"]
+
+[ext_resource type="Script" uid="uid://u8km4ow3sep0" path="res://PlayerMovement/StateMachine/Transitions/Locomotion/Run/RunToWalk.gd" id="1_f2avt"]
+
+[resource]
+script = ExtResource("1_f2avt")
+metadata/_custom_type_script = "uid://u8km4ow3sep0"
