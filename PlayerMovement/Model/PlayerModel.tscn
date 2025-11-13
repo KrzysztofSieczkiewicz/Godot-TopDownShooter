@@ -534,6 +534,10 @@ script = ExtResource("12_krj2v")
 
 [node name="RunningState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("13_ivf6u")
+SPEED = null
+ACCELERATION = null
+DECELERATION = null
+transition_rules = null
 
 [node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
 script = ExtResource("14_jdfjo")

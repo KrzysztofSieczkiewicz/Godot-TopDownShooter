@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="LocomotionRunningState" load_steps=11 format=3 uid="uid://uwhw30xmndj6"]
+
+[ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.gd" id="1_p0t8u"]
+[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/ILocomotionTransitionRule.gd" id="2_mit6r"]
+[ext_resource type="Script" uid="uid://dsyin7tcl67q6" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToSprint.gd" id="3_7xmbm"]
+[ext_resource type="Script" uid="uid://u8km4ow3sep0" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToWalk.gd" id="4_brcia"]
+[ext_resource type="Script" uid="uid://b31blm3qllmwm" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToRun.gd" id="5_qwvib"]
+[ext_resource type="Script" uid="uid://cjjmosorrfcms" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToIdle.gd" id="6_brcia"]
+
+[sub_resource type="Resource" id="Resource_bwkox"]
+script = ExtResource("3_7xmbm")
+metadata/_custom_type_script = "uid://dsyin7tcl67q6"
+
+[sub_resource type="Resource" id="Resource_lmcrr"]
+script = ExtResource("4_brcia")
+metadata/_custom_type_script = "uid://u8km4ow3sep0"
+
+[sub_resource type="Resource" id="Resource_f1j7s"]
+script = ExtResource("5_qwvib")
+metadata/_custom_type_script = "uid://b31blm3qllmwm"
+
+[sub_resource type="Resource" id="Resource_qwvib"]
+script = ExtResource("6_brcia")
+metadata/_custom_type_script = "uid://cjjmosorrfcms"
+
+[resource]
+script = ExtResource("1_p0t8u")
+transition_rules = Dictionary[ExtResource("2_mit6r"), StringName]({
+SubResource("Resource_bwkox"): &"sprint",
+SubResource("Resource_lmcrr"): &"walk",
+SubResource("Resource_f1j7s"): &"run",
+SubResource("Resource_qwvib"): &"idle"
+})
+metadata/_custom_type_script = "uid://8ttv2j6ju51o"

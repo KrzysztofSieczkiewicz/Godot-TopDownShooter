@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RunToSprintTransitionRule" load_steps=2 format=3 uid="uid://blxou1k25y74u"]
 
-[ext_resource type="Script" uid="uid://dsyin7tcl67q6" path="res://PlayerMovement/StateMachine/Transitions/Locomotion/Run/RunToSprint.gd" id="1_xn5lb"]
+[ext_resource type="Script" uid="uid://dsyin7tcl67q6" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToSprint.gd" id="1_xn5lb"]
 
 [resource]
 script = ExtResource("1_xn5lb")

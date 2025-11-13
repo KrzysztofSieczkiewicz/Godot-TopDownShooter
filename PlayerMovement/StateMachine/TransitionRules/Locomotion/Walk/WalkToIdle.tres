@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WalkToIdleTransitionRule" load_steps=2 format=3 uid="uid://chqm1qhrrmdc6"]
 
-[ext_resource type="Script" uid="uid://b7su02rwgaf7u" path="res://PlayerMovement/StateMachine/Transitions/Locomotion/Walk/WalkToIdle.gd" id="1_xttit"]
+[ext_resource type="Script" uid="uid://b7su02rwgaf7u" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Walk/WalkToIdle.gd" id="1_xttit"]
 
 [resource]
 script = ExtResource("1_xttit")
