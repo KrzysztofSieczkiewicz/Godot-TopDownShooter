@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LocomotionIdleState" load_steps=9 format=3 uid="uid://3ihorixcgd3k"]
 
 [ext_resource type="Script" uid="uid://8t3elkftpms3" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/IdleState.gd" id="1_jg745"]
-[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/ILocomotionTransitionRule.gd" id="2_vcj66"]
+[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/ILocomotionTransitionRule.gd" id="2_vcj66"]
 [ext_resource type="Script" uid="uid://cisg7ih7dwwkh" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToSprint.gd" id="3_g063h"]
 [ext_resource type="Script" uid="uid://cvpei6fukkjma" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToWalk.gd" id="4_f706e"]
 [ext_resource type="Script" uid="uid://bdbs75k7shetf" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToRun.gd" id="5_g56he"]
