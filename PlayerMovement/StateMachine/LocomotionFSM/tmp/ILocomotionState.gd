@@ -2,7 +2,7 @@ class_name IHumanLocomotionState extends Resource
 
 signal transition(new_state_name: StringName)
 
-@export var transition_rules: Dictionary[ILocomotionTransitionRule, StringName]
+@export var transition_rules: Dictionary[ILocomotionTransitionRule, HumanStates.LOCOMOTION_STATE]
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D

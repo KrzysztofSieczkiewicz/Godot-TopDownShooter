@@ -1,0 +1,8 @@
+class_name HumanStates extends Node
+
+enum LOCOMOTION_STATE {
+	IDLE,
+	WALK,
+	RUN,
+	SPRINT
+}

@@ -1,14 +1,10 @@
 class_name PlayerLocomotionStateMachine extends Node
 
+@export var STATES: Dictionary[HumanStates.LOCOMOTION_STATE, IHumanLocomotionState]
 @export var INITIAL_STATE: IPlayerLocomotionState
 var CURRENT_STATE: IPlayerLocomotionState
 
-var STATES: Dictionary = {
-		
-}
-
 var _states: Dictionary = {}
-
 
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for child in get_children():
