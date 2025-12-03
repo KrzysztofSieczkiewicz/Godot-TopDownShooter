@@ -3,6 +3,10 @@ class_name PlayerLocomotionStateMachine extends Node
 @export var INITIAL_STATE: IPlayerLocomotionState
 var CURRENT_STATE: IPlayerLocomotionState
 
+var STATES: Dictionary = {
+		
+}
+
 var _states: Dictionary = {}
 
 
