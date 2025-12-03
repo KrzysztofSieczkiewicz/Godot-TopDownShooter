@@ -1,8 +1,8 @@
-class_name IHumanLocomotionState extends Resource
+class_name IHumanTorsoState extends Resource
 
 signal transition(new_state_name: StringName)
 
-@export var transition_rules: Dictionary[ILocomotionTransitionRule, StringName]
+@export var transition_rules: Dictionary[ITorsoTransitionRule, StringName]
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D

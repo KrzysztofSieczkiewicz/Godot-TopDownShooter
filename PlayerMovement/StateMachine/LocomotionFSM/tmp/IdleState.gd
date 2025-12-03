@@ -1,4 +1,4 @@
-class_name LocomotionIdleState extends ILocomotionState
+class_name HumanLocomotionIdleState extends IHumanLocomotionState
 
 @export var SPEED: float = 0.0
 @export var ACCELERATION: float = 0.9

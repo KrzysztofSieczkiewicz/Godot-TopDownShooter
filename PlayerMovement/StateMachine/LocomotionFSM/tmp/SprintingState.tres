@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LocomotionSprintingState" load_steps=11 format=3 uid="uid://lbaalinuwoby"]
+[gd_resource type="Resource" script_class="HumanLocomotionSprintingState" load_steps=11 format=3 uid="uid://lbaalinuwoby"]
 
 [ext_resource type="Script" uid="uid://ck2fesy7fvlcn" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/SprintingState.gd" id="1_uyd88"]
 [ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/ILocomotionTransitionRule.gd" id="2_qmn8p"]
@@ -26,9 +26,9 @@ metadata/_custom_type_script = "uid://dcs2fcjak3cuf"
 [resource]
 script = ExtResource("1_uyd88")
 transition_rules = Dictionary[ExtResource("2_qmn8p"), StringName]({
-SubResource("Resource_qrlla"): &"sprint",
-SubResource("Resource_bwfps"): &"run",
-SubResource("Resource_lkb5v"): &"walk",
-SubResource("Resource_3q508"): &"idle"
+SubResource("Resource_qrlla"): &"SprintingState",
+SubResource("Resource_bwfps"): &"RunningState",
+SubResource("Resource_lkb5v"): &"WalkingState",
+SubResource("Resource_3q508"): &"IdleState"
 })
 metadata/_custom_type_script = "uid://ck2fesy7fvlcn"

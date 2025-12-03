@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HumanTorsoIdleState" load_steps=5 format=3 uid="uid://b3k6brbymqf1j"]
+
+[ext_resource type="Script" uid="uid://dankatmt62um6" path="res://PlayerMovement/StateMachine/TorsoFSM/tmp/IdleState.gd" id="1_5buwc"]
+[ext_resource type="Script" uid="uid://dccketi4xwq0c" path="res://PlayerMovement/StateMachine/TransitionRules/Torso/ITorsoTransitionRule.gd" id="2_cf7i4"]
+[ext_resource type="Script" uid="uid://dwls0ev7qy47i" path="res://PlayerMovement/StateMachine/TransitionRules/Torso/Idle/IdleToWeapon.gd" id="3_cf7i4"]
+
+[sub_resource type="Resource" id="Resource_wpccb"]
+script = ExtResource("3_cf7i4")
+metadata/_custom_type_script = "uid://dwls0ev7qy47i"
+
+[resource]
+script = ExtResource("1_5buwc")
+transition_rules = Dictionary[ExtResource("2_cf7i4"), StringName]({
+SubResource("Resource_wpccb"): &"WeaponState"
+})
+metadata/_custom_type_script = "uid://dankatmt62um6"

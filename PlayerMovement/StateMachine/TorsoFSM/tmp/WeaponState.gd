@@ -1,4 +1,4 @@
-class_name HumanTorsoIdleState extends IHumanTorsoState
+class_name HumanTorsoWeaponState extends IHumanTorsoState
 
 func enter(previous_state: IPlayerLocomotionState) -> void:
 	pass
