@@ -13,5 +13,7 @@ func update(input: PlayerInput, delta: float):
 	parent.update_velocity()
 	
 	for rule in transition_rules:
+		push_error("I DETECT TRANSITION RULES")
 		if rule.can_transition(parent, input):
 			transition.emit(transition_rules[rule])
+			return

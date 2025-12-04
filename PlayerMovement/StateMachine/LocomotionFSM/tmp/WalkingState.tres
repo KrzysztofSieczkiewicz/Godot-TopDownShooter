@@ -25,10 +25,10 @@ metadata/_custom_type_script = "uid://co7lp5y8n5ocj"
 
 [resource]
 script = ExtResource("1_b7oco")
-transition_rules = Dictionary[ExtResource("2_08ywk"), StringName]({
-SubResource("Resource_tbs4w"): &"IdleState",
-SubResource("Resource_8mgor"): &"SprintingState",
-SubResource("Resource_d2rj3"): &"WalkingState",
-SubResource("Resource_68vcy"): &"RunningState"
+transition_rules = Dictionary[ExtResource("2_08ywk"), int]({
+SubResource("Resource_tbs4w"): 0,
+SubResource("Resource_8mgor"): 3,
+SubResource("Resource_d2rj3"): 1,
+SubResource("Resource_68vcy"): 0
 })
 metadata/_custom_type_script = "uid://cg017qaxekayj"

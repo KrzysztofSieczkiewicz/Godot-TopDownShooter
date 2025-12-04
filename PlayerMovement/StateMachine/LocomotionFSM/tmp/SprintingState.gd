@@ -18,6 +18,7 @@ func update(input: PlayerInput, delta: float):
 	for rule in transition_rules:
 		if rule.can_transition(parent, input):
 			transition.emit(transition_rules[rule])
+			return
 
 func exit() -> void: 
 	animations.speed_scale = 1.0

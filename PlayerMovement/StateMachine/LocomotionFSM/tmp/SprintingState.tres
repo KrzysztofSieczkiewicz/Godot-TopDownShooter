@@ -7,28 +7,28 @@
 [ext_resource type="Script" uid="uid://bmkhnai12up0c" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Sprint/SprintToWalk.gd" id="5_rheek"]
 [ext_resource type="Script" uid="uid://dcs2fcjak3cuf" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Sprint/SprintToIdle.gd" id="6_qkich"]
 
-[sub_resource type="Resource" id="Resource_qrlla"]
+[sub_resource type="Resource" id="Resource_m3b0i"]
 script = ExtResource("3_m3b0i")
 metadata/_custom_type_script = "uid://ccucsv2ny4y30"
 
-[sub_resource type="Resource" id="Resource_bwfps"]
-script = ExtResource("4_ayuu7")
-metadata/_custom_type_script = "uid://cnhg63ibli2ts"
-
-[sub_resource type="Resource" id="Resource_lkb5v"]
+[sub_resource type="Resource" id="Resource_ayuu7"]
 script = ExtResource("5_rheek")
 metadata/_custom_type_script = "uid://bmkhnai12up0c"
 
-[sub_resource type="Resource" id="Resource_3q508"]
+[sub_resource type="Resource" id="Resource_rheek"]
+script = ExtResource("4_ayuu7")
+metadata/_custom_type_script = "uid://cnhg63ibli2ts"
+
+[sub_resource type="Resource" id="Resource_qkich"]
 script = ExtResource("6_qkich")
 metadata/_custom_type_script = "uid://dcs2fcjak3cuf"
 
 [resource]
 script = ExtResource("1_uyd88")
-transition_rules = Dictionary[ExtResource("2_qmn8p"), StringName]({
-SubResource("Resource_qrlla"): &"SprintingState",
-SubResource("Resource_bwfps"): &"RunningState",
-SubResource("Resource_lkb5v"): &"WalkingState",
-SubResource("Resource_3q508"): &"IdleState"
+transition_rules = Dictionary[ExtResource("2_qmn8p"), int]({
+SubResource("Resource_m3b0i"): 3,
+SubResource("Resource_ayuu7"): 1,
+SubResource("Resource_rheek"): 2,
+SubResource("Resource_qkich"): 0
 })
 metadata/_custom_type_script = "uid://ck2fesy7fvlcn"

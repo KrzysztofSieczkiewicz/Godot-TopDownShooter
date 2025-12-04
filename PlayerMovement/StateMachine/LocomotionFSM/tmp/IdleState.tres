@@ -7,12 +7,12 @@
 [ext_resource type="Script" uid="uid://bdbs75k7shetf" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToRun.gd" id="5_g56he"]
 
 [sub_resource type="Resource" id="Resource_vcj66"]
-script = ExtResource("3_g063h")
-metadata/_custom_type_script = "uid://cisg7ih7dwwkh"
-
-[sub_resource type="Resource" id="Resource_g063h"]
 script = ExtResource("4_f706e")
 metadata/_custom_type_script = "uid://cvpei6fukkjma"
+
+[sub_resource type="Resource" id="Resource_g063h"]
+script = ExtResource("3_g063h")
+metadata/_custom_type_script = "uid://cisg7ih7dwwkh"
 
 [sub_resource type="Resource" id="Resource_f706e"]
 script = ExtResource("5_g56he")
@@ -20,9 +20,9 @@ metadata/_custom_type_script = "uid://bdbs75k7shetf"
 
 [resource]
 script = ExtResource("1_jg745")
-transition_rules = Dictionary[ExtResource("2_vcj66"), StringName]({
-SubResource("Resource_vcj66"): &"SprintingState",
-SubResource("Resource_g063h"): &"WalkingState",
-SubResource("Resource_f706e"): &"RunningState"
+transition_rules = Dictionary[ExtResource("2_vcj66"), int]({
+SubResource("Resource_vcj66"): 1,
+SubResource("Resource_g063h"): 3,
+SubResource("Resource_f706e"): 2
 })
 metadata/_custom_type_script = "uid://8t3elkftpms3"

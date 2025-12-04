@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=26 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
@@ -14,11 +14,29 @@
 [ext_resource type="Script" uid="uid://lh2on71k6df" path="res://PlayerMovement/StateMachine/TorsoFSM/SprintingState.gd" id="8_2wu2n"]
 [ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/TorsoFSM/WeaponState.gd" id="9_1k8m6"]
 [ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/LocomotionFSM/LocomotionStateMachine.gd" id="10_qhqfm"]
-[ext_resource type="Script" uid="uid://bk26lxkyrbyxt" path="res://PlayerMovement/StateMachine/LocomotionFSM/IdleState.gd" id="11_b8dup"]
-[ext_resource type="Script" uid="uid://6r8usq6nbllu" path="res://PlayerMovement/StateMachine/LocomotionFSM/WalkingState.gd" id="12_krj2v"]
-[ext_resource type="Script" uid="uid://dlvee2guhiyjc" path="res://PlayerMovement/StateMachine/LocomotionFSM/RunningState.gd" id="13_ivf6u"]
 [ext_resource type="Resource" uid="uid://ch3kwsl1s64f4" path="res://PlayerMovement/StateMachine/Constraints/Locomotion/NoSprintingConstraint.tres" id="14_2wu2n"]
-[ext_resource type="Script" uid="uid://0esf47gnehef" path="res://PlayerMovement/StateMachine/LocomotionFSM/SprintingState.gd" id="14_jdfjo"]
+[ext_resource type="Script" uid="uid://c5fav1ulq6dme" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/ILocomotionState.gd" id="16_jdfjo"]
+[ext_resource type="Script" uid="uid://8t3elkftpms3" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/IdleState.gd" id="17_krj2v"]
+[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/ILocomotionTransitionRule.gd" id="18_ivf6u"]
+[ext_resource type="Script" uid="uid://cg017qaxekayj" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/WalkingState.gd" id="19_jdfjo"]
+[ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.gd" id="20_ndog4"]
+[ext_resource type="Script" uid="uid://ck2fesy7fvlcn" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/SprintingState.gd" id="21_owlnj"]
+
+[sub_resource type="Resource" id="Resource_qhqfm"]
+script = ExtResource("17_krj2v")
+metadata/_custom_type_script = "uid://8t3elkftpms3"
+
+[sub_resource type="Resource" id="Resource_owlnj"]
+script = ExtResource("19_jdfjo")
+metadata/_custom_type_script = "uid://cg017qaxekayj"
+
+[sub_resource type="Resource" id="Resource_taj6y"]
+script = ExtResource("20_ndog4")
+metadata/_custom_type_script = "uid://8ttv2j6ju51o"
+
+[sub_resource type="Resource" id="Resource_7t67t"]
+script = ExtResource("21_owlnj")
+metadata/_custom_type_script = "uid://ck2fesy7fvlcn"
 
 [node name="Model" type="Node3D"]
 script = ExtResource("1_7p8wh")
@@ -522,21 +540,11 @@ locomotion_constraint = ExtResource("6_188il")
 script = ExtResource("9_1k8m6")
 locomotion_constraint = ExtResource("14_2wu2n")
 
-[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("INITIAL_STATE")]
+[node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager"]
 script = ExtResource("10_qhqfm")
-INITIAL_STATE = NodePath("IdleState")
-
-[node name="IdleState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("11_b8dup")
-
-[node name="WalkingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("12_krj2v")
-
-[node name="RunningState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("13_ivf6u")
-SPEED = null
-ACCELERATION = null
-DECELERATION = null
-
-[node name="SprintingState" type="Node" parent="PlayerStateManager/LocomotionStateMachine"]
-script = ExtResource("14_jdfjo")
+STATES = Dictionary[int, ExtResource("16_jdfjo")]({
+0: SubResource("Resource_qhqfm"),
+1: SubResource("Resource_owlnj"),
+2: SubResource("Resource_taj6y"),
+3: SubResource("Resource_7t67t")
+})

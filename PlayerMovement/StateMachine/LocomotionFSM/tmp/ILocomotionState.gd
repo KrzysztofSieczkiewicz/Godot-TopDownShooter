@@ -1,6 +1,6 @@
 class_name IHumanLocomotionState extends Resource
 
-signal transition(new_state_name: StringName)
+signal transition(new_state_key: HumanStates.LOCOMOTION_STATE)
 
 @export var transition_rules: Dictionary[ILocomotionTransitionRule, HumanStates.LOCOMOTION_STATE]
 
