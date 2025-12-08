@@ -1,4 +1,4 @@
-class_name WalkToIdleTransitionRule extends ILocomotionTransitionRule
+class_name WalkToIdleTransitionRule extends IHumanLocomotionTransitionRule
 
 const VELOCITY_THRESHOLD : float = 0.1
 

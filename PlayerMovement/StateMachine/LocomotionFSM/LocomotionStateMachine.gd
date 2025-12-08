@@ -1,28 +1,30 @@
 class_name PlayerLocomotionStateMachine extends Node
 
-@export var STATES: Dictionary[HumanStates.LOCOMOTION_STATE, IHumanLocomotionState]
+@export var STATES: Array[HumanLocomotionStateLink]
 @export var INITIAL_STATE: HumanStates.LOCOMOTION_STATE
 
 var CURRENT_STATE_KEY: HumanStates.LOCOMOTION_STATE
 var CURRENT_STATE: IHumanLocomotionState
 
-var _states: Dictionary = {}
+var _states: Dictionary[HumanStates.LOCOMOTION_STATE, IHumanLocomotionState]
+
 
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
-	for key in STATES:
-		var state_resource = STATES[key]
+	for state in STATES:
+		var state_resource = state.value
 		var state_instance = state_resource.duplicate()
-		
+			
 		state_instance.stateManager = stateManager
 		state_instance.parent = parent
 		state_instance.animations = animations
 		state_instance.transition.connect(on_state_transition)
-
-		_states[key] = state_instance
+		
+		_states[state.key] = state_instance
 	
 	CURRENT_STATE_KEY = INITIAL_STATE
 	CURRENT_STATE = _states[CURRENT_STATE_KEY]
 	CURRENT_STATE.enter(null)
+
 
 func update(input: PlayerInput, delta: float) -> void:
 	CURRENT_STATE.update(input, delta)

@@ -5,7 +5,7 @@ func detect_input() -> PlayerInput:
 	
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if new_input.input_direction != Vector2.ZERO:
-		new_input.wants_to_move
+		new_input.wants_to_move = true
 		new_input.locomotion_actions.append("run")
 		if Input.is_action_pressed("move_sprint"):
 			new_input.locomotion_actions.append("sprint")

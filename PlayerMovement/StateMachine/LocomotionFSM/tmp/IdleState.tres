@@ -1,28 +1,30 @@
 [gd_resource type="Resource" script_class="HumanLocomotionIdleState" load_steps=9 format=3 uid="uid://3ihorixcgd3k"]
 
 [ext_resource type="Script" uid="uid://8t3elkftpms3" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/IdleState.gd" id="1_jg745"]
-[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/ILocomotionTransitionRule.gd" id="2_vcj66"]
-[ext_resource type="Script" uid="uid://cisg7ih7dwwkh" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToSprint.gd" id="3_g063h"]
-[ext_resource type="Script" uid="uid://cvpei6fukkjma" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToWalk.gd" id="4_f706e"]
-[ext_resource type="Script" uid="uid://bdbs75k7shetf" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToRun.gd" id="5_g56he"]
+[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionTransitionLink.gd" id="2_jg745"]
+[ext_resource type="Resource" uid="uid://cv8hb4hhigtw1" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToWalk.tres" id="3_vcj66"]
+[ext_resource type="Resource" uid="uid://dpdh8xn88rlea" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToSprint.tres" id="4_g063h"]
+[ext_resource type="Resource" uid="uid://cnjqy1nj3lo48" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToRun.tres" id="5_f706e"]
 
-[sub_resource type="Resource" id="Resource_vcj66"]
-script = ExtResource("4_f706e")
-metadata/_custom_type_script = "uid://cvpei6fukkjma"
+[sub_resource type="Resource" id="Resource_g56he"]
+script = ExtResource("2_jg745")
+rule = ExtResource("3_vcj66")
+state = 1
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
-[sub_resource type="Resource" id="Resource_g063h"]
-script = ExtResource("3_g063h")
-metadata/_custom_type_script = "uid://cisg7ih7dwwkh"
+[sub_resource type="Resource" id="Resource_baq6u"]
+script = ExtResource("2_jg745")
+rule = ExtResource("4_g063h")
+state = 3
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
-[sub_resource type="Resource" id="Resource_f706e"]
-script = ExtResource("5_g56he")
-metadata/_custom_type_script = "uid://bdbs75k7shetf"
+[sub_resource type="Resource" id="Resource_opgv8"]
+script = ExtResource("2_jg745")
+rule = ExtResource("5_f706e")
+state = 2
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
 [resource]
 script = ExtResource("1_jg745")
-transition_rules = Dictionary[ExtResource("2_vcj66"), int]({
-SubResource("Resource_vcj66"): 1,
-SubResource("Resource_g063h"): 3,
-SubResource("Resource_f706e"): 2
-})
+transition_rules = Array[ExtResource("2_jg745")]([SubResource("Resource_g56he"), SubResource("Resource_baq6u"), SubResource("Resource_opgv8")])
 metadata/_custom_type_script = "uid://8t3elkftpms3"

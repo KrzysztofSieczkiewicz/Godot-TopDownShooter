@@ -4,7 +4,7 @@ class_name HumanLocomotionIdleState extends IHumanLocomotionState
 @export var ACCELERATION: float = 0.9
 @export var DECELERATION: float = 0.9
 
-func enter(previous_state: IPlayerLocomotionState) -> void:
+func enter(previous_state: IHumanLocomotionState) -> void:
 	animations.play("BasicMovement/Idle")
 
 func update(input: PlayerInput, delta: float):
@@ -12,8 +12,7 @@ func update(input: PlayerInput, delta: float):
 	parent.update_input(SPEED, ACCELERATION, DECELERATION)
 	parent.update_velocity()
 	
-	for rule in transition_rules:
-		push_error("I DETECT TRANSITION RULES")
-		if rule.can_transition(parent, input):
-			transition.emit(transition_rules[rule])
+	for pair in transition_rules:
+		if pair.rule.can_transition(parent, input):
+			transition.emit(pair.state)
 			return

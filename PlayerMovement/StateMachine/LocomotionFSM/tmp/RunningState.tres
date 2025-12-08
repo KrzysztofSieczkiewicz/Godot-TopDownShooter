@@ -1,34 +1,36 @@
 [gd_resource type="Resource" script_class="HumanLocomotionRunningState" load_steps=11 format=3 uid="uid://uwhw30xmndj6"]
 
 [ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.gd" id="1_p0t8u"]
-[ext_resource type="Script" uid="uid://b53s6lghwkl6x" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/ILocomotionTransitionRule.gd" id="2_mit6r"]
-[ext_resource type="Script" uid="uid://dsyin7tcl67q6" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToSprint.gd" id="3_7xmbm"]
-[ext_resource type="Script" uid="uid://u8km4ow3sep0" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToWalk.gd" id="4_brcia"]
-[ext_resource type="Script" uid="uid://b31blm3qllmwm" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToRun.gd" id="5_qwvib"]
-[ext_resource type="Script" uid="uid://cjjmosorrfcms" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToIdle.gd" id="6_brcia"]
+[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionTransitionLink.gd" id="2_p0t8u"]
+[ext_resource type="Resource" uid="uid://blxou1k25y74u" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToSprint.tres" id="3_brcia"]
+[ext_resource type="Resource" uid="uid://dgsuepp8y1aso" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToWalk.tres" id="4_qwvib"]
+[ext_resource type="Resource" uid="uid://cfnfrbudxrs3c" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToRun.tres" id="5_bwkox"]
+[ext_resource type="Resource" uid="uid://bw6ca3aj50ftv" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToIdle.tres" id="6_lmcrr"]
 
-[sub_resource type="Resource" id="Resource_brcia"]
-script = ExtResource("3_7xmbm")
-metadata/_custom_type_script = "uid://dsyin7tcl67q6"
+[sub_resource type="Resource" id="Resource_f1j7s"]
+script = ExtResource("2_p0t8u")
+rule = ExtResource("3_brcia")
+state = 3
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
-[sub_resource type="Resource" id="Resource_qwvib"]
-script = ExtResource("4_brcia")
-metadata/_custom_type_script = "uid://u8km4ow3sep0"
+[sub_resource type="Resource" id="Resource_h2h4x"]
+script = ExtResource("2_p0t8u")
+rule = ExtResource("4_qwvib")
+state = 1
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
-[sub_resource type="Resource" id="Resource_bwkox"]
-script = ExtResource("5_qwvib")
-metadata/_custom_type_script = "uid://b31blm3qllmwm"
+[sub_resource type="Resource" id="Resource_hvesj"]
+script = ExtResource("2_p0t8u")
+rule = ExtResource("5_bwkox")
+state = 2
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
-[sub_resource type="Resource" id="Resource_lmcrr"]
-script = ExtResource("6_brcia")
-metadata/_custom_type_script = "uid://cjjmosorrfcms"
+[sub_resource type="Resource" id="Resource_7og0p"]
+script = ExtResource("2_p0t8u")
+rule = ExtResource("6_lmcrr")
+metadata/_custom_type_script = "uid://bai6tkgyrfle5"
 
 [resource]
 script = ExtResource("1_p0t8u")
-transition_rules = Dictionary[ExtResource("2_mit6r"), int]({
-SubResource("Resource_brcia"): 3,
-SubResource("Resource_qwvib"): 1,
-SubResource("Resource_bwkox"): 2,
-SubResource("Resource_lmcrr"): 0
-})
+transition_rules = Array[ExtResource("2_p0t8u")]([SubResource("Resource_f1j7s"), SubResource("Resource_h2h4x"), SubResource("Resource_hvesj"), SubResource("Resource_7og0p")])
 metadata/_custom_type_script = "uid://8ttv2j6ju51o"

@@ -1,4 +1,4 @@
-class_name IdleToWalkTransitionRule extends ILocomotionTransitionRule
+class_name IdleToWalkTransitionRule extends IHumanLocomotionTransitionRule
 
 
 func can_transition(parent: CharacterBody3D, input: PlayerInput) -> bool:
