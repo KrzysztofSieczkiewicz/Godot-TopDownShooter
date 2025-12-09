@@ -1,15 +1,15 @@
-class_name IPlayerRootState extends Node
+class_name IHumanTorsoState extends Resource
 
 signal transition(new_state_name: StringName)
 
+@export var transition_rules: Array[HumanTorsoTransitionRuleLink]
 @export var locomotion_constraint: IHumanLocomotionConstraint
-@export var torso_constraint: ITorsoConstraint
 
 var animations: AnimationPlayer
 var parent: CharacterBody3D
 var stateManager: PlayerStateManager
 
-func enter(previous_state: IPlayerRootState) -> void:
+func enter(previous_state: IHumanTorsoState) -> void:
 	pass
 
 func exit() -> void:
@@ -20,3 +20,9 @@ func update(input: PlayerInput, delta: float) -> void:
 
 func physics_update(delta: float) -> void:
 	pass
+
+func execute_transition_rules(input: PlayerInput):
+	for pair in transition_rules:
+		if pair.rule.can_transition(parent, input):
+			transition.emit(pair.state)
+			return

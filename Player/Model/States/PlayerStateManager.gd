@@ -19,7 +19,7 @@ func update(input: PlayerInput, delta: float):
 	var root_torso_constraints = root_state_machine.CURRENT_STATE.torso_constraint
 	var root_locomotion_constraints = root_state_machine.CURRENT_STATE.locomotion_constraint
 	
-	#var forced_torso_state: String = root_torso_constraints.forced_state
+	var forced_torso_state: String = root_torso_constraints.forced_state
 	#if forced_torso_state:
 	#	locomotion_state_machine.force_state(forced_torso_state)
 	
@@ -27,8 +27,8 @@ func update(input: PlayerInput, delta: float):
 	torso_state_machine.update(torso_input, delta)
 	var torso_constraints = torso_state_machine.CURRENT_STATE.locomotion_constraint
 	
-	#var forced_root_locomotion_state: String = root_locomotion_constraints.forced_state
-	#var forced_torso_locomotion_state: String = torso_constraints.forced_state
+	var forced_root_locomotion_state: String = root_locomotion_constraints.forced_state
+	var forced_torso_locomotion_state: String = torso_constraints.forced_state
 	#if forced_root_locomotion_state:
 	#	locomotion_state_machine.force_state(forced_root_locomotion_state)
 	#elif forced_torso_locomotion_state:

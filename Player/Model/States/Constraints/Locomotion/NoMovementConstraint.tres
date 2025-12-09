@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ILocomotionConstraint" load_steps=2 format=3 uid="uid://diatki6pp7og8"]
 
-[ext_resource type="Script" uid="uid://ccgn0tal7ibs0" path="res://Player/Model/States/Constraints/Locomotion/ILocomotionConstraint.gd" id="1_byjn3"]
+[ext_resource type="Script" uid="uid://ccgn0tal7ibs0" path="res://Player/Model/States/Constraints/Locomotion/IHumanLocomotionConstraint.gd" id="1_byjn3"]
 
 [resource]
 script = ExtResource("1_byjn3")

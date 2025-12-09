@@ -1,0 +1,1 @@
+class_name IHumanLocomotionConstraint extends IConstraint

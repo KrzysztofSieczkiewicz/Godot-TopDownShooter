@@ -1,19 +1,7 @@
-class_name PlayerTorsoWeaponState extends IPlayerTorsoState
+class_name HumanTorsoWeaponState extends IHumanTorsoState
 
-
-func enter(IPlayerTorsoState):
-	#TODO: ADD HERE - read the currently equipped weapon and get it's current substate LocomotionConstraint -> then overwrite the current LocomotionConstraint	
+func enter(previous_state: IHumanTorsoState) -> void:
 	pass
 
-
 func update(input: PlayerInput, delta: float):
-	if input.locomotion_actions.has("shoot"):
-		return
-	elif input.locomotion_actions.has("sprint"):
-		transition.emit("SprintingState")
-	elif input.locomotion_actions.has("walk"):
-		transition.emit("WalkingState")
-	elif input.locomotion_actions.has("run"):
-		transition.emit("RunningState")
-	elif parent.velocity.length() == 0:
-		transition.emit("IdleState")
+	execute_transition_rules(input)

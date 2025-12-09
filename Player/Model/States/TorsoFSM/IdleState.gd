@@ -1,14 +1,7 @@
-class_name PlayerTorsoIdleState extends IPlayerTorsoState
+class_name HumanTorsoIdleState extends IHumanTorsoState
 
+func enter(previous_state: IHumanTorsoState) -> void:
+	pass
 
-func update(input: PlayerInput, delta: float) -> void:
-	if input.locomotion_actions.has("shoot"):
-		transition.emit("WeaponState")
-	elif parent.velocity.length() == 0.0:
-		return
-	elif input.locomotion_actions.has("sprint"):
-		transition.emit("SprintingState")
-	elif input.locomotion_actions.has("walk"):
-		transition.emit("WalkingState")
-	else:
-		transition.emit("RunningState")
+func update(input: PlayerInput, delta: float):
+	execute_transition_rules(input)

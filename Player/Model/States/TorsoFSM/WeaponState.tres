@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="HumanTorsoWeaponState" load_steps=6 format=3 uid="uid://b8g737blikyiw"]
+
+[ext_resource type="Resource" uid="uid://ch3kwsl1s64f4" path="res://Player/Model/States/Constraints/Locomotion/NoSprintingConstraint.tres" id="1_cnfvs"]
+[ext_resource type="Script" uid="uid://wxboce5j61t8" path="res://Player/Model/States/TorsoFSM/WeaponState.gd" id="1_r015e"]
+[ext_resource type="Script" uid="uid://cw2egogt51dyp" path="res://Player/Model/States/TorsoFSM/HumanTorsoTransitionLink.gd" id="2_77x4x"]
+[ext_resource type="Resource" uid="uid://c2meq14oussgt" path="res://Player/Model/States/TransitionRules/Torso/Weapon/WeaponToIdle.tres" id="4_cnfvs"]
+
+[sub_resource type="Resource" id="Resource_gfh6o"]
+script = ExtResource("2_77x4x")
+rule = ExtResource("4_cnfvs")
+metadata/_custom_type_script = "uid://cw2egogt51dyp"
+
+[resource]
+script = ExtResource("1_r015e")
+transition_rules = Array[ExtResource("2_77x4x")]([SubResource("Resource_gfh6o")])
+locomotion_constraint = ExtResource("1_cnfvs")
+metadata/_custom_type_script = "uid://wxboce5j61t8"

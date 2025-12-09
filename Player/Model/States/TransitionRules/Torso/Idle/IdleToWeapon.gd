@@ -1,4 +1,4 @@
-class_name IdleToWeaponTransitionRule extends ITorsoTransitionRule
+class_name IdleToWeaponTransitionRule extends IHumanTorsoTransitionRule
 
 
 func can_transition(parent: CharacterBody3D, input: PlayerInput) -> bool:
