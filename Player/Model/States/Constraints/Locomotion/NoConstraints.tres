@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="ILocomotionConstraint" load_steps=2 format=3 uid="uid://dlquvyfn074h1"]
-
-[ext_resource type="Script" uid="uid://ccgn0tal7ibs0" path="res://Player/Model/States/Constraints/Locomotion/IHumanLocomotionConstraint.gd" id="1_meqly"]
-
-[resource]
-script = ExtResource("1_meqly")
-metadata/_custom_type_script = "uid://ccgn0tal7ibs0"

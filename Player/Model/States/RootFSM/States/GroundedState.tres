@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HumanRootGroundedState" load_steps=5 format=3 uid="uid://ds806wpeoxuqu"]
+
+[ext_resource type="Resource" uid="uid://dlquvyfn074h1" path="res://Player/Model/States/StateConstraints/Locomotion/NoConstraints.tres" id="1_v3q5g"]
+[ext_resource type="Script" uid="uid://d026w4iov8wb6" path="res://Player/Model/States/RootFSM/States/GroundedState.gd" id="2_uo8p3"]
+[ext_resource type="Resource" uid="uid://g4vl26hcf8bu" path="res://Player/Model/States/StateConstraints/Torso/NoConstraint.tres" id="3_uo8p3"]
+[ext_resource type="Script" uid="uid://bslumlhwtrlsu" path="res://Player/Model/States/RootFSM/HumanRootTransitionLink.gd" id="3_ywwhr"]
+
+[resource]
+script = ExtResource("2_uo8p3")
+locomotion_constraint = ExtResource("1_v3q5g")
+torso_constraint = ExtResource("3_uo8p3")
+metadata/_custom_type_script = "uid://d026w4iov8wb6"

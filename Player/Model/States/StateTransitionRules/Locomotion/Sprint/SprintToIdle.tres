@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SprintToIdleTransitionRule" load_steps=2 format=3 uid="uid://k4m3nyjqfrkl"]
+
+[ext_resource type="Script" uid="uid://dcs2fcjak3cuf" path="res://Player/Model/States/StateTransitionRules/Locomotion/Sprint/SprintToIdle.gd" id="1_rift4"]
+
+[resource]
+script = ExtResource("1_rift4")
+metadata/_custom_type_script = "uid://dcs2fcjak3cuf"

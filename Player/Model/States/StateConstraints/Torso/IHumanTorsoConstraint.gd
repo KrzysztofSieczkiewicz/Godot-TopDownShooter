@@ -1,0 +1,1 @@
+class_name IHumanTorsoConstraint extends IConstraint

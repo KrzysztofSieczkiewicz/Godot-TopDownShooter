@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="WalkToIdleTransitionRule" load_steps=2 format=3 uid="uid://chqm1qhrrmdc6"]
-
-[ext_resource type="Script" uid="uid://b7su02rwgaf7u" path="res://Player/Model/States/TransitionRules/Locomotion/Walk/WalkToIdle.gd" id="1_xttit"]
-
-[resource]
-script = ExtResource("1_xttit")
-metadata/_custom_type_script = "uid://b7su02rwgaf7u"

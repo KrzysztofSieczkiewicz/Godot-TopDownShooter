@@ -6,7 +6,7 @@ class_name PlayerLocomotionStateMachine extends Node
 var CURRENT_STATE_KEY: HumanStates.LOCOMOTION_STATE
 var CURRENT_STATE: IHumanLocomotionState
 
-var _states: Dictionary[HumanStates.LOCOMOTION_STATE, IHumanLocomotionState]
+var _states: Dictionary[HumanStates.LOCOMOTION_STATE, IHumanLocomotionState] = {}
 
 
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:

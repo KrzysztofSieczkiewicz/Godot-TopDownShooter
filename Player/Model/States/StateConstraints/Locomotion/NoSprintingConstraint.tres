@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IHumanLocomotionConstraint" load_steps=2 format=3 uid="uid://ch3kwsl1s64f4"]
+
+[ext_resource type="Script" uid="uid://ccgn0tal7ibs0" path="res://Player/Model/States/StateConstraints/Locomotion/IHumanLocomotionConstraint.gd" id="1_s62yf"]
+
+[resource]
+script = ExtResource("1_s62yf")
+forbidden_inputs = Array[String](["sprint"])
+metadata/_custom_type_script = "uid://ccgn0tal7ibs0"

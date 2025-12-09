@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WeaponToIdleTransitionRule" load_steps=2 format=3 uid="uid://c2meq14oussgt"]
+
+[ext_resource type="Script" uid="uid://dfmsfdr8v7ekn" path="res://Player/Model/States/StateTransitionRules/Torso/Weapon/WeaponToIdle.gd" id="1_mcvbn"]
+
+[resource]
+script = ExtResource("1_mcvbn")
+metadata/_custom_type_script = "uid://dfmsfdr8v7ekn"

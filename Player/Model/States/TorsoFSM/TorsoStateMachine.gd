@@ -6,7 +6,8 @@ class_name PlayerTorsoStateMachine extends Node
 var CURRENT_STATE_KEY: HumanStates.TORSO_STATE
 var CURRENT_STATE: IHumanTorsoState
 
-var _states: Dictionary[HumanStates.TORSO_STATE, IHumanTorsoState]
+var _states: Dictionary[HumanStates.TORSO_STATE, IHumanTorsoState] = {}
+
 
 func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations: AnimationPlayer) -> void:
 	for state in STATES:
@@ -23,6 +24,7 @@ func init(stateManager: PlayerStateManager, parent: CharacterBody3D, animations:
 	CURRENT_STATE_KEY = INITIAL_STATE
 	CURRENT_STATE = _states[CURRENT_STATE_KEY]
 	CURRENT_STATE.enter(null)
+
 
 func update(input: PlayerInput, delta: float) -> void:
 	CURRENT_STATE.update(input, delta)

@@ -5,25 +5,29 @@
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://Player/Model/States/PlayerStateManager.gd" id="3_wfmpg"]
 [ext_resource type="Script" uid="uid://b13wevmood78h" path="res://Player/Model/States/RootFSM/RootStateMachine.gd" id="4_188il"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://Player/Model/States/TorsoFSM/TorsoStateMachine.gd" id="4_kqrvp"]
-[ext_resource type="Script" uid="uid://crf76enrcn837" path="res://Player/Model/States/RootFSM/GroundedState.gd" id="5_2wu2n"]
-[ext_resource type="Resource" uid="uid://dlquvyfn074h1" path="res://Player/Model/States/Constraints/Locomotion/NoConstraints.tres" id="6_188il"]
-[ext_resource type="Resource" uid="uid://g4vl26hcf8bu" path="res://Player/Model/States/Constraints/Torso/NoConstraint.tres" id="7_2wu2n"]
+[ext_resource type="Script" uid="uid://dtnuonflyr7un" path="res://Player/Model/States/RootFSM/HumanRootStateLink.gd" id="5_i181q"]
+[ext_resource type="Resource" uid="uid://ds806wpeoxuqu" path="res://Player/Model/States/RootFSM/States/GroundedState.tres" id="6_qw80o"]
 [ext_resource type="Script" uid="uid://dwk1olfkvtgc6" path="res://Player/Model/States/TorsoFSM/HumanTorsoStateLink.gd" id="9_edmts"]
 [ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://Player/Model/States/LocomotionFSM/LocomotionStateMachine.gd" id="10_qhqfm"]
-[ext_resource type="Resource" uid="uid://b3k6brbymqf1j" path="res://Player/Model/States/TorsoFSM/IdleState.tres" id="10_untia"]
-[ext_resource type="Resource" uid="uid://b8g737blikyiw" path="res://Player/Model/States/TorsoFSM/WeaponState.tres" id="11_edmts"]
+[ext_resource type="Resource" uid="uid://b3k6brbymqf1j" path="res://Player/Model/States/TorsoFSM/States/IdleState.tres" id="10_untia"]
+[ext_resource type="Resource" uid="uid://b8g737blikyiw" path="res://Player/Model/States/TorsoFSM/States/WeaponState.tres" id="11_edmts"]
 [ext_resource type="Script" uid="uid://dp7lgnvbwuaba" path="res://Player/Model/States/LocomotionFSM/HumanLocomotionStateLink.gd" id="16_qhqfm"]
-[ext_resource type="Resource" uid="uid://3ihorixcgd3k" path="res://Player/Model/States/LocomotionFSM/IdleState.tres" id="17_qhqfm"]
-[ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://Player/Model/States/LocomotionFSM/WalkingState.tres" id="18_b8dup"]
-[ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://Player/Model/States/LocomotionFSM/RunningState.tres" id="19_krj2v"]
-[ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://Player/Model/States/LocomotionFSM/SprintingState.tres" id="20_oipb4"]
+[ext_resource type="Resource" uid="uid://3ihorixcgd3k" path="res://Player/Model/States/LocomotionFSM/States/IdleState.tres" id="17_qhqfm"]
+[ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://Player/Model/States/LocomotionFSM/States/WalkingState.tres" id="18_b8dup"]
+[ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://Player/Model/States/LocomotionFSM/States/RunningState.tres" id="19_krj2v"]
+[ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://Player/Model/States/LocomotionFSM/States/SprintingState.tres" id="20_oipb4"]
 
-[sub_resource type="Resource" id="Resource_n4285"]
+[sub_resource type="Resource" id="Resource_nosig"]
+script = ExtResource("5_i181q")
+value = ExtResource("6_qw80o")
+metadata/_custom_type_script = "uid://dtnuonflyr7un"
+
+[sub_resource type="Resource" id="Resource_dng8b"]
 script = ExtResource("9_edmts")
 value = ExtResource("10_untia")
 metadata/_custom_type_script = "uid://dwk1olfkvtgc6"
 
-[sub_resource type="Resource" id="Resource_jo0am"]
+[sub_resource type="Resource" id="Resource_n4285"]
 script = ExtResource("9_edmts")
 key = 1
 value = ExtResource("11_edmts")
@@ -521,18 +525,13 @@ libraries = {
 [node name="PlayerStateManager" type="Node" parent="."]
 script = ExtResource("3_wfmpg")
 
-[node name="RootStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("INITIAL_STATE")]
+[node name="RootStateMachine" type="Node" parent="PlayerStateManager"]
 script = ExtResource("4_188il")
-INITIAL_STATE = NodePath("GroundedState")
-
-[node name="GroundedState" type="Node" parent="PlayerStateManager/RootStateMachine"]
-script = ExtResource("5_2wu2n")
-locomotion_constraint = ExtResource("6_188il")
-torso_constraint = ExtResource("7_2wu2n")
+STATES = Array[ExtResource("5_i181q")]([SubResource("Resource_nosig")])
 
 [node name="TorsoStateMachine" type="Node" parent="PlayerStateManager"]
 script = ExtResource("4_kqrvp")
-STATES = Array[ExtResource("9_edmts")]([SubResource("Resource_n4285"), SubResource("Resource_jo0am")])
+STATES = Array[ExtResource("9_edmts")]([SubResource("Resource_dng8b"), SubResource("Resource_n4285")])
 
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager"]
 script = ExtResource("10_qhqfm")

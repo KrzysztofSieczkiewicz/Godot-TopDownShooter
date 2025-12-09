@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="ITorsoConstraint" load_steps=2 format=3 uid="uid://g4vl26hcf8bu"]
-
-[ext_resource type="Script" uid="uid://2wpdr8nrlvhk" path="res://Player/Model/States/Constraints/Torso/ITorsoConstraint.gd" id="1_ows0w"]
-
-[resource]
-script = ExtResource("1_ows0w")
-metadata/_custom_type_script = "uid://2wpdr8nrlvhk"

@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="RemainRunningTransitionRule" load_steps=2 format=3 uid="uid://cfnfrbudxrs3c"]
-
-[ext_resource type="Script" uid="uid://b31blm3qllmwm" path="res://Player/Model/States/TransitionRules/Locomotion/Run/RunToRun.gd" id="1_3e8c6"]
-
-[resource]
-script = ExtResource("1_3e8c6")
-metadata/_custom_type_script = "uid://b31blm3qllmwm"

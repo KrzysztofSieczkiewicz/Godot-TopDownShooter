@@ -11,3 +11,7 @@ enum TORSO_STATE {
 	IDLE,
 	WEAPON
 }
+
+enum ROOT_STATE {
+	GROUNDED
+}

@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="RemainSprintingTransitionRule" load_steps=2 format=3 uid="uid://bjekhfvanwiu6"]
-
-[ext_resource type="Script" uid="uid://ccucsv2ny4y30" path="res://Player/Model/States/TransitionRules/Locomotion/Sprint/SprintToSprint.gd" id="1_mne2d"]
-
-[resource]
-script = ExtResource("1_mne2d")
-metadata/_custom_type_script = "uid://ccucsv2ny4y30"
