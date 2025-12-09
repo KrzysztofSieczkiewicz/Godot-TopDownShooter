@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="ILocomotionConstraint" load_steps=2 format=3 uid="uid://ch3kwsl1s64f4"]
-
-[ext_resource type="Script" uid="uid://ccgn0tal7ibs0" path="res://PlayerMovement/StateMachine/Constraints/Locomotion/ILocomotionConstraint.gd" id="1_s62yf"]
-
-[resource]
-script = ExtResource("1_s62yf")
-forbidden_inputs = Array[String](["sprint"])
-metadata/_custom_type_script = "uid://ccgn0tal7ibs0"

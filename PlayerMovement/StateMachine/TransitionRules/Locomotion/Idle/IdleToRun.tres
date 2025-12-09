@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="IdleToRunTransitionRule" load_steps=2 format=3 uid="uid://cnjqy1nj3lo48"]
-
-[ext_resource type="Script" uid="uid://bdbs75k7shetf" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Idle/IdleToRun.gd" id="1_dqlp0"]
-
-[resource]
-script = ExtResource("1_dqlp0")
-metadata/_custom_type_script = "uid://bdbs75k7shetf"

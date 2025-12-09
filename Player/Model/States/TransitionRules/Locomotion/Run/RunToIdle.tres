@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RunToIdleTransitionRule" load_steps=2 format=3 uid="uid://bw6ca3aj50ftv"]
+
+[ext_resource type="Script" uid="uid://cjjmosorrfcms" path="res://Player/Model/States/TransitionRules/Locomotion/Run/RunToIdle.gd" id="1_53guk"]
+
+[resource]
+script = ExtResource("1_53guk")
+metadata/_custom_type_script = "uid://cjjmosorrfcms"

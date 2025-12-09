@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://difxs8ey7f1ih"]
 
-[ext_resource type="PackedScene" uid="uid://c3l3vxp17wy7" path="res://PlayerMovement/Player.tscn" id="1_74r8l"]
+[ext_resource type="PackedScene" uid="uid://c3l3vxp17wy7" path="res://Player/Player.tscn" id="1_74r8l"]
 [ext_resource type="Script" uid="uid://cdbjd6vuucftk" path="res://Default_level.gd" id="1_foq5g"]
-[ext_resource type="Script" uid="uid://ckenfw0n5xj4p" path="res://PlayerMovement/CameraManager.gd" id="2_ojt3u"]
+[ext_resource type="Script" uid="uid://ckenfw0n5xj4p" path="res://Player/CameraManager.gd" id="2_ojt3u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_foq5g"]
 size = Vector3(5, 0.5, 5)

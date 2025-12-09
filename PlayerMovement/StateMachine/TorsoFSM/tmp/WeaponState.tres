@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="HumanTorsoWeaponState" load_steps=3 format=3 uid="uid://b8g737blikyiw"]
-
-[ext_resource type="Script" uid="uid://wxboce5j61t8" path="res://PlayerMovement/StateMachine/TorsoFSM/tmp/WeaponState.gd" id="1_r015e"]
-[ext_resource type="Script" uid="uid://dccketi4xwq0c" path="res://PlayerMovement/StateMachine/TransitionRules/Torso/ITorsoTransitionRule.gd" id="2_ac4yn"]
-
-[resource]
-script = ExtResource("1_r015e")
-metadata/_custom_type_script = "uid://wxboce5j61t8"
