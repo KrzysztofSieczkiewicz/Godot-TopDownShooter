@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="HumanLocomotionWalkingState" load_steps=15 format=3 uid="uid://1llvkyev7sna"]
 
-[ext_resource type="Script" uid="uid://cg017qaxekayj" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/WalkingState.gd" id="1_b7oco"]
-[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionTransitionLink.gd" id="2_tbs4w"]
+[ext_resource type="Script" uid="uid://cg017qaxekayj" path="res://PlayerMovement/StateMachine/LocomotionFSM/WalkingState.gd" id="1_b7oco"]
+[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/HumanLocomotionTransitionLink.gd" id="2_tbs4w"]
 [ext_resource type="Script" uid="uid://b7su02rwgaf7u" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Walk/WalkToIdle.gd" id="3_2m2wq"]
 [ext_resource type="Script" uid="uid://brfvlpu1awy31" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Walk/WalkToSprint.gd" id="4_3ucwf"]
 [ext_resource type="Script" uid="uid://dwlawkx5d7eax" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Walk/WalkToWalk.gd" id="5_tbs4w"]

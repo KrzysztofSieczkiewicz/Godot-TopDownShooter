@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
-[ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://PlayerMovement/StateMachine/PlayerStateManager.gd" id="3_lwy7e"]
 [ext_resource type="Script" uid="uid://b13wevmood78h" path="res://PlayerMovement/StateMachine/RootFSM/RootStateMachine.gd" id="4_188il"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://PlayerMovement/StateMachine/TorsoFSM/TorsoStateMachine.gd" id="4_kqrvp"]
 [ext_resource type="Script" uid="uid://b1g2ned48wb0m" path="res://PlayerMovement/StateMachine/TorsoFSM/IdleState.gd" id="5_1k8m6"]
@@ -15,11 +14,62 @@
 [ext_resource type="Script" uid="uid://c3ooulq51hvgx" path="res://PlayerMovement/StateMachine/TorsoFSM/WeaponState.gd" id="9_1k8m6"]
 [ext_resource type="Script" uid="uid://by2yxkgk2k8c3" path="res://PlayerMovement/StateMachine/LocomotionFSM/LocomotionStateMachine.gd" id="10_qhqfm"]
 [ext_resource type="Resource" uid="uid://ch3kwsl1s64f4" path="res://PlayerMovement/StateMachine/Constraints/Locomotion/NoSprintingConstraint.tres" id="14_2wu2n"]
-[ext_resource type="Script" uid="uid://dp7lgnvbwuaba" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionStateLink.gd" id="16_qhqfm"]
-[ext_resource type="Resource" uid="uid://3ihorixcgd3k" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/IdleState.tres" id="17_qhqfm"]
-[ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/WalkingState.tres" id="18_b8dup"]
-[ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.tres" id="19_krj2v"]
-[ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/SprintingState.tres" id="20_oipb4"]
+[ext_resource type="Script" uid="uid://dp7lgnvbwuaba" path="res://PlayerMovement/StateMachine/LocomotionFSM/HumanLocomotionStateLink.gd" id="16_qhqfm"]
+[ext_resource type="Resource" uid="uid://3ihorixcgd3k" path="res://PlayerMovement/StateMachine/LocomotionFSM/IdleState.tres" id="17_qhqfm"]
+[ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://PlayerMovement/StateMachine/LocomotionFSM/WalkingState.tres" id="18_b8dup"]
+[ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://PlayerMovement/StateMachine/LocomotionFSM/RunningState.tres" id="19_krj2v"]
+[ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://PlayerMovement/StateMachine/LocomotionFSM/SprintingState.tres" id="20_oipb4"]
+
+[sub_resource type="GDScript" id="GDScript_2wu2n"]
+script/source = "class_name PlayerStateManager extends Node
+
+@onready var root_state_machine: PlayerRootStateMachine = $RootStateMachine
+@onready var torso_state_machine: PlayerTorsoStateMachine = $TorsoStateMachine
+@onready var locomotion_state_machine: PlayerLocomotionStateMachine = $LocomotionStateMachine
+
+# TODO:
+# - make walking toggleable instead of pressable
+# - simplify PlayerStateManager update function
+
+func init(parent: CharacterBody3D, animations: AnimationPlayer) -> void:
+	root_state_machine.init(self, parent, animations)
+	torso_state_machine.init(self, parent, animations)
+	locomotion_state_machine.init(self, parent, animations)
+
+
+func update(input: PlayerInput, delta: float):
+	root_state_machine.update(input, delta)
+	var root_torso_constraints = root_state_machine.CURRENT_STATE.torso_constraint
+	var root_locomotion_constraints = root_state_machine.CURRENT_STATE.locomotion_constraint
+	
+	#var forced_torso_state: String = root_torso_constraints.forced_state
+	#if forced_torso_state:
+	#	locomotion_state_machine.force_state(forced_torso_state)
+	
+	var torso_input = _handle_input_constraints(input, root_torso_constraints)
+	torso_state_machine.update(torso_input, delta)
+	var torso_constraints = torso_state_machine.CURRENT_STATE.locomotion_constraint
+	
+	#var forced_root_locomotion_state: String = root_locomotion_constraints.forced_state
+	#var forced_torso_locomotion_state: String = torso_constraints.forced_state
+	#if forced_root_locomotion_state:
+	#	locomotion_state_machine.force_state(forced_root_locomotion_state)
+	#elif forced_torso_locomotion_state:
+	#	locomotion_state_machine.force_state(forced_torso_locomotion_state)
+	
+	var locomotion_input = _handle_input_constraints(torso_input, root_locomotion_constraints)
+	locomotion_input = _handle_input_constraints(locomotion_input, torso_constraints)
+	locomotion_state_machine.update(locomotion_input, delta)
+
+
+func _handle_input_constraints(input: PlayerInput, constraints: IConstraint) -> PlayerInput:
+	var filtered_input = input
+
+	for input_to_remove in constraints.forbidden_inputs:
+		filtered_input.locomotion_actions.erase(input_to_remove)
+	
+	return filtered_input
+"
 
 [sub_resource type="Resource" id="Resource_ivf6u"]
 script = ExtResource("16_qhqfm")
@@ -511,7 +561,7 @@ libraries = {
 }
 
 [node name="PlayerStateManager" type="Node" parent="."]
-script = ExtResource("3_lwy7e")
+script = SubResource("GDScript_2wu2n")
 
 [node name="RootStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("INITIAL_STATE")]
 script = ExtResource("4_188il")
@@ -524,6 +574,7 @@ torso_constraint = ExtResource("7_2wu2n")
 
 [node name="TorsoStateMachine" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("INITIAL_STATE")]
 script = ExtResource("4_kqrvp")
+STATES = null
 INITIAL_STATE = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="PlayerStateManager/TorsoStateMachine"]

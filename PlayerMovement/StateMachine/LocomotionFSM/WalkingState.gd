@@ -1,10 +1,10 @@
-class_name PlayerLocomotionWalkingState extends IPlayerLocomotionState
+class_name HumanLocomotionWalkingState extends IHumanLocomotionState
 
 @export var SPEED: float = 3.0
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
 
-func enter(previous_state: IPlayerLocomotionState) -> void:
+func enter(previous_state: IHumanLocomotionState) -> void:
 	animations.play("BasicMovement/Walking")
 
 
@@ -15,15 +15,9 @@ func update(input: PlayerInput, delta: float):
 	
 	adjust_animation_speed(parent.velocity.length())
 	
-	if parent.velocity.length() == 0:
-		transition.emit("IdleState")
-	elif input.locomotion_actions.has("sprint"):
-		transition.emit("SprintingState")
-	elif input.locomotion_actions.has("walk"):
-		return
-	elif input.locomotion_actions.has("run"):
-		transition.emit("RunningState")
-	
+	execute_transition_rules(input)
+
+
 func exit() -> void: 
 	animations.speed_scale = 1.0
 

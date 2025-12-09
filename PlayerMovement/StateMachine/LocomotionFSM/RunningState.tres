@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="HumanLocomotionRunningState" load_steps=11 format=3 uid="uid://uwhw30xmndj6"]
 
-[ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.gd" id="1_p0t8u"]
-[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionTransitionLink.gd" id="2_p0t8u"]
+[ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://PlayerMovement/StateMachine/LocomotionFSM/RunningState.gd" id="1_p0t8u"]
+[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/HumanLocomotionTransitionLink.gd" id="2_p0t8u"]
 [ext_resource type="Resource" uid="uid://blxou1k25y74u" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToSprint.tres" id="3_brcia"]
 [ext_resource type="Resource" uid="uid://dgsuepp8y1aso" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToWalk.tres" id="4_qwvib"]
 [ext_resource type="Resource" uid="uid://cfnfrbudxrs3c" path="res://PlayerMovement/StateMachine/TransitionRules/Locomotion/Run/RunToRun.tres" id="5_bwkox"]

@@ -1,5 +1,8 @@
 class_name PlayerTorsoStateMachine extends Node
 
+@export var STATES: Array[HumanTorsoStateLink]
+#@export var INITIAL_STATE: HumanStates.LOCOMOTION_STATE
+
 @export var INITIAL_STATE: IPlayerTorsoState
 var CURRENT_STATE: IPlayerTorsoState
 
