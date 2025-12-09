@@ -7,7 +7,6 @@ class_name HumanLocomotionSprintingState extends IHumanLocomotionState
 func enter(previous_state: IHumanLocomotionState) -> void:
 	animations.play("BasicMovement/Sprinting")
 
-
 func update(input: PlayerInput, delta: float):
 	parent.update_gravity(delta)
 	parent.update_input(SPEED, ACCELERATION, DECELERATION)
@@ -15,7 +14,9 @@ func update(input: PlayerInput, delta: float):
 	
 	adjust_animation_speed(parent.velocity.length())
 	
+	### printing transition_rules.size() shows 0
 	for pair in transition_rules:
+		### This code never triggers
 		if pair.rule.can_transition(parent, input):
 			transition.emit(pair.state)
 			return

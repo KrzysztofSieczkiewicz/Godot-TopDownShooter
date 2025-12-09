@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=25 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://PlayerMovement/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
@@ -19,8 +19,7 @@
 [ext_resource type="Resource" uid="uid://3ihorixcgd3k" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/IdleState.tres" id="17_qhqfm"]
 [ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/WalkingState.tres" id="18_b8dup"]
 [ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/RunningState.tres" id="19_krj2v"]
-[ext_resource type="Script" uid="uid://ck2fesy7fvlcn" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/SprintingState.gd" id="20_b8dup"]
-[ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/HumanLocomotionTransitionLink.gd" id="21_qhqfm"]
+[ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://PlayerMovement/StateMachine/LocomotionFSM/tmp/SprintingState.tres" id="20_oipb4"]
 
 [sub_resource type="Resource" id="Resource_ivf6u"]
 script = ExtResource("16_qhqfm")
@@ -39,14 +38,10 @@ key = 2
 value = ExtResource("19_krj2v")
 metadata/_custom_type_script = "uid://dp7lgnvbwuaba"
 
-[sub_resource type="Resource" id="Resource_owlnj"]
-script = ExtResource("20_b8dup")
-metadata/_custom_type_script = "uid://ck2fesy7fvlcn"
-
 [sub_resource type="Resource" id="Resource_taj6y"]
 script = ExtResource("16_qhqfm")
 key = 3
-value = SubResource("Resource_owlnj")
+value = ExtResource("20_oipb4")
 metadata/_custom_type_script = "uid://dp7lgnvbwuaba"
 
 [node name="Model" type="Node3D"]
