@@ -1,6 +1,6 @@
 class_name HumanLocomotionWalkingState extends IHumanLocomotionState
 
-@export var SPEED: float = 3.0
+@export var SPEED: float = 2.5
 @export var ACCELERATION: float = 0.1
 @export var DECELERATION: float = 0.5
 
