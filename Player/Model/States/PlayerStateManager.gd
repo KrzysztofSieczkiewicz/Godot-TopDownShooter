@@ -39,14 +39,14 @@ func update(input: PlayerInput, delta: float):
 	locomotion_state_machine.update(locomotion_input, delta)
 
 
-func _filter_input_constraints(input: PlayerInput, constraints) -> PlayerInput:
+func _filter_input_constraints(input: PlayerInput, constraints: IHumanLocomotionConstraint) -> PlayerInput:
 	var filtered_input = input
 	for input_to_remove in constraints.forbidden_inputs:
 		filtered_input.locomotion_actions.erase(input_to_remove)	
 	return filtered_input
 
 
-func _handle_forced_locomotion_state(root_constraints, torso_constraints) -> bool:
+func _handle_forced_locomotion_state(root_constraints: IHumanTorsoConstraint, torso_constraints: IHumanLocomotionConstraint) -> bool:
 	var forced_root = root_constraints.forced_state
 	var forced_torso = torso_constraints.forced_state
 
@@ -59,7 +59,7 @@ func _handle_forced_locomotion_state(root_constraints, torso_constraints) -> boo
 	return false
 
 
-func _handle_forced_torso_state(root_constraints) -> bool:
+func _handle_forced_torso_state(root_constraints: IHumanTorsoConstraint) -> bool:
 	var forced_torso_state = root_constraints.forced_state
 	if forced_torso_state:
 		torso_state_machine.force_state(forced_torso_state)
