@@ -1,5 +1,9 @@
 class_name PlayerInputManager extends Node
 
+# TODO: 
+# - handle inputs being toggleable
+# - consider replacing strings with enums?
+
 func detect_input() -> PlayerInput:
 	var new_input = PlayerInput.new()
 	
