@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=25 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://Player/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
+[ext_resource type="Script" uid="uid://cosdv31an5iq3" path="res://Player/Model/SkeletonModifiers/CustomSkeletonModifier.gd" id="2_n4285"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://Player/Model/States/PlayerStateManager.gd" id="3_wfmpg"]
 [ext_resource type="Script" uid="uid://b13wevmood78h" path="res://Player/Model/States/RootFSM/RootStateMachine.gd" id="4_188il"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://Player/Model/States/TorsoFSM/TorsoStateMachine.gd" id="4_kqrvp"]
@@ -516,6 +517,29 @@ bones/64/enabled = true
 bones/64/position = Vector3(-2.26498e-06, 10, 5.5879408e-09)
 bones/64/rotation = Quaternion(-2.38651e-09, 1.24564e-08, -2.23372e-09, 1)
 bones/64/scale = Vector3(1, 1, 1)
+
+[node name="CustomSkeletonModifier" type="SkeletonModifier3D" parent="HumanoidSkeleton"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("2_n4285")
+target_coordinate = null
+bone = null
+metadata/_custom_type_script = "uid://cosdv31an5iq3"
 
 [node name="SkeletonAnimator" type="AnimationPlayer" parent="."]
 libraries = {
