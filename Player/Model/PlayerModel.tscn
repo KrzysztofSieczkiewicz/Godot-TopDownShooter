@@ -537,14 +537,14 @@ visibility_parent = NodePath("")
 active = true
 influence = 1.0
 script = ExtResource("2_n4285")
-target_coordinate = null
-bone = null
 metadata/_custom_type_script = "uid://cosdv31an5iq3"
 
 [node name="SkeletonAnimator" type="AnimationPlayer" parent="."]
 libraries = {
 &"BasicMovement": ExtResource("2_lfejn")
 }
+
+[node name="TorsoAnimator" type="AnimationPlayer" parent="."]
 
 [node name="PlayerStateManager" type="Node" parent="."]
 script = ExtResource("3_wfmpg")
