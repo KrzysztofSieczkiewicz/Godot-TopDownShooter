@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhjiyo6ylq7of"]
+[gd_scene load_steps=27 format=3 uid="uid://dhjiyo6ylq7of"]
 
 [ext_resource type="Script" uid="uid://bdio8cf4tp5gy" path="res://Player/Model/PlayerModel.gd" id="1_7p8wh"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpewpjkolxks" path="res://Assets/Animations_res/Library_BasicMovement.res" id="2_lfejn"]
 [ext_resource type="Script" uid="uid://cosdv31an5iq3" path="res://Player/Model/SkeletonModifiers/CustomSkeletonModifier.gd" id="2_n4285"]
 [ext_resource type="Script" uid="uid://d2j3c236qprx8" path="res://Player/Model/States/PlayerStateManager.gd" id="3_wfmpg"]
+[ext_resource type="Animation" uid="uid://cep5pchi6ict6" path="res://Assets/Animations_res/Pistol_idle.res" id="4_6qgsp"]
 [ext_resource type="Script" uid="uid://b13wevmood78h" path="res://Player/Model/States/RootFSM/RootStateMachine.gd" id="4_188il"]
 [ext_resource type="Script" uid="uid://2ji47xmjiqd4" path="res://Player/Model/States/TorsoFSM/TorsoStateMachine.gd" id="4_kqrvp"]
 [ext_resource type="Script" uid="uid://dtnuonflyr7un" path="res://Player/Model/States/RootFSM/HumanRootStateLink.gd" id="5_i181q"]
@@ -17,6 +18,11 @@
 [ext_resource type="Resource" uid="uid://1llvkyev7sna" path="res://Player/Model/States/LocomotionFSM/States/WalkingState.tres" id="18_b8dup"]
 [ext_resource type="Resource" uid="uid://uwhw30xmndj6" path="res://Player/Model/States/LocomotionFSM/States/RunningState.tres" id="19_krj2v"]
 [ext_resource type="Resource" uid="uid://lbaalinuwoby" path="res://Player/Model/States/LocomotionFSM/States/SprintingState.tres" id="20_oipb4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nb5oq"]
+_data = {
+&"Pistol_idle": ExtResource("4_6qgsp")
+}
 
 [sub_resource type="Resource" id="Resource_nosig"]
 script = ExtResource("5_i181q")
@@ -360,7 +366,7 @@ bones/42/name = "mixamorig_RightHandIndex4"
 bones/42/parent = 41
 bones/42/rest = Transform3D(0.999906, -0.00274841, -0.0134184, 0.00275035, 0.999996, 0.000126701, 0.013418, -0.000163594, 0.99991, -1.99543e-07, 3.07799, 6.27597e-08)
 bones/42/enabled = true
-bones/42/position = Vector3(-1.99543e-07, 3.07799, 6.27597e-08)
+bones/42/position = Vector3(2.0812848e-05, 3.0779984, 1.478829e-06)
 bones/42/rotation = Quaternion(-7.25754e-05, -0.00670925, 0.00137472, 0.999977)
 bones/42/scale = Vector3(1, 1, 1)
 bones/43/name = "mixamorig_RightHandMiddle1"
@@ -388,7 +394,7 @@ bones/46/name = "mixamorig_RightHandMiddle4"
 bones/46/parent = 45
 bones/46/rest = Transform3D(0.999905, 0.00341724, -0.0133901, -0.00341588, 0.999994, 0.000124527, 0.0133904, -7.87766e-05, 0.99991, 2.8769e-05, 3.68019, -5.46688e-06)
 bones/46/enabled = true
-bones/46/position = Vector3(2.8769e-05, 3.68019, -5.46688e-06)
+bones/46/position = Vector3(-1.559442e-05, 3.6802075, 1.1073957e-06)
 bones/46/rotation = Quaternion(-5.08272e-05, -0.00669529, -0.00170832, 0.999976)
 bones/46/scale = Vector3(1, 1, 1)
 bones/47/name = "mixamorig_RightHandRing1"
@@ -545,6 +551,9 @@ libraries = {
 }
 
 [node name="TorsoAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"HumanTorsoAnimations": SubResource("AnimationLibrary_nb5oq")
+}
 
 [node name="PlayerStateManager" type="Node" parent="."]
 script = ExtResource("3_wfmpg")
