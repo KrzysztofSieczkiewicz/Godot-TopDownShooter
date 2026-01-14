@@ -569,3 +569,10 @@ STATES = Array[ExtResource("9_edmts")]([SubResource("Resource_dng8b"), SubResour
 [node name="LocomotionStateMachine" type="Node" parent="PlayerStateManager"]
 script = ExtResource("10_qhqfm")
 STATES = Array[ExtResource("16_qhqfm")]([SubResource("Resource_ivf6u"), SubResource("Resource_jdfjo"), SubResource("Resource_ndog4"), SubResource("Resource_taj6y")])
+
+[node name="PlayerAnimationManager" type="Node" parent="."]
+
+[node name="LocomotionAnimator" type="AnimationPlayer" parent="PlayerAnimationManager"]
+libraries = {
+&"BasicMovement": ExtResource("2_lfejn")
+}
