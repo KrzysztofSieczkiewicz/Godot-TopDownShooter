@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ILocomotionSet" load_steps=2 format=3 uid="uid://chnphlksq3sp2"]
+
+[ext_resource type="Script" uid="uid://c1uwjbvdkt0vi" path="res://Player/Model/AnimationManager/LocomotionSets/ILocomotionSet.gd" id="1_sxjwl"]
+
+[resource]
+script = ExtResource("1_sxjwl")
+metadata/_custom_type_script = "uid://c1uwjbvdkt0vi"
