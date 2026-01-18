@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="ILocomotionLibrary" load_steps=3 format=3 uid="uid://xju0p2wag3s5"]
+[gd_resource type="Resource" script_class="ILocomotionLibrary" load_steps=7 format=3 uid="uid://xju0p2wag3s5"]
 
 [ext_resource type="Script" uid="uid://c1uwjbvdkt0vi" path="res://Player/Model/AnimationManager/LocomotionSets/ILocomotionSet.gd" id="1_d6wfk"]
 [ext_resource type="Script" uid="uid://ci3cvx2gweukh" path="res://Player/Model/AnimationManager/LocomotionLibraries/ILocomotionLibrary.gd.gd" id="2_lrcos"]
+[ext_resource type="Resource" uid="uid://tjencktd0xj5" path="res://Player/Model/AnimationManager/LocomotionSets/normal/normal_idle.tres" id="2_vmc6i"]
+[ext_resource type="Resource" uid="uid://chnphlksq3sp2" path="res://Player/Model/AnimationManager/LocomotionSets/normal/normal_walk.tres" id="3_14e6g"]
+[ext_resource type="Resource" uid="uid://bpb4tyf4o63ah" path="res://Player/Model/AnimationManager/LocomotionSets/normal/normal_run.tres" id="4_omypk"]
+[ext_resource type="Resource" uid="uid://ygp58fmik51j" path="res://Player/Model/AnimationManager/LocomotionSets/normal/normal_sprint.tres" id="5_jjss8"]
 
 [resource]
 script = ExtResource("2_lrcos")
+move_sets = Dictionary[int, ExtResource("1_d6wfk")]({
+0: ExtResource("2_vmc6i"),
+1: ExtResource("3_14e6g"),
+2: ExtResource("4_omypk"),
+3: ExtResource("5_jjss8")
+})
 metadata/_custom_type_script = "uid://ci3cvx2gweukh"
