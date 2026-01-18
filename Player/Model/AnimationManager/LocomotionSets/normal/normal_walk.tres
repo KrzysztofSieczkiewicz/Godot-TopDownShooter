@@ -4,4 +4,16 @@
 
 [resource]
 script = ExtResource("1_sxjwl")
+base_speed = 2.5
+acceleration = 0.1
+animations = Dictionary[int, StringName]({
+0: &"walk_f",
+45: &"walk_fr",
+90: &"walk_r",
+135: &"walk_br",
+180: &"walk_b",
+225: &"walk_bl",
+270: &"walk_l",
+315: &"walk_fl"
+})
 metadata/_custom_type_script = "uid://c1uwjbvdkt0vi"

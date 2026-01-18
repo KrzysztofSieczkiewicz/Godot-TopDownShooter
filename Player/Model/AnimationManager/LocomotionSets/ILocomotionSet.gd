@@ -3,9 +3,11 @@ extends Resource
 
 @export_group("General")
 ## Intended base physical speed in current animation
-@export var base_speed: float = 0.0
-## If set to false, player will use only the forward animation
-@export var is_multidirectional: bool
+@export var base_speed: float
+@export var acceleration: float
+@export var decceleration: float
+## If set to false, player will use only the 0deg (forward) animation
+@export var is_multidirectional: bool = true
 
 @export_group("Animations")
 ## Mapping of angle to animation name
