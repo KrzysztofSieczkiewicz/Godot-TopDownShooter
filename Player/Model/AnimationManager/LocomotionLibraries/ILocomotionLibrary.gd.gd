@@ -1,6 +1,4 @@
 class_name ILocomotionLibrary
 extends Resource
 
-enum MovementMode { IDLE, SLOW, MEDIUM, FAST }
-
-@export var move_sets: Dictionary[MovementMode, ILocomotionSet]
+@export var move_sets: Dictionary[HumanStates.LOCOMOTION_GEAR, ILocomotionSet]

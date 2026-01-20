@@ -20,7 +20,7 @@ extends Resource
 @export var directional_speeds: Dictionary[int, float] = {}
 
 ### TODO: change return type from Dictionary into class
-func _get_motion_date(move_angle_deg: float) -> Dictionary:
+func get_motion_date(move_angle_deg: float) -> Dictionary:
 	if not is_multidirectional or animations.size() <= 1:
 		return {
 			"name": animations.get(0, animations.values()[0] if animations.size() > 0 else ""), 
@@ -28,17 +28,22 @@ func _get_motion_date(move_angle_deg: float) -> Dictionary:
 			"speed": base_speed
 		}
 	
-	var closest_angle: int = 0
-	var min_diff: float = 360.0
-	
-	for angle in animations.keys():
-		var diff = abs(wrapf(move_angle_deg - angle, -180, 180))
-		if diff < min_diff:
-			min_diff = diff
-			closest_angle = angle
+	var closest_angle = _get_closest_angle(move_angle_deg)
 	
 	return {
 		"name": animations[closest_angle],
 		"angle": float(closest_angle),
 		"speed": directional_speeds.get(closest_angle, base_speed)
 	}
+	
+func _get_closest_angle(angle: float) -> int:
+	var closest_angle: int = 0
+	var min_diff: float = 360.0
+	
+	for animation_angle in animations.keys():
+		var diff = abs(wrapf(angle - animation_angle, -180, 180))
+		if diff < min_diff:
+			min_diff = diff
+			closest_angle = animation_angle
+			
+	return closest_angle
