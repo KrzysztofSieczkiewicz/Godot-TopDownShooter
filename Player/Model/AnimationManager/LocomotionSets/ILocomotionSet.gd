@@ -19,23 +19,30 @@ extends Resource
 ## If empty, base_speed is used for all directions.
 @export var directional_speeds: Dictionary[int, float] = {}
 
-### TODO: change return type from Dictionary into class
-func get_motion_date(move_angle_deg: float) -> Dictionary:
+
+class LocomotionResult:
+	var animation_name: StringName
+	var angle: float
+	var speed: float
+
+
+func get_motion_data(move_angle_deg: float) -> LocomotionResult:
+	var result = LocomotionResult.new()
+	
 	if not is_multidirectional or animations.size() <= 1:
-		return {
-			"name": animations.get(0, animations.values()[0] if animations.size() > 0 else ""), 
-			"angle": 0.0, 
-			"speed": base_speed
-		}
+		result.animation_name = animations.get(0, animations.values()[0] if animations.size() > 0 else "")
+		result.angle = 0.0
+		result.speed = base_speed
+		return result
 	
 	var closest_angle = _get_closest_angle(move_angle_deg)
 	
-	return {
-		"name": animations[closest_angle],
-		"angle": float(closest_angle),
-		"speed": directional_speeds.get(closest_angle, base_speed)
-	}
-	
+	result.animation_name = animations[closest_angle]
+	result.angle = float(closest_angle)
+	result.speed = directional_speeds.get(closest_angle, base_speed)
+	return result
+
+
 func _get_closest_angle(angle: float) -> int:
 	var closest_angle: int = 0
 	var min_diff: float = 360.0

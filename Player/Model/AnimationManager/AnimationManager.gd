@@ -18,5 +18,9 @@ func update_locomotion(current_moveset: ILocomotionSet,
 	var local_velocity = heading_basis.inverse() * character_velocity
 	var movement_angle = rad_to_deg(atan2(local_velocity.x, local_velocity.z))
 	
-	### TODO: make return type an object instead so it can be safely saved as AnimationPlayer variable
-	current_moveset.get_motion_date(movement_angle)
+	var motion_data = current_moveset.get_motion_data(movement_angle)
+	
+	## TODO: implement those
+	#_apply_speed_scaling(world_velocity.length(), motion.speed)
+	#_apply_rotation_offset(move_angle, motion.angle, delta)
+	#_play_synced(motion.name)
