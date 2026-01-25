@@ -1,12 +1,11 @@
+class_name AnimationManager
 extends Node
 
-@onready var locomotion_animation_player = $PlayerAnimationManager/LocomotionAnimator
+@onready var locomotion_animation_player = $LocomotionAnimator
 
-func update_locomotion(current_moveset: ILocomotionSet, 
-		velocity: float, 
+func update_locomotion(current_moveset: ILocomotionSet,
 		character_velocity: Vector3, 
-		heading_basis: Basis, 
-		delta: float):
+		heading_basis: Basis):
 	
 	var local_velocity = heading_basis.inverse() * character_velocity
 	var movement_angle = rad_to_deg(atan2(local_velocity.x, local_velocity.z))
@@ -14,7 +13,7 @@ func update_locomotion(current_moveset: ILocomotionSet,
 	var motion_data = current_moveset.get_motion_data(movement_angle)
 	
 	_update_speed_scaling(character_velocity.length(), motion_data.speed)
-	#_play_synced(motion_data.name)
+	_play_synced(motion_data.animation_name)
 
 func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 	if anim_move_speed <= 0.001: 

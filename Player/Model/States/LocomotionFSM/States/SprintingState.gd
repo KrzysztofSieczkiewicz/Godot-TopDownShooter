@@ -5,7 +5,8 @@ class_name HumanLocomotionSprintingState extends IHumanLocomotionState
 @export var DECELERATION: float = 0.25
 
 func enter(previous_state: IHumanLocomotionState) -> void:
-	animations.play("BasicMovement/Sprinting")
+	pass
+	#animations.play("BasicMovement/Sprinting")
 
 
 func update(input: PlayerInput, delta: float):
