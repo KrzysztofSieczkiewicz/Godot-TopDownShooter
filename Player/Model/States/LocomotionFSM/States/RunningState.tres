@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HumanLocomotionRunningState" load_steps=11 format=3 uid="uid://uwhw30xmndj6"]
+[gd_resource type="Resource" script_class="HumanLocomotionRunningState" format=3 uid="uid://uwhw30xmndj6"]
 
 [ext_resource type="Script" uid="uid://8ttv2j6ju51o" path="res://Player/Model/States/LocomotionFSM/States/RunningState.gd" id="1_p0t8u"]
 [ext_resource type="Script" uid="uid://bai6tkgyrfle5" path="res://Player/Model/States/LocomotionFSM/HumanLocomotionTransitionLink.gd" id="2_p0t8u"]

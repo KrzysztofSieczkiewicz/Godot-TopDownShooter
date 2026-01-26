@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HumanTorsoIdleState" load_steps=6 format=3 uid="uid://b3k6brbymqf1j"]
+[gd_resource type="Resource" script_class="HumanTorsoIdleState" format=3 uid="uid://b3k6brbymqf1j"]
 
 [ext_resource type="Script" uid="uid://dankatmt62um6" path="res://Player/Model/States/TorsoFSM/States/IdleState.gd" id="1_5buwc"]
 [ext_resource type="Resource" uid="uid://dlquvyfn074h1" path="res://Player/Model/States/StateConstraints/Locomotion/NoConstraints.tres" id="1_ee6xn"]

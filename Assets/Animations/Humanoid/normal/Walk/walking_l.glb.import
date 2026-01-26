@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdb4ihehmovwv"
-path="res://.godot/imported/walking_backwards.glb-24d7da228dd7b59aecc287c264adc414.scn"
+uid="uid://ysfyukcichk0"
+path="res://.godot/imported/walking_l.glb-247da8073710c237b9de69f7ac3b6930.scn"
 
 [deps]
 
-source_file="res://Assets/Animations/Humanoid/Walk/walking_backwards.glb"
-dest_files=["res://.godot/imported/walking_backwards.glb-24d7da228dd7b59aecc287c264adc414.scn"]
+source_file="res://Assets/Animations/Humanoid/normal/Walk/walking_l.glb"
+dest_files=["res://.godot/imported/walking_l.glb-247da8073710c237b9de69f7ac3b6930.scn"]
 
 [params]
 

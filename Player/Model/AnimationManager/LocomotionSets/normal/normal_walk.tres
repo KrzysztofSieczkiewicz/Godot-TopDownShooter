@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ILocomotionSet" load_steps=2 format=3 uid="uid://chnphlksq3sp2"]
+[gd_resource type="Resource" script_class="ILocomotionSet" format=3 uid="uid://chnphlksq3sp2"]
 
 [ext_resource type="Script" uid="uid://c1uwjbvdkt0vi" path="res://Player/Model/AnimationManager/LocomotionSets/ILocomotionSet.gd" id="1_sxjwl"]
 
@@ -8,13 +8,13 @@ base_speed = 2.5
 acceleration = 0.1
 decceleration = 0.5
 animations = Dictionary[int, StringName]({
-0: &"walk_f",
-45: &"walk_fr",
-90: &"walk_r",
-135: &"walk_br",
-180: &"walk_b",
-225: &"walk_bl",
-270: &"walk_l",
-315: &"walk_fl"
+0: &"walking_f",
+45: &"walking_fr",
+90: &"walking_r",
+135: &"walking_br",
+180: &"walking_b",
+225: &"walking_bl",
+270: &"walking_l",
+315: &"walking_fl"
 })
 metadata/_custom_type_script = "uid://c1uwjbvdkt0vi"

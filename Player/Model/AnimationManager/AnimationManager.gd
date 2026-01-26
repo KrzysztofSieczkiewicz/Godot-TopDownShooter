@@ -8,7 +8,7 @@ func update_locomotion(current_moveset: ILocomotionSet,
 		heading_basis: Basis):
 	
 	var local_velocity = heading_basis.inverse() * character_velocity
-	var movement_angle = rad_to_deg(atan2(local_velocity.x, local_velocity.z))
+	var movement_angle = rad_to_deg(atan2(local_velocity.x, -local_velocity.z))
 	
 	var motion_data = current_moveset.get_motion_data(movement_angle)
 	
@@ -51,7 +51,7 @@ func _play_synced(anim_name: String):
 	# Save the current 'play head' position (e.g., 0.4 seconds into the step)
 	var current_pos = locomotion_animation_player.current_animation_position
 
-	locomotion_animation_player.play(anim_name)
+	locomotion_animation_player.play("Humanoid_normal/" + anim_name)
 	
 	# rewind the new animation to the exact same spot so the feet can theoretically match
 	# This assumes your walk/run/strafe clips are all the same length and start on the same foot
