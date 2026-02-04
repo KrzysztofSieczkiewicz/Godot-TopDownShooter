@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ujkbdjdshloo"
-path="res://.godot/imported/walking_fl.glb-b047c99a2376386ad1808980f885f2de.scn"
+path="res://.godot/imported/walking_fl.glb-080234ea3e472b21a699a39d96340c1b.scn"
 
 [deps]
 
-source_file="res://Assets/Animations/tmp_fbx/walking_fl.glb"
-dest_files=["res://.godot/imported/walking_fl.glb-b047c99a2376386ad1808980f885f2de.scn"]
+source_file="res://Assets/Animations/Humanoid/normal/Walk/walking_fl.glb"
+dest_files=["res://.godot/imported/walking_fl.glb-080234ea3e472b21a699a39d96340c1b.scn"]
 
 [params]
 

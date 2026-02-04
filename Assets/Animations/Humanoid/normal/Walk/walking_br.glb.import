@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnbt1lng86seh"
-path="res://.godot/imported/walking f.glb-116e47dede8239569b32745c8ff6b31c.scn"
+uid="uid://dthrrbrjh50w"
+path="res://.godot/imported/walking_br.glb-e195314dc5f2da2488beb78d559bd447.scn"
 
 [deps]
 
-source_file="res://Assets/Animations/Humanoid/normal/Walk/walking f.glb"
-dest_files=["res://.godot/imported/walking f.glb-116e47dede8239569b32745c8ff6b31c.scn"]
+source_file="res://Assets/Animations/Humanoid/normal/Walk/walking_br.glb"
+dest_files=["res://.godot/imported/walking_br.glb-e195314dc5f2da2488beb78d559bd447.scn"]
 
 [params]
 
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1
