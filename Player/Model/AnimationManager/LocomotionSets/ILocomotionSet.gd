@@ -9,6 +9,8 @@ extends Resource
 ## If set to false, player will use only the 0deg (forward) animation
 @export var is_multidirectional: bool = true
 
+@export var animation_blending_time: float
+
 @export_group("Animations")
 ## Mapping of angle to animation name
 ## Example: { 0: "walk_f", 45: "walk_fr", 90: "walk_r" ... }

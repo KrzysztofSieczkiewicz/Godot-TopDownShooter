@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_sxjwl")
-base_speed = 2.5
+base_speed = 3.0
 acceleration = 0.1
 decceleration = 0.5
+animation_blending_time = 4.0
 animations = Dictionary[int, StringName]({
 0: &"walking_f",
 45: &"walking_fr",

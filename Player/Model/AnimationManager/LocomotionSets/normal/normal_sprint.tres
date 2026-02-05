@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ILocomotionSet" load_steps=2 format=3 uid="uid://ygp58fmik51j"]
+[gd_resource type="Resource" script_class="ILocomotionSet" format=3 uid="uid://ygp58fmik51j"]
 
 [ext_resource type="Script" uid="uid://c1uwjbvdkt0vi" path="res://Player/Model/AnimationManager/LocomotionSets/ILocomotionSet.gd" id="1_vunvb"]
 
@@ -7,14 +7,9 @@ script = ExtResource("1_vunvb")
 base_speed = 10.0
 acceleration = 0.1
 decceleration = 0.25
+is_multidirectional = false
+animation_blending_time = 2.0
 animations = Dictionary[int, StringName]({
-0: &"sprint_f",
-45: &"sprint_fr",
-90: &"sprint_r",
-135: &"sprint_br",
-180: &"sprint_b",
-225: &"sprint_bl",
-270: &"sprint_l",
-315: &"sprint_fl"
+0: &"sprint_f"
 })
 metadata/_custom_type_script = "uid://c1uwjbvdkt0vi"
