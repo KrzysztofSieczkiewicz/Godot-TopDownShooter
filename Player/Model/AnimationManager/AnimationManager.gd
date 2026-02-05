@@ -29,9 +29,10 @@ func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 		0.05
 	)
 
+# TODO: work on this - most calculations overlap with update_locomotion
 func calculate_mesh_rotation(
 	movement_angle: float,  # angle between movement and looking directions
-	animation_angle: float, # angle from LocomotionSet
+	animation_angle: float, # current animation angle from LocomotionSet
 	current_rot: float,     # current mesh rotation
 	delta: float) -> float:
 	var angle_diff_deg = wrapf(movement_angle - animation_angle, -180, 180)
@@ -48,11 +49,10 @@ func _play_synced(anim_name: String, blending_time: float = 0):
 	if locomotion_animation_player.current_animation == anim_name:
 		return
 	
-	# Save the current 'play head' position (e.g., 0.4 seconds into the step)
+	# Save the current animation progress (e.g., 0.4 seconds into the step)
 	var current_pos = locomotion_animation_player.current_animation_position
 
-	locomotion_animation_player.play("Humanoid_normal/" + anim_name, 0.3)
-	
 	# rewind the new animation to the exact same spot so the feet can theoretically match
 	# This assumes your walk/run/strafe clips are all the same length and start on the same foot
+	locomotion_animation_player.play("Humanoid_normal/" + anim_name, 0.3)
 	locomotion_animation_player.seek(current_pos)
