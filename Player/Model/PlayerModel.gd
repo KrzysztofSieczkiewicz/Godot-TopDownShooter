@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func update(input: PlayerInput, delta: float) -> void:
 	state_manager.update(input, delta)
+	animation_manager.init(self)
 	
 	# TODO: Implement proper gear logic
 	var move = _get_move(HumanStates.LOCOMOTION_GEAR.SLOW)
@@ -22,7 +23,8 @@ func update(input: PlayerInput, delta: float) -> void:
 	animation_manager.update_locomotion(
 		move,
 		player_controller.velocity,
-		player_controller.global_basis
+		player_controller.global_basis,
+		delta
 	)
 	
 func _get_move(gear: HumanStates.LOCOMOTION_GEAR) -> ILocomotionSet:

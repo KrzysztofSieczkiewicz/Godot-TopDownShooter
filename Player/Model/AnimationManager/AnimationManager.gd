@@ -3,18 +3,37 @@ extends Node
 
 @onready var locomotion_animation_player = $LocomotionAnimator
 
-func update_locomotion(current_moveset: ILocomotionSet,
-		character_velocity: Vector3, 
-		heading_basis: Basis):
+var _visual_pivot: Node3D
+
+
+func init(skeleton_pivot: Node3D):
+	_visual_pivot = skeleton_pivot
+
+
+func update_locomotion(
+		moveset: ILocomotionSet,
+		world_velocity: Vector3, 
+		facing_basis: Basis,
+		delta: float):
 	
-	var local_velocity = heading_basis.inverse() * character_velocity
-	var movement_angle = rad_to_deg(atan2(local_velocity.x, -local_velocity.z))
+	var local_velocity = facing_basis.inverse() * world_velocity
+	var move_angle_deg = rad_to_deg(atan2(local_velocity.x, -local_velocity.z))
 	
-	var motion_data = current_moveset.get_motion_data(movement_angle)
-	var blending_time = current_moveset.animation_blending_time
+	var motion_data = moveset.get_motion_data(move_angle_deg)
+	var compensation_angle_deg = wrapf(move_angle_deg - motion_data.angle, -180, 180)
+	push_warning(compensation_angle_deg)
 	
-	_update_speed_scaling(character_velocity.length(), motion_data.speed)
-	_play_synced(motion_data.animation_name, blending_time)
+	var new_rotation_rad = adjust_mesh_rotation(
+		compensation_angle_deg,
+		_visual_pivot.rotation.y,
+		15,
+		delta)
+	push_error(rad_to_deg(new_rotation_rad))
+	_visual_pivot.rotation.y = new_rotation_rad
+
+	_update_speed_scaling(world_velocity.length(), motion_data.speed)
+	_play_synced(motion_data.animation_name, moveset.animation_blending_time)
+
 
 func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 	if anim_move_speed <= 0.001: 
@@ -29,19 +48,20 @@ func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 		0.05
 	)
 
+
 # TODO: work on this - most calculations overlap with update_locomotion
-func calculate_mesh_rotation(
-	movement_angle: float,  # angle between movement and looking directions
-	animation_angle: float, # current animation angle from LocomotionSet
-	current_rot: float,     # current mesh rotation
+# TODO: fix rotation not applying
+# TODO: fix the angle deg/rad - easier if standardized
+func adjust_mesh_rotation(
+	target_angle_deg: float,  # desired rotation
+	current_rot_rad: float, # current mesh rotation
+	flexibility: float,     # how responsive should the rotation be
 	delta: float) -> float:
-	var angle_diff_deg = wrapf(movement_angle - animation_angle, -180, 180)
-	var target_rad = deg_to_rad(angle_diff_deg)
 	
 	return lerp_angle(
-		current_rot, 
-		target_rad, 
-		15.0 * delta # the "flexibility" value; higher is more responsive
+		current_rot_rad, 
+		deg_to_rad(target_angle_deg), 
+		flexibility * delta
 	)
 
 ### TODO: go through this - maybe find a more flexible approach so animations doesn't need to match in length and stride
@@ -54,5 +74,5 @@ func _play_synced(anim_name: String, blending_time: float = 0):
 
 	# rewind the new animation to the exact same spot so the feet can theoretically match
 	# This assumes your walk/run/strafe clips are all the same length and start on the same foot
-	locomotion_animation_player.play("Humanoid_normal/" + anim_name, 0.3)
+	locomotion_animation_player.play("Humanoid_normal/" + anim_name, blending_time)
 	locomotion_animation_player.seek(current_pos)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3l3vxp17wy7"]
+[gd_scene format=3 uid="uid://c3l3vxp17wy7"]
 
 [ext_resource type="PackedScene" uid="uid://cgicskpkmfb4x" path="res://Player/Visuals/PlayerVisuals.tscn" id="1_hj83c"]
 [ext_resource type="Script" uid="uid://hg4queyeuvns" path="res://Player/PlayerController.gd" id="1_xg7mr"]
@@ -73,47 +73,45 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_avma8"]
 radius = 0.185
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1824633369]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_xg7mr")
 
-[node name="Visuals" parent="." instance=ExtResource("1_hj83c")]
+[node name="Visuals" parent="." unique_id=1999639870 instance=ExtResource("1_hj83c")]
 transform = Transform3D(1, 8.74228e-08, 8.74228e-08, -8.74228e-08, 1.31134e-07, 1, 8.74228e-08, -1, 1.31134e-07, 0, 0, 0)
 
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1514769852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888483, 0)
 shape = SubResource("CapsuleShape3D_aotyi")
 
-[node name="Model" parent="." instance=ExtResource("3_avma8")]
+[node name="Model" parent="." unique_id=107865970 instance=ExtResource("3_avma8")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="ColliderAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_82ajl")
-}
+[node name="ColliderAnimator" type="AnimationPlayer" parent="." unique_id=916083563]
+libraries/ = SubResource("AnimationLibrary_82ajl")
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=609718583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09631, 0)
 shape = SubResource("SphereShape3D_avma8")
 target_position = Vector3(0, 0.5, 0)
 
-[node name="UserInterface" type="Control" parent="."]
+[node name="UserInterface" type="Control" parent="." unique_id=1568992018]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DebugPanel" type="PanelContainer" parent="UserInterface"]
+[node name="DebugPanel" type="PanelContainer" parent="UserInterface" unique_id=990216785]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_82ajl")
 
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel" unique_id=2000165592]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer" unique_id=1589814046]
 layout_mode = 2
 
-[node name="InputManager" type="Node" parent="."]
+[node name="InputManager" type="Node" parent="." unique_id=1960297887]
 script = ExtResource("5_fjple")
