@@ -21,14 +21,12 @@ func update_locomotion(
 	
 	var motion_data = moveset.get_motion_data(move_angle_deg)
 	var compensation_angle_deg = wrapf(move_angle_deg - motion_data.angle, -180, 180)
-	push_warning(compensation_angle_deg)
 	
 	var new_rotation_rad = adjust_mesh_rotation(
 		compensation_angle_deg,
 		_visual_pivot.rotation.y,
 		15,
 		delta)
-	push_error(rad_to_deg(new_rotation_rad))
 	_visual_pivot.rotation.y = new_rotation_rad
 
 	_update_speed_scaling(world_velocity.length(), motion_data.speed)
@@ -52,15 +50,19 @@ func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 # TODO: work on this - most calculations overlap with update_locomotion
 # TODO: fix rotation not applying
 # TODO: fix the angle deg/rad - easier if standardized
+# TODO: organize the code around moving the mesh as skeleton children
 func adjust_mesh_rotation(
 	target_angle_deg: float,  # desired rotation
 	current_rot_rad: float, # current mesh rotation
 	flexibility: float,     # how responsive should the rotation be
 	delta: float) -> float:
 	
+	push_error(current_rot_rad)
+	push_warning(deg_to_rad(target_angle_deg))
+	
 	return lerp_angle(
 		current_rot_rad, 
-		deg_to_rad(target_angle_deg), 
+		-deg_to_rad(target_angle_deg), # TODO: find a better place for this '-' sign
 		flexibility * delta
 	)
 

@@ -11,11 +11,11 @@ var CURRENT_MOVESET: ILocomotionLibrary = load("res://Player/Model/AnimationMana
 
 func _ready() -> void:
 	state_manager.init(player_controller, animator);
+	animation_manager.init(skeleton)
 
 
 func update(input: PlayerInput, delta: float) -> void:
 	state_manager.update(input, delta)
-	animation_manager.init(self)
 	
 	# TODO: Implement proper gear logic
 	var move = _get_move(HumanStates.LOCOMOTION_GEAR.SLOW)
