@@ -57,9 +57,6 @@ func adjust_mesh_rotation(
 	flexibility: float,     # how responsive should the rotation be
 	delta: float) -> float:
 	
-	push_error(current_rot_rad)
-	push_warning(deg_to_rad(target_angle_deg))
-	
 	return lerp_angle(
 		current_rot_rad, 
 		-deg_to_rad(target_angle_deg), # TODO: find a better place for this '-' sign
