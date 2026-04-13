@@ -2,6 +2,7 @@ class_name AnimationManager
 extends Node
 
 @onready var locomotion_animation_player = $LocomotionAnimator
+@onready var torso_animation_player = $TorsoAnimator
 
 var _visual_pivot: Node3D
 
@@ -48,7 +49,7 @@ func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 
 
 # TODO: work on this - most calculations overlap with update_locomotion
-# TODO: fix rotation not applying
+# TODO: fix rotation not applying - !verify if still valid!
 # TODO: fix the angle deg/rad - easier if standardized
 # TODO: organize the code around moving the mesh as skeleton children
 func adjust_mesh_rotation(

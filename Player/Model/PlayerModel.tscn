@@ -620,7 +620,7 @@ bones/42/name = "mixamorig_RightHandIndex4"
 bones/42/parent = 41
 bones/42/rest = Transform3D(0.999906, -0.00274841, -0.0134184, 0.00275035, 0.999996, 0.000126701, 0.013418, -0.000163594, 0.99991, -1.99543e-07, 3.07799, 6.27597e-08)
 bones/42/enabled = true
-bones/42/position = Vector3(-1.2148051e-07, 3.077998, -1.6510643e-05)
+bones/42/position = Vector3(2.0812848e-05, 3.0779984, 1.478829e-06)
 bones/42/rotation = Quaternion(-7.257532e-05, -0.006709259, 0.0013747205, 0.9999766)
 bones/42/scale = Vector3(1, 1, 1)
 bones/43/name = "mixamorig_RightHandMiddle1"
@@ -648,7 +648,7 @@ bones/46/name = "mixamorig_RightHandMiddle4"
 bones/46/parent = 45
 bones/46/rest = Transform3D(0.999905, 0.00341724, -0.0133901, -0.00341588, 0.999994, 0.000124527, 0.0133904, -7.87766e-05, 0.99991, 2.8769e-05, 3.68019, -5.46688e-06)
 bones/46/enabled = true
-bones/46/position = Vector3(3.973022e-06, 3.6801696, 1.2233504e-05)
+bones/46/position = Vector3(-1.559442e-05, 3.6802075, 1.1073957e-06)
 bones/46/rotation = Quaternion(-5.1546667e-05, -0.0066950102, -0.0017081893, 0.9999762)
 bones/46/scale = Vector3(1, 1, 1)
 bones/47/name = "mixamorig_RightHandRing1"
@@ -819,3 +819,5 @@ script = ExtResource("19_nb5oq")
 root_node = NodePath("../..")
 libraries/BasicMovement = ExtResource("2_lfejn")
 libraries/Humanoid_normal = ExtResource("20_wfmpg")
+
+[node name="TorsoAnimator" type="AnimationPlayer" parent="PlayerAnimationManager" unique_id=1216963044]

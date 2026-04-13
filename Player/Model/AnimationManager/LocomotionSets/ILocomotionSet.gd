@@ -28,6 +28,7 @@ class LocomotionResult:
 	var speed: float
 
 
+// TODO: convert to radians
 func get_motion_data(move_angle_deg: float) -> LocomotionResult:
 	var result = LocomotionResult.new()
 	
