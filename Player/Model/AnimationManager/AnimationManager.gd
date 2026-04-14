@@ -7,6 +7,9 @@ extends Node
 var _visual_pivot: Node3D
 
 
+var _locomotion_buffer := ILocomotionSet.LocomotionResult.new() # Stores LocomotionSet data for current heading
+
+
 func init(skeleton_pivot: Node3D):
 	_visual_pivot = skeleton_pivot
 
@@ -18,20 +21,20 @@ func update_locomotion(
 		delta: float):
 	
 	var local_velocity = facing_basis.inverse() * world_velocity
-	var move_angle_deg = rad_to_deg(atan2(local_velocity.x, -local_velocity.z))
+	var move_angle_rad = atan2(local_velocity.x, -local_velocity.z)
 	
-	var motion_data = moveset.get_motion_data(move_angle_deg)
-	var compensation_angle_deg = wrapf(move_angle_deg - motion_data.angle, -180, 180)
+	moveset.update_motion_data(move_angle_rad, _locomotion_buffer)
+	var compensation_angle_rad = wrapf(move_angle_rad - _locomotion_buffer.angle_rad, -180, 180)
 	
 	var new_rotation_rad = adjust_mesh_rotation(
-		compensation_angle_deg,
+		compensation_angle_rad,
 		_visual_pivot.rotation.y,
 		15,
 		delta)
 	_visual_pivot.rotation.y = new_rotation_rad
 
-	_update_speed_scaling(world_velocity.length(), motion_data.speed)
-	_play_synced(motion_data.animation_name, moveset.animation_blending_time)
+	_update_speed_scaling(world_velocity.length(), _locomotion_buffer.speed)
+	_play_synced(_locomotion_buffer.animation_name, moveset.animation_blending_time)
 
 
 func _update_speed_scaling(char_speed: float, anim_move_speed: float):
@@ -49,19 +52,17 @@ func _update_speed_scaling(char_speed: float, anim_move_speed: float):
 
 
 # TODO: work on this - most calculations overlap with update_locomotion
-# TODO: fix rotation not applying - !verify if still valid!
-# TODO: fix the angle deg/rad - easier if standardized
 # TODO: organize the code around moving the mesh as skeleton children
 func adjust_mesh_rotation(
-	target_angle_deg: float,  # desired rotation
+	target_angle_rad: float,  # desired rotation
 	current_rot_rad: float, # current mesh rotation
-	flexibility: float,     # how responsive should the rotation be
+	flexibility_coeff: float,     # how responsive should the rotation be
 	delta: float) -> float:
 	
 	return lerp_angle(
 		current_rot_rad, 
-		-deg_to_rad(target_angle_deg), # TODO: find a better place for this '-' sign
-		flexibility * delta
+		-target_angle_rad, # TODO: find a better place for this '-' sign
+		flexibility_coeff * delta
 	)
 
 ### TODO: go through this - maybe find a more flexible approach so animations doesn't need to match in length and stride
