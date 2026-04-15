@@ -20,16 +20,23 @@ func update_locomotion(
 		facing_basis: Basis,
 		delta: float):
 	
-	var local_velocity = facing_basis.inverse() * world_velocity
-	var move_angle_rad = atan2(local_velocity.x, -local_velocity.z)
 	
+	
+	# CHECK - YOU MIGHT BE READING WRONG VALUES AND CALACULATING INVALID ANGLES
+	
+	var local_velocity = facing_basis.inverse() * world_velocity
+	#push_warning(world_velocity)
+	var move_angle_rad = atan2(local_velocity.x, -local_velocity.z)
+		
 	moveset.update_motion_data(move_angle_rad, _locomotion_buffer)
-	var compensation_angle_rad = wrapf(move_angle_rad - _locomotion_buffer.angle_rad, -180, 180)
+	var compensation_angle_rad = wrapf(move_angle_rad - _locomotion_buffer.angle_rad, -PI, PI)
+	
+	# push_warning(rad_to_deg(compensation_angle_rad)) -- CHECK AGAIN
 	
 	var new_rotation_rad = adjust_mesh_rotation(
 		compensation_angle_rad,
 		_visual_pivot.rotation.y,
-		15,
+		10,
 		delta)
 	_visual_pivot.rotation.y = new_rotation_rad
 

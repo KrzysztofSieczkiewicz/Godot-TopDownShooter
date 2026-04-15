@@ -79,14 +79,16 @@ func _init(): # Safety check
 		_bake_all_angles_in_radians()
 
 func update_motion_data(angle_rad: float, out_result: LocomotionResult) -> void:
-	var closest_idx = _get_closest_index(angle_rad)
 	
+	var closest_idx = _get_closest_index(angle_rad)
+		
 	out_result.animation_name = _baked_names[closest_idx]
 	out_result.angle_rad = _baked_radians[closest_idx]
 	out_result.speed = _baked_speeds[closest_idx]
 
 
 func _get_closest_index(target_rad: float) -> int:
+	
 	var closest_index: int = 0
 	var min_diff: float = INF
 	var count = _baked_radians.size()
@@ -95,6 +97,7 @@ func _get_closest_index(target_rad: float) -> int:
 		var diff = abs(wrapf(target_rad - _baked_radians[i], -PI, PI))
 		
 		if diff < min_diff:
+			min_diff = diff
 			closest_index = i
 	
 	return closest_index
