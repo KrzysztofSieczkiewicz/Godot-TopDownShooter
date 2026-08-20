@@ -13,7 +13,6 @@ func _ready() -> void:
 	state_manager.init(player_controller, animator);
 	animation_manager.init(skeleton)
 
-
 func update(input: PlayerInput, delta: float) -> void:
 	state_manager.update(input, delta)
 	

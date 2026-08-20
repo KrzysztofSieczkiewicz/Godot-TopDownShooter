@@ -68,7 +68,7 @@ func _bake_all_angles_in_radians():
 		sorted_degs.sort()
 		
 		for deg in sorted_degs:
-			var rad = deg_to_rad(deg)
+			var rad = deg_to_rad(deg) # Resource 90deg (Counter-Clockwise) = -1.57rad (Counter-Clockwise)
 			_baked_radians.append(rad)
 			_baked_names.append(animations[deg])
 			_baked_speeds.append(directional_speeds.get(deg, base_speed))

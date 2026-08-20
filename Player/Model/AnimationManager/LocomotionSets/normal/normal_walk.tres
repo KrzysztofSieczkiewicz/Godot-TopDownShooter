@@ -12,10 +12,13 @@ animations = Dictionary[int, StringName]({
 0: &"walking_f",
 45: &"walking_fr",
 90: &"walking_r",
-135: &"walking_br",
+135: &"walking_b",
 180: &"walking_b",
-225: &"walking_bl",
-270: &"walking_l",
-315: &"walking_fl"
+225: &"walking_br",
+270: &"walking_r",
+315: &"walking_fr"
 })
+_baked_radians = PackedFloat32Array(0, 0.7853982, 1.5707964, 2.3561945, 3.1415927, 3.9269907, 4.712389, 5.497787)
+_baked_names = Array[StringName]([&"walking_f", &"walking_fr", &"walking_r", &"walking_b", &"walking_b", &"walking_br", &"walking_r", &"walking_fr"])
+_baked_speeds = PackedFloat32Array(3, 3, 3, 3, 3, 3, 3, 3)
 metadata/_custom_type_script = "uid://c1uwjbvdkt0vi"

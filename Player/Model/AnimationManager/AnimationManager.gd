@@ -20,28 +20,27 @@ func update_locomotion(
 		facing_basis: Basis,
 		delta: float):
 	
-	
-	
-	# CHECK - YOU MIGHT BE READING WRONG VALUES AND CALACULATING INVALID ANGLES
-	
 	var local_velocity = facing_basis.inverse() * world_velocity
-	#push_warning(world_velocity)
-	var move_angle_rad = atan2(local_velocity.x, -local_velocity.z)
+	
+	var current_move_angle = Vector2(local_velocity.x, local_velocity.z).angle()
+	#var current_move_angle = Vector3.FORWARD.signed_angle_to(local_velocity, Vector3.UP)
+	#var current_move_angle = atan2(-local_velocity.x, -local_velocity.z)
 		
-	moveset.update_motion_data(move_angle_rad, _locomotion_buffer)
-	var compensation_angle_rad = wrapf(move_angle_rad - _locomotion_buffer.angle_rad, -PI, PI)
+	moveset.update_motion_data(current_move_angle, _locomotion_buffer)
+	#var compensation_angle_rad = wrapf(move_angle_rad - _locomotion_buffer.angle_rad, -PI, PI)
 	
-	# push_warning(rad_to_deg(compensation_angle_rad)) -- CHECK AGAIN
-	
+	var mesh_offset = wrapf(current_move_angle - _locomotion_buffer.angle_rad, -PI, PI)
+		
 	var new_rotation_rad = adjust_mesh_rotation(
-		compensation_angle_rad,
+		mesh_offset,
 		_visual_pivot.rotation.y,
 		10,
 		delta)
 	_visual_pivot.rotation.y = new_rotation_rad
 
 	_update_speed_scaling(world_velocity.length(), _locomotion_buffer.speed)
-	_play_synced(_locomotion_buffer.animation_name, moveset.animation_blending_time)
+	#_play_synced(_locomotion_buffer.animation_name, moveset.animation_blending_time)
+	_play_synced("walking_f", moveset.animation_blending_time)
 
 
 func _update_speed_scaling(char_speed: float, anim_move_speed: float):
@@ -78,7 +77,9 @@ func _play_synced(anim_name: String, blending_time: float = 0):
 		return
 	
 	# Save the current animation progress (e.g., 0.4 seconds into the step)
-	var current_pos = locomotion_animation_player.current_animation_position
+	var current_pos = 0
+	if locomotion_animation_player.current_animation:
+		current_pos = locomotion_animation_player.current_animation_position
 
 	# rewind the new animation to the exact same spot so the feet can theoretically match
 	# This assumes your walk/run/strafe clips are all the same length and start on the same foot
